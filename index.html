@@ -1,1400 +1,1360 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Primary Meta Tags -->
-    <title>Performance Mastery | Telemetry Interface</title>
-    <meta name="title" content="Performance Mastery | Telemetry Interface">
-    <meta name="description" content="From Peak Performance to Performance Mastery. The only biometric-verified framework designed to turn high-achievement into an unshakeable, sustainable identity.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Open Graph / Facebook / iMessage (Dark Social) -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Performance Mastery | Secure Telemetry">
-    <meta property="og:description" content="Stop chasing linear growth. Implement the proprietary technical installation across 6 performance buckets.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+```
+<!-- Primary Meta Tags -->
+<title>Performance Mastery | Telemetry Interface</title>
+<meta name="title" content="Performance Mastery | Telemetry Interface">
+<meta name="description" content="From Peak Performance to Performance Mastery. The only biometric-verified framework designed to turn high-achievement into an unshakeable, sustainable identity.">
 
-    <!-- Performance Preconnects (Accelerates DNS resolution) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+<!-- Open Graph / Facebook / iMessage (Dark Social) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Performance Mastery | Secure Telemetry">
+<meta property="og:description" content="Stop chasing linear growth. Implement the proprietary technical installation across 6 performance buckets.">
+<meta property="og:image" content="<https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80>">
 
-    <!-- Tailwind CSS Compiler -->
-    <script src="https://cdn.tailwindcss.com" fetchpriority="high"></script>
-    
-    <!-- Chart.js (Deferred) -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+<!-- Performance Preconnects -->
+<link rel="preconnect" href="<https://fonts.googleapis.com>">
+<link rel="preconnect" href="<https://fonts.gstatic.com>" crossorigin>
+<link rel="preconnect" href="<https://cdn.tailwindcss.com>">
 
-    <!-- Google Fonts (Asynchronous Load for instant FCP) -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@100;400;700&family=Inter:wght@300;400;600&display=swap" media="print" onload="this.media='all'">
-    <!-- Fallback for users with JavaScript disabled -->
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@100;400;700&family=Inter:wght@300;400;600&display=swap"></noscript>
+<!-- Tailwind CSS (Prioritized) -->
+<script src="<https://cdn.tailwindcss.com>" fetchpriority="high"></script>
 
-    <!-- Tailwind Configuration -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        obsidian: '#050505',
-                        carbon: '#121212',
-                        graphite: '#1A1A1A',
-                        brand: {
-                            400: '#C2A366',
-                            500: '#A68A57',
-                            600: '#8C7342',
-                        },
-                        data: {
-                            red: '#FF3366'
-                        }
+<!-- Chart.js (Deferred to speed up initial load) -->
+<script src="<https://cdn.jsdelivr.net/npm/chart.js>" defer></script>
+
+<!-- Google Fonts -->
+<link href="<https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@100;400;700&family=Inter:wght@300;400;600&display=swap>" rel="stylesheet">
+
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    obsidian: '#050505',
+                    carbon: '#121212',
+                    graphite: '#1A1A1A',
+                    brand: {
+                        400: '#C2A366',
+                        500: '#A68A57',
+                        600: '#8C7342',
                     },
-                    fontFamily: {
-                        serif: ['"Playfair Display"', 'Georgia', 'serif'],
-                        sans: ['"Inter"', 'system-ui', 'sans-serif'],
-                        mono: ['"JetBrains Mono"', 'monospace'],
-                    },
-                    boxShadow: {
-                        'glow': '0 0 20px rgba(166, 138, 87, 0.3)',
-                        'glow-intense': '0 0 40px rgba(166, 138, 87, 0.6)',
-                        'glass': 'inset 0 1px 0 0 rgba(255, 255, 255, 0.1)',
+                    data: {
+                        red: '#FF3366'
                     }
+                },
+                fontFamily: {
+                    serif: ['"Playfair Display"', 'serif'],
+                    sans: ['"Inter"', 'sans-serif'],
+                    mono: ['"JetBrains Mono"', 'monospace'],
+                },
+                boxShadow: {
+                    'glow': '0 0 20px rgba(166, 138, 87, 0.3)',
+                    'glow-intense': '0 0 40px rgba(166, 138, 87, 0.6)',
+                    'glass': 'inset 0 1px 0 0 rgba(255, 255, 255, 0.1)',
                 }
             }
         }
-    </script>
+    }
+</script>
 
-    <style>
-        /* Critical Baseline CSS to force instant paint before Tailwind loads */
-        html, body {
-            background-color: #050505 !important;
-            color: #EFEFE8;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-            text-rendering: optimizeLegibility;
-        }
+<style>
+    body {
+        background-color: #050505;
+        color: #EFEFE8;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        text-rendering: optimizeLegibility;
+    }
 
-        /* Fixed Neural Canvas Background */
-        #neural-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            pointer-events: none;
-            opacity: 0.4;
-        }
+    /* Fixed Neural Canvas Background */
+    #neural-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        pointer-events: none;
+        opacity: 0.4;
+    }
 
-        /* Glassmorphism Utilities */
-        .glass-panel {
-            background: rgba(18, 18, 18, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05), 0 10px 30px -10px rgba(0,0,0,0.8);
-        }
+    /* Glassmorphism Utilities */
+    .glass-panel {
+        background: rgba(18, 18, 18, 0.6);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05), 0 10px 30px -10px rgba(0,0,0,0.8);
+    }
 
-        /* 3D Tilt Card Base */
-        .tilt-card {
-            transform-style: preserve-3d;
-            transform: perspective(1000px);
-            transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-            will-change: transform;
-        }
-        .tilt-content {
-            transform: translateZ(30px);
-        }
+    /* 3D Tilt Card Base */
+    .tilt-card {
+        transform-style: preserve-3d;
+        transform: perspective(1000px);
+        transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        will-change: transform;
+    }
+    .tilt-content {
+        transform: translateZ(30px);
+    }
 
-        /* Illumination Effect for Hover/Click */
-        .illuminate-box {
-            cursor: pointer;
-            transition: all 0.4s ease;
-        }
-        .illuminate-box:hover, .illuminate-box:active, .illuminate-box:focus {
-            border-color: rgba(194, 163, 102, 0.8) !important;
-            background-color: rgba(166, 138, 87, 0.15) !important;
-            box-shadow: 0 0 30px rgba(166, 138, 87, 0.4), inset 0 0 20px rgba(166, 138, 87, 0.15) !important;
-        }
+    /* Illumination Effect for Hover/Click */
+    .illuminate-box {
+        cursor: pointer;
+        transition: all 0.4s ease;
+    }
+    .illuminate-box:hover, .illuminate-box:active, .illuminate-box:focus {
+        border-color: rgba(194, 163, 102, 0.8) !important;
+        background-color: rgba(166, 138, 87, 0.15) !important;
+        box-shadow: 0 0 30px rgba(166, 138, 87, 0.4), inset 0 0 20px rgba(166, 138, 87, 0.15) !important;
+    }
 
-        /* UI Scanner Lines & Animations */
-        .scanner-line {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(166, 138, 87, 0.8), transparent);
-            box-shadow: 0 0 15px rgba(166, 138, 87, 1);
-            animation: scan 4s ease-in-out infinite;
-            opacity: 0.5;
-            z-index: 10;
-        }
-        @keyframes scan {
-            0% { top: 0; opacity: 0; }
-            10% { opacity: 0.8; }
-            90% { opacity: 0.8; }
-            100% { top: 100%; opacity: 0; }
-        }
+    /* UI Scanner Lines & Animations */
+    .scanner-line {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(166, 138, 87, 0.8), transparent);
+        box-shadow: 0 0 15px rgba(166, 138, 87, 1);
+        animation: scan 4s ease-in-out infinite;
+        opacity: 0.5;
+        z-index: 10;
+    }
+    @keyframes scan {
+        0% { top: 0; opacity: 0; }
+        10% { opacity: 0.8; }
+        90% { opacity: 0.8; }
+        100% { top: 100%; opacity: 0; }
+    }
 
-        /* Reveal Animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px) scale(0.98);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
+    /* Reveal Animations */
+    .reveal {
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-track { background: #050505; }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #A68A57; }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #050505; }
+    ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: #A68A57; }
 
-        /* Chart Containers */
-        .chart-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            min-height: 350px;
-        }
-    </style>
+    /* Chart Containers */
+    .chart-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        min-height: 350px;
+    }
+</style>
+```
+
 </head>
-<body class="font-sans antialiased selection:bg-brand-500 selection:text-white" style="background-color: #050505; color: #ffffff;">
+<body class="font-sans antialiased selection:bg-brand-500 selection:text-white">
 
-    <!-- Interactive Background -->
-    <canvas id="neural-canvas"></canvas>
+```
+<!-- Interactive Background -->
+<canvas id="neural-canvas"></canvas>
 
-    <!-- Floating Navigation (Hidden on Mobile) -->
-    <nav class="fixed top-6 left-1/2 transform -translate-x-1/2 w-[95%] max-w-5xl z-50 transition-all duration-300 hidden md:block" id="main-nav-container">
-        <div class="glass-panel rounded-full px-6 py-3 flex justify-between items-center border border-brand-500/20">
-            <div class="flex items-center space-x-3">
-                <div class="w-2 h-2 rounded-full bg-brand-400 animate-pulse shadow-glow"></div>
-                <span class="font-mono text-xs tracking-widest uppercase text-white">Mastery<span class="text-brand-500">_OS</span></span>
+<!-- Floating Navigation (Hidden on Mobile) -->
+<nav class="fixed top-6 left-1/2 transform -translate-x-1/2 w-[95%] max-w-5xl z-50 transition-all duration-300 hidden md:block" id="main-nav-container">
+    <div class="glass-panel rounded-full px-6 py-3 flex justify-between items-center border border-brand-500/20">
+        <div class="flex items-center space-x-3">
+            <div class="w-2 h-2 rounded-full bg-brand-400 animate-pulse shadow-glow"></div>
+            <span class="font-mono text-xs tracking-widest uppercase text-white">Mastery<span class="text-brand-500">_OS</span></span>
+        </div>
+
+        <!-- Desktop Links -->
+        <div class="hidden md:flex space-x-8">
+            <a href="#hero" class="nav-item text-gray-400 hover:text-brand-500 text-[10px] font-mono tracking-[0.2em] uppercase transition-colors">Initialize</a>
+            <a href="#model" class="nav-item text-gray-400 hover:text-brand-500 text-[10px] font-mono tracking-[0.2em] uppercase transition-colors">Telemetry</a>
+            <a href="#process" class="nav-item text-gray-400 hover:text-brand-500 text-[10px] font-mono tracking-[0.2em] uppercase transition-colors">Protocol</a>
+            <a href="#architect" class="nav-item text-gray-400 hover:text-brand-500 text-[10px] font-mono tracking-[0.2em] uppercase transition-colors">Architect</a>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex items-center space-x-4">
+            <button onclick="openBookingModal()" class="bg-brand-500/10 border border-brand-500 text-brand-400 px-4 py-1.5 rounded-full text-[10px] font-mono tracking-[0.2em] uppercase hover:bg-brand-500 hover:text-obsidian transition-all shadow-glow">
+                Apply
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<main>
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen relative flex items-center justify-center pt-20 pb-20 px-4 sm:px-6">
+        <div class="max-w-5xl mx-auto text-center z-10">
+
+            <div class="inline-flex items-center space-x-2 border border-brand-500/30 bg-brand-500/5 px-4 py-1.5 rounded-full mb-8 backdrop-blur-sm reveal">
+                <span class="text-brand-500 font-mono tracking-[0.3em] uppercase text-[9px]">Biometric-Verified Performance Systems</span>
             </div>
-            
-            <!-- Desktop Links -->
-            <div class="hidden md:flex space-x-8">
-                <a href="#hero" class="nav-item text-gray-400 hover:text-brand-500 text-[10px] font-mono tracking-[0.2em] uppercase transition-colors">Initialize</a>
-                <a href="#model" class="nav-item text-gray-400 hover:text-brand-500 text-[10px] font-mono tracking-[0.2em] uppercase transition-colors">Telemetry</a>
-                <a href="#process" class="nav-item text-gray-400 hover:text-brand-500 text-[10px] font-mono tracking-[0.2em] uppercase transition-colors">Protocol</a>
-                <a href="#architect" class="nav-item text-gray-400 hover:text-brand-500 text-[10px] font-mono tracking-[0.2em] uppercase transition-colors">Architect</a>
+
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white font-bold leading-[1.1] mb-8 scramble-text" data-text="Calibrate Your Output. Eliminate Friction.">
+                Calibrate Your Output.<br><span class="italic text-brand-500">Eliminate Friction.</span>
+            </h1>
+
+            <p class="text-lg md:text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed font-light reveal delay-200">
+                The difference between "hard work" and "mastery" is calibration. We replace generic productivity hacks with a proprietary technical installation across 6 performance buckets.
+            </p>
+
+            <!-- High-Tech Logic Toggle -->
+            <div class="glass-panel p-1.5 rounded-full inline-flex mb-12 relative overflow-hidden reveal delay-300">
+                <div id="toggle-bg" class="absolute top-1.5 bottom-1.5 left-1.5 w-[calc(50%-6px)] bg-white/10 rounded-full transition-transform duration-500 ease-in-out border border-white/20"></div>
+                <button onclick="toggleLogic('better')" id="btn-better" class="relative z-10 px-8 py-3 rounded-full text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-white w-48">Intensity</button>
+                <button onclick="toggleLogic('different')" id="btn-different" class="relative z-10 px-8 py-3 rounded-full text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-gray-500 hover:text-white w-48">Calibration</button>
             </div>
 
-            <!-- Actions -->
-            <div class="flex items-center space-x-4">
-                <button onclick="openBookingModal()" class="bg-brand-500/10 border border-brand-500 text-brand-400 px-4 py-1.5 rounded-full text-[10px] font-mono tracking-[0.2em] uppercase hover:bg-brand-500 hover:text-obsidian transition-all shadow-glow">
-                    Apply
+            <div id="logic-content" class="max-w-3xl mx-auto glass-panel p-10 md:p-14 rounded-3xl transition-all duration-500 reveal delay-400 tilt-card illuminate-box">
+                <div class="tilt-content">
+                    <div class="flex items-center justify-center space-x-2 mb-4 opacity-50">
+                        <span class="w-1 h-1 bg-data-red rounded-full" id="logic-dot"></span>
+                        <span class="text-[8px] font-mono tracking-widest text-data-red uppercase" id="logic-status">Warning: Systemic Drag Detected</span>
+                    </div>
+                    <h3 class="font-serif text-3xl mb-4 text-white italic" id="logic-title">The Intensity Trap</h3>
+                    <p class="text-gray-400 text-lg leading-relaxed font-light" id="logic-text">
+                        Skeptics are right: Intensity alone is a path to burnout. Most high-performers are over-leveraged and under-calibrated. We don't focus on pushing harder; we focus on the efficiency of your biological engine.
+                    </p>
+                    <div class="mt-8 flex flex-wrap justify-center gap-4 sm:gap-12 opacity-40 font-mono" id="logic-tags">
+                        <span class="text-[9px] tracking-[0.2em] uppercase border-b border-gray-700 pb-1">Systemic Friction</span>
+                        <span class="text-[9px] tracking-[0.2em] uppercase border-b border-gray-700 pb-1">Cognitive Decay</span>
+                        <span class="text-[9px] tracking-[0.2em] uppercase border-b border-gray-700 pb-1">Biological Debt</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Direct Action -->
+            <div class="mt-16 reveal delay-500">
+                <button onclick="openBookingModal()" class="group relative inline-flex items-center justify-center px-10 py-5 font-mono text-xs tracking-[0.3em] text-obsidian bg-brand-500 uppercase rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-glow-intense">
+                    <div class="absolute inset-0 w-full h-full bg-white/20 transform -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+                    <span class="relative font-bold">Initiate Friction Audit</span>
                 </button>
+                <p class="mt-5 text-[9px] text-gray-500 uppercase tracking-[0.3em] font-mono">Strictly Limited to 5 Audits / Month</p>
             </div>
         </div>
-    </nav>
 
-    <!-- Mobile Bottom HUD (Scroll Spy & CTA) -->
-    <div class="md:hidden fixed bottom-6 left-1/2 transform -translate-x-1/2 w-[90%] max-w-sm z-50 glass-panel rounded-full px-4 py-2.5 flex justify-between items-center border border-brand-500/30 transition-all duration-500 translate-y-20 opacity-0" id="mobile-bottom-hud">
-        <div class="flex items-center space-x-2">
-            <div class="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse shadow-glow"></div>
-            <span class="font-mono text-[9px] tracking-[0.2em] uppercase text-gray-500">Loc: <span id="mobile-active-text" class="text-brand-500 font-bold">Initialize</span></span>
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center opacity-50 animate-bounce">
+            <span class="text-[8px] font-mono tracking-[0.3em] uppercase text-brand-500 mb-2">Descend</span>
+            <div class="w-[1px] h-8 bg-gradient-to-b from-brand-500 to-transparent"></div>
         </div>
-        <button onclick="openBookingModal()" class="bg-brand-500/20 border border-brand-500 text-brand-400 px-4 py-1.5 rounded-full text-[9px] font-mono tracking-[0.2em] uppercase hover:bg-brand-500 hover:text-obsidian transition-all shadow-glow">
-            Apply
-        </button>
+    </section>
+
+    <!-- Verifiable Truth Bar (Quiet Authority Logo Bar) -->
+    <div class="w-full border-y border-white/5 bg-obsidian/80 backdrop-blur-md py-10 relative z-20 reveal">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="text-[9px] font-mono tracking-[0.4em] uppercase text-brand-500/70 mb-8">Deployed by Elite Operators Within</p>
+
+            <div class="flex flex-wrap justify-center items-center gap-12 sm:gap-16 md:gap-24 transition-all duration-700">
+
+                <span class="font-sans font-black text-2xl md:text-3xl tracking-tighter text-white opacity-30 hover:opacity-100 transition-opacity duration-500 cursor-pointer">MLB</span>
+
+                <span class="font-sans font-bold text-sm md:text-base tracking-[0.3em] text-white opacity-30 hover:opacity-100 transition-opacity duration-500 uppercase cursor-pointer">FORTUNE 500</span>
+
+                <img src="<https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg>"
+                     alt="Amazon" loading="lazy" decoding="async"
+                     class="h-7 md:h-9 w-auto opacity-30 hover:opacity-100 transition-opacity duration-500 cursor-pointer translate-y-1"
+                     style="filter: brightness(0) invert(1);" />
+
+                <span class="font-sans font-bold text-lg md:text-xl tracking-[0.2em] text-white opacity-30 hover:opacity-100 transition-opacity duration-500 uppercase cursor-pointer">U.S. AIR FORCE</span>
+
+                <img src="<https://upload.wikimedia.org/wikipedia/commons/5/5c/Olympic_rings_without_rims.svg>"
+                     alt="Olympics" loading="lazy" decoding="async"
+                     class="h-7 md:h-9 w-auto opacity-30 hover:opacity-100 transition-opacity duration-500 cursor-pointer"
+                     style="filter: brightness(0) invert(1);" />
+
+            </div>
+        </div>
     </div>
 
-    <!-- Main Content -->
-    <main>
+    <!-- The Model (Diagnostic HUD) -->
+    <section id="model" class="py-32 relative border-b border-white/5 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
 
-        <!-- Hero Section -->
-        <section id="hero" class="min-h-screen relative flex items-center justify-center pt-20 pb-20 px-4 sm:px-6">
-            <div class="max-w-5xl mx-auto text-center z-10">
-                
-                <div class="inline-flex items-center space-x-2 border border-brand-500/30 bg-brand-500/5 px-4 py-1.5 rounded-full mb-8 backdrop-blur-sm reveal" style="border: 1px solid rgba(166, 138, 87, 0.3); padding: 6px 16px; border-radius: 9999px;">
-                    <span class="text-brand-500 font-mono tracking-[0.3em] uppercase text-[9px]" style="color: #A68A57; letter-spacing: 0.3em;">Biometric-Verified Performance Systems</span>
+            <div class="flex flex-col lg:flex-row justify-between items-end mb-16 border-b border-white/10 pb-8">
+                <div class="max-w-2xl">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-2 h-2 bg-brand-400 rounded-full animate-pulse shadow-[0_0_10px_#C2A366]"></div>
+                        <span class="text-[10px] font-mono tracking-[0.3em] uppercase text-brand-400">Live Telemetry HUD</span>
+                    </div>
+                    <h2 class="font-serif text-4xl md:text-6xl text-white mb-6 font-bold leading-tight">Diagnostic Architecture</h2>
+                    <p class="text-gray-400 text-sm font-mono opacity-80 leading-relaxed max-w-xl">
+                        > MAPPING 6-PILLAR PROTOCOL...<br>
+                        > Mastery is built on precision. Identify biological and strategic friction points to calibrate your output engine.
+                    </p>
                 </div>
-                
-                <!-- Explicitly removed visibility:hidden so LCP triggers instantly -->
-                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white font-bold leading-[1.1] mb-8 scramble-text" data-text="Calibrate Your Output. Eliminate Friction." style="margin-bottom: 2rem;">
-                    Calibrate Your Output.<br><span class="italic text-brand-500" style="color: #A68A57;">Eliminate Friction.</span>
-                </h1>
-                
-                <p class="text-lg md:text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed font-light reveal delay-200" style="color: #9ca3af;">
-                    The difference between "hard work" and "mastery" is calibration. We replace generic productivity hacks with a proprietary technical installation across 6 performance buckets.
-                </p>
-                
-                <!-- High-Tech Logic Toggle -->
-                <div class="glass-panel p-1.5 rounded-full inline-flex mb-12 relative overflow-hidden reveal delay-300">
-                    <div id="toggle-bg" class="absolute top-1.5 bottom-1.5 left-1.5 w-[calc(50%-6px)] bg-white/10 rounded-full transition-transform duration-500 ease-in-out border border-white/20"></div>
-                    <button onclick="toggleLogic('better')" id="btn-better" class="relative z-10 px-8 py-3 rounded-full text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-white w-48">Intensity</button>
-                    <button onclick="toggleLogic('different')" id="btn-different" class="relative z-10 px-8 py-3 rounded-full text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-gray-500 hover:text-white w-48">Calibration</button>
+                <div class="mt-8 lg:mt-0 flex space-x-4 bg-carbon p-1 rounded-lg border border-white/5">
+                    <button onclick="setChartData('gap')" class="text-[10px] font-mono tracking-widest uppercase text-gray-400 px-6 py-3 rounded hover:bg-white/5 transition-all">Scan Frictions</button>
+                    <button onclick="setChartData('mastery')" class="text-[10px] font-mono tracking-widest uppercase bg-brand-500/20 text-brand-400 border border-brand-500/50 px-6 py-3 rounded hover:bg-brand-500 hover:text-obsidian transition-all shadow-glow">View Optimal</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+
+                <!-- Radar Display -->
+                <div class="lg:col-span-7 flex flex-col">
+                    <div class="glass-panel rounded-3xl p-8 flex-grow flex flex-col min-h-[500px] relative overflow-hidden group">
+                        <!-- HUD Targeting Corners -->
+                        <div class="absolute top-6 left-6 w-8 h-8 border-t border-l border-white/20 rounded-tl-lg"></div>
+                        <div class="absolute top-6 right-6 w-8 h-8 border-t border-r border-white/20 rounded-tr-lg"></div>
+                        <div class="absolute bottom-6 left-6 w-8 h-8 border-b border-l border-white/20 rounded-bl-lg"></div>
+                        <div class="absolute bottom-6 right-6 w-8 h-8 border-b border-r border-white/20 rounded-br-lg"></div>
+
+                        <div class="scanner-line hidden group-hover:block"></div>
+
+                        <!-- Responsive Canvas -->
+                        <div class="w-full flex-grow relative z-10 flex items-center justify-center">
+                            <div class="w-full max-w-[500px] aspect-square relative">
+                                <canvas id="masteryRadar"></canvas>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div id="logic-content" class="max-w-3xl mx-auto glass-panel p-10 md:p-14 rounded-3xl transition-all duration-500 reveal delay-400 tilt-card illuminate-box">
+                <!-- Interactive Modules -->
+                <div class="lg:col-span-5 flex flex-col space-y-4">
+                    <div class="flex items-center justify-between px-2 mb-2">
+                        <span class="text-[9px] font-mono text-gray-500 uppercase tracking-widest">Select Sub-System</span>
+                        <span class="text-[9px] font-mono text-brand-500 uppercase border border-brand-500/30 px-2 py-0.5 rounded bg-brand-500/10">6 Systems Active</span>
+                    </div>
+
+                    <!-- Mini Module Grid -->
+                    <div id="pillar-list" class="grid grid-cols-2 gap-3 mb-4">
+                        <!-- Populated by JS -->
+                    </div>
+
+                    <!-- Detail Readout (Tilt Card) -->
+                    <div id="pillar-detail" class="glass-panel p-8 rounded-2xl transform transition-all duration-500 flex-grow flex flex-col justify-center tilt-card border-brand-500/30 illuminate-box">
+                        <div class="tilt-content">
+                            <div class="flex items-center justify-between mb-8 border-b border-white/10 pb-4">
+                                <div class="flex items-center space-x-4">
+                                    <span class="text-3xl opacity-80" id="detail-icon">🧠</span>
+                                    <div>
+                                        <span class="text-[8px] font-mono tracking-[0.2em] uppercase text-brand-400 block mb-1">Target Locked</span>
+                                        <span class="text-[10px] font-mono tracking-widest uppercase border border-brand-500/30 bg-brand-500/10 text-brand-400 px-2 py-1 rounded" id="detail-category">SYS_01</span>
+                                    </div>
+                                </div>
+                                <div class="w-2 h-2 rounded-full bg-brand-400 animate-pulse shadow-[0_0_8px_#C2A366]"></div>
+                            </div>
+                            <h3 class="font-serif text-3xl mb-4 text-white italic" id="detail-title">Cognitive Performance</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-8 font-light" id="detail-desc">
+                                High-output thinking and mental acuity. Engineering a brain that processes faster and deeper than the competition.
+                            </p>
+                            <div class="mt-auto">
+                                <div class="flex justify-between text-[9px] font-mono uppercase tracking-widest text-gray-400 mb-2">
+                                    <span id="label-left">Current Output</span>
+                                    <span id="label-right" class="text-brand-500">Mastery Standard</span>
+                                </div>
+                                <div class="w-full bg-black h-1.5 rounded-full overflow-hidden border border-white/10">
+                                    <div id="detail-bar" class="bg-brand-500 h-full w-full transition-all duration-1000 shadow-[0_0_10px_rgba(166,138,87,0.8)] relative">
+                                        <div class="absolute inset-0 bg-white/20 w-full h-full animate-pulse"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Process (Installation) -->
+    <section id="process" class="py-32 bg-carbon border-y border-white/5 reveal relative">
+        <!-- Background accent -->
+        <div class="absolute top-0 right-1/4 w-[500px] h-[500px] bg-brand-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+            <div class="text-center mb-20">
+                <span class="text-[10px] font-mono tracking-[0.3em] uppercase text-brand-500 mb-4 block">Deployment Sequence</span>
+                <h2 class="font-serif text-4xl md:text-6xl text-white mb-6 font-bold">The Clinical Protocol</h2>
+                <p class="text-gray-400 text-lg opacity-80 max-w-2xl mx-auto font-light">We don't "coach." We implement technical systems that automate high performance across all biological and strategic layers.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                <!-- Steps with 3D Tilt and Illumination -->
+                <div class="glass-panel p-10 rounded-2xl group tilt-card illuminate-box" onclick="showStep(1)">
                     <div class="tilt-content">
-                        <div class="flex items-center justify-center space-x-2 mb-4 opacity-50">
-                            <span class="w-1 h-1 bg-data-red rounded-full" id="logic-dot"></span>
-                            <span class="text-[8px] font-mono tracking-widest text-data-red uppercase" id="logic-status">Warning: Systemic Drag Detected</span>
-                        </div>
-                        <h3 class="font-serif text-3xl mb-4 text-white italic" id="logic-title">The Intensity Trap</h3>
-                        <p class="text-gray-400 text-lg leading-relaxed font-light" id="logic-text">
-                            Skeptics are right: Intensity alone is a path to burnout. Most high-performers are over-leveraged and under-calibrated. We don't focus on pushing harder; we focus on the efficiency of your biological engine.
-                        </p>
-                        <div class="mt-8 flex flex-wrap justify-center gap-4 sm:gap-12 opacity-40 font-mono" id="logic-tags">
-                            <span class="text-[9px] tracking-[0.2em] uppercase border-b border-gray-700 pb-1">Systemic Friction</span>
-                            <span class="text-[9px] tracking-[0.2em] uppercase border-b border-gray-700 pb-1">Cognitive Decay</span>
-                            <span class="text-[9px] tracking-[0.2em] uppercase border-b border-gray-700 pb-1">Biological Debt</span>
-                        </div>
+                        <div class="text-5xl font-serif text-white/10 group-hover:text-brand-500/30 transition-colors mb-6 absolute top-6 right-6">01</div>
+                        <h3 class="text-xl font-bold mb-4 tracking-wide text-white font-serif italic">Friction Audit</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed font-light">A deep-dive biometric and strategic audit to locate the precise bucket leaking your potential.</p>
+                        <div class="mt-8 w-8 h-[1px] bg-brand-500/50 group-hover:w-full transition-all duration-500"></div>
                     </div>
                 </div>
 
-                <!-- Direct Action -->
-                <div class="mt-16 reveal delay-500">
-                    <button onclick="openBookingModal()" class="group relative inline-flex items-center justify-center px-10 py-5 font-mono text-xs tracking-[0.3em] text-obsidian bg-brand-500 uppercase rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-glow-intense">
-                        <div class="absolute inset-0 w-full h-full bg-white/20 transform -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
-                        <span class="relative font-bold">Initiate Friction Audit</span>
-                    </button>
-                    <p class="mt-5 text-[9px] text-gray-500 uppercase tracking-[0.3em] font-mono">Strictly Limited to 5 Audits / Month</p>
+                <div class="glass-panel p-10 rounded-2xl group tilt-card illuminate-box" onclick="showStep(2)">
+                    <div class="tilt-content">
+                        <div class="text-5xl font-serif text-white/10 group-hover:text-brand-500/30 transition-colors mb-6 absolute top-6 right-6">02</div>
+                        <h3 class="text-xl font-bold mb-4 tracking-wide text-white font-serif italic">Hardware Calibration</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed font-light">Updating your biology (Sleep, CO2, Recovery) and strategy to handle 10x the current cognitive load.</p>
+                        <div class="mt-8 w-8 h-[1px] bg-brand-500/50 group-hover:w-full transition-all duration-500"></div>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-10 rounded-2xl group tilt-card illuminate-box" onclick="showStep(3)">
+                    <div class="tilt-content">
+                        <div class="text-5xl font-serif text-white/10 group-hover:text-brand-500/30 transition-colors mb-6 absolute top-6 right-6">03</div>
+                        <h3 class="text-xl font-bold mb-4 tracking-wide text-white font-serif italic">Identity Installation</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed font-light">Embedding new systems as defaults so Mastery is maintained without active willpower.</p>
+                        <div class="mt-8 w-8 h-[1px] bg-brand-500/50 group-hover:w-full transition-all duration-500"></div>
+                    </div>
                 </div>
             </div>
-            
-            <!-- Scroll Indicator -->
-            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center opacity-50 animate-bounce">
-                <span class="text-[8px] font-mono tracking-[0.3em] uppercase text-brand-500 mb-2">Descend</span>
-                <div class="w-[1px] h-8 bg-gradient-to-b from-brand-500 to-transparent"></div>
-            </div>
-        </section>
 
-        <!-- Verifiable Truth Bar (Quiet Authority Logo Bar) -->
-        <div class="w-full border-y border-white/5 bg-obsidian/80 backdrop-blur-md py-10 relative z-20 reveal">
-            <div class="max-w-6xl mx-auto px-4 text-center">
-                <p class="text-[9px] font-mono tracking-[0.4em] uppercase text-brand-500/70 mb-8">Deployed by Elite Operators Within</p>
-                
-                <div class="flex flex-wrap justify-center items-center gap-12 sm:gap-16 md:gap-24 transition-all duration-700">
-                    
-                    <span class="font-sans font-black text-2xl md:text-3xl tracking-tighter text-white opacity-30 hover:opacity-100 transition-opacity duration-500 cursor-pointer">MLB</span>
-                    
-                    <span class="font-sans font-bold text-sm md:text-base tracking-[0.3em] text-white opacity-30 hover:opacity-100 transition-opacity duration-500 uppercase cursor-pointer">FORTUNE 500</span>
-                    
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" 
-                         alt="Amazon" loading="lazy" decoding="async" width="100" height="30"
-                         class="h-7 md:h-9 w-auto opacity-30 hover:opacity-100 transition-opacity duration-500 cursor-pointer translate-y-1" 
-                         style="filter: brightness(0) invert(1);" />
-                    
-                    <span class="font-sans font-bold text-lg md:text-xl tracking-[0.2em] text-white opacity-30 hover:opacity-100 transition-opacity duration-500 uppercase cursor-pointer">U.S. AIR FORCE</span>
-                    
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Olympic_rings_without_rims.svg" 
-                         alt="Olympics" loading="lazy" decoding="async" width="100" height="40"
-                         class="h-7 md:h-9 w-auto opacity-30 hover:opacity-100 transition-opacity duration-500 cursor-pointer" 
-                         style="filter: brightness(0) invert(1);" />
-                         
+            <div id="step-display" class="mt-16 bg-brand-500/10 border border-brand-500/30 p-10 rounded-2xl text-center max-w-3xl mx-auto shadow-glow transition-all duration-500 illuminate-box">
+                <p class="font-serif text-2xl italic text-white mb-4" id="step-quote">"If you aren't measuring the 6 buckets with biometrics, you're guessing."</p>
+                <p class="text-[10px] font-mono tracking-[0.3em] uppercase text-brand-400" id="step-sub">> Phase 01: Friction Audit</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Impact (The Matrix) -->
+    <section id="impact" class="py-32 reveal relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+            <div class="text-center mb-20">
+                <span class="text-[10px] font-mono tracking-[0.3em] uppercase text-brand-500 mb-4 block">Telemetry Output</span>
+                <h2 class="font-serif text-4xl md:text-6xl text-white mb-6 font-bold">Biometric Evidence.<br><span class="italic text-brand-500">Hard ROI.</span></h2>
+                <p class="text-gray-400 text-lg opacity-80 max-w-2xl mx-auto font-light">
+                    Performance Mastery isn't a theory; it's a data-backed installation. These metrics represent the average transformation across our Category of One clients.
+                </p>
+            </div>
+
+            <!-- 9-Tile Tilt Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
+
+                <!-- Cognitive -->
+                <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box">
+                    <div class="tilt-content">
+                        <span class="text-[10px] font-mono tracking-[0.2em] text-gray-500 uppercase block mb-4 border-b border-white/10 pb-2">Cognitive Load</span>
+                        <div class="text-4xl font-serif text-white my-4"><span class="stat-value text-brand-400" data-target="-37">0</span>%</div>
+                        <p class="text-xs text-white font-semibold mb-2">Reduction in Total Load</p>
+                        <p class="text-[10px] text-gray-400 font-mono">Reclaiming bandwidth for leverage.</p>
+                    </div>
+                </div>
+                <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box">
+                    <div class="tilt-content">
+                        <span class="text-[10px] font-mono tracking-[0.2em] text-gray-500 uppercase block mb-4 border-b border-white/10 pb-2">Decision Speed</span>
+                        <div class="text-4xl font-serif text-white my-4"><span class="stat-value text-brand-400" data-target="130">0</span>%</div>
+                        <p class="text-xs text-white font-semibold mb-2">Increase in Execution Speed</p>
+                        <p class="text-[10px] text-gray-400 font-mono">From hesitation to conviction.</p>
+                    </div>
+                </div>
+                <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box">
+                    <div class="tilt-content">
+                        <span class="text-[10px] font-mono tracking-[0.2em] text-gray-500 uppercase block mb-4 border-b border-white/10 pb-2">Mental Drag</span>
+                        <div class="text-4xl font-serif text-white my-4"><span class="stat-value text-brand-400" data-target="-50">0</span>%</div>
+                        <p class="text-xs text-white font-semibold mb-2">Reduction in Open-Loops</p>
+                        <p class="text-[10px] text-gray-400 font-mono">Closing cycles that bleed energy.</p>
+                    </div>
+                </div>
+
+                <!-- Biological -->
+                <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box">
+                    <div class="tilt-content">
+                        <span class="text-[10px] font-mono tracking-[0.2em] text-gray-500 uppercase block mb-4 border-b border-white/10 pb-2">CO2 Tolerance</span>
+                        <div class="text-4xl font-serif text-white my-4"><span class="stat-value text-brand-400" data-target="150">0</span>%</div>
+                        <p class="text-xs text-white font-semibold mb-2">Threshold Increase</p>
+                        <p class="text-[10px] text-gray-400 font-mono opacity-80">Hard biological indicator of resilience.</p>
+                    </div>
+                </div>
+                <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box">
+                    <div class="tilt-content">
+                        <span class="text-[10px] font-mono tracking-[0.2em] text-gray-500 uppercase block mb-4 border-b border-white/10 pb-2">Sleep Efficiency</span>
+                        <div class="text-4xl font-serif text-white my-4"><span class="stat-value text-brand-400" data-target="18">0</span>%</div>
+                        <p class="text-xs text-white font-semibold mb-2">Avg. Quality Improvement</p>
+                        <p class="text-[10px] text-gray-400 font-mono">Deep recovery cycles maximized.</p>
+                    </div>
+                </div>
+                <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box">
+                    <div class="tilt-content">
+                        <span class="text-[10px] font-mono tracking-[0.2em] text-gray-500 uppercase block mb-4 border-b border-white/10 pb-2">Stress Recovery</span>
+                        <div class="text-4xl font-serif text-white my-4"><span class="stat-value text-brand-400" data-target="200">0</span>%</div>
+                        <p class="text-xs text-white font-semibold mb-2">Faster Baseline Return</p>
+                        <p class="text-[10px] text-gray-400 font-mono">Biological return to calm post-peak.</p>
+                    </div>
+                </div>
+
+                <!-- Systemic -->
+                <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box">
+                    <div class="tilt-content">
+                        <span class="text-[10px] font-mono tracking-[0.2em] text-gray-500 uppercase block mb-4 border-b border-white/10 pb-2">Deep Work</span>
+                        <div class="text-4xl font-serif text-white my-4"><span class="stat-value text-brand-400" data-target="41">0</span>%</div>
+                        <p class="text-xs text-white font-semibold mb-2">Increase in Volume</p>
+                        <p class="text-[10px] text-gray-400 font-mono">Hours reclaimed for creation.</p>
+                    </div>
+                </div>
+                <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box">
+                    <div class="tilt-content">
+                        <span class="text-[10px] font-mono tracking-[0.2em] text-gray-500 uppercase block mb-4 border-b border-white/10 pb-2">Flow Time</span>
+                        <div class="text-4xl font-serif text-white my-4"><span class="stat-value text-brand-400" data-target="103">0</span>%</div>
+                        <p class="text-xs text-white font-semibold mb-2">Weekly Accumulation</p>
+                        <p class="text-[10px] text-gray-400 font-mono">Accessing maximum output state.</p>
+                    </div>
+                </div>
+                <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box">
+                    <div class="tilt-content">
+                        <span class="text-[10px] font-mono tracking-[0.2em] text-gray-500 uppercase block mb-4 border-b border-white/10 pb-2">Adaptation</span>
+                        <div class="text-4xl font-serif text-white my-4"><span class="stat-value text-brand-400" data-target="62">0</span>%</div>
+                        <p class="text-xs text-white font-semibold mb-2">System Integration Speed</p>
+                        <p class="text-[10px] text-gray-400 font-mono">Rate of new default establishment.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compound Visualization -->
+            <div class="glass-panel rounded-[2rem] p-10 md:p-14 relative overflow-hidden border-brand-500/30 illuminate-box">
+                <div class="absolute inset-0 bg-gradient-to-br from-brand-500/5 to-transparent pointer-events-none"></div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+                    <div>
+                        <div class="inline-flex items-center space-x-2 border border-brand-500/30 px-3 py-1 rounded text-[9px] font-mono uppercase tracking-widest text-brand-400 mb-6 bg-brand-500/10">
+                            <span class="w-1 h-1 rounded-full bg-brand-500 animate-ping"></span>
+                            <span>Mastery vs. Effort Matrix</span>
+                        </div>
+                        <h3 class="font-serif text-3xl md:text-5xl mb-6 text-white italic">The Compounding Calibration</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-8 font-light">
+                            Standard effort models assume linear growth that inevitably plateaus. Mastery Calibration prevents the decay curve by reclaiming <span class="text-white font-bold border-b border-brand-500">12.5+ hours of wasted energy</span> per week.
+                        </p>
+                        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-3 h-3 rounded bg-brand-500 shadow-glow"></div>
+                                <span class="text-[10px] font-mono uppercase tracking-widest text-white">Mastery System</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-3 h-3 rounded border border-gray-600 bg-transparent"></div>
+                                <span class="text-[10px] font-mono uppercase tracking-widest text-gray-400">Linear Effort</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-container h-80 bg-black/50 rounded-xl p-4 border border-white/5">
+                        <canvas id="impactGaugeChart"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- The Model (Diagnostic HUD) -->
-        <section id="model" class="py-32 relative border-b border-white/5 reveal">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-                
-                <div class="flex flex-col lg:flex-row justify-between items-end mb-16 border-b border-white/10 pb-8">
-                    <div class="max-w-2xl">
-                        <div class="flex items-center space-x-3 mb-4">
-                            <div class="w-2 h-2 bg-brand-400 rounded-full animate-pulse shadow-[0_0_10px_#C2A366]"></div>
-                            <span class="text-[10px] font-mono tracking-[0.3em] uppercase text-brand-400">Live Telemetry HUD</span>
+    <!-- System Architect Profile -->
+    <section id="architect" class="py-32 relative border-t border-white/5 reveal overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+
+                <!-- Architect Image / HUD Frame -->
+                <div class="lg:col-span-5 relative group illuminate-box p-2 rounded-2xl transition-all duration-500">
+                    <div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-brand-500/50 rounded-tl-lg transition-all duration-300 group-hover:w-12 group-hover:h-12"></div>
+                    <div class="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-brand-500/50 rounded-tr-lg transition-all duration-300 group-hover:w-12 group-hover:h-12"></div>
+                    <div class="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-brand-500/50 rounded-bl-lg transition-all duration-300 group-hover:w-12 group-hover:h-12"></div>
+                    <div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-brand-500/50 rounded-br-lg transition-all duration-300 group-hover:w-12 group-hover:h-12"></div>
+
+                    <div class="relative rounded-xl overflow-hidden bg-black/50 aspect-[4/5] border border-white/5">
+                        <img src="<https://i.imgur.com/SJLnvwa.png>" alt="Lead Systems Architect - Performance Mastery" loading="lazy" decoding="async" class="w-full h-full object-cover object-top opacity-80 mix-blend-luminosity grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent"></div>
+
+                        <!-- Telemetry Overlay -->
+                        <div class="absolute bottom-6 left-6 z-20">
+                            <div class="flex items-center space-x-2 mb-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse shadow-glow"></div>
+                                <span class="text-[8px] font-mono tracking-widest text-brand-400 uppercase">Status: Online</span>
+                            </div>
+                            <span class="text-[10px] font-mono tracking-[0.2em] text-white uppercase bg-black/60 px-2 py-1 rounded backdrop-blur-md border border-white/10">ID: Lead_Engineer</span>
                         </div>
-                        <h2 class="font-serif text-4xl md:text-6xl text-white mb-6 font-bold leading-tight">Diagnostic Architecture</h2>
-                        <p class="text-gray-400 text-sm font-mono opacity-80 leading-relaxed max-w-xl">
-                            > MAPPING 6-PILLAR PROTOCOL...<br>
-                            > Mastery is built on precision. Identify biological and strategic friction points to calibrate your output engine.
+                    </div>
+                </div>
+
+                <!-- Architect Copy -->
+                <div class="lg:col-span-7">
+                    <span class="text-[10px] font-mono tracking-[0.3em] uppercase text-brand-500 block mb-4">> System Architect Profile</span>
+                    <h2 class="font-serif text-3xl md:text-5xl text-white mb-6 italic">The Engineer Behind the Protocol.</h2>
+
+                    <div class="space-y-6 text-gray-400 text-sm md:text-base leading-relaxed font-light">
+                        <p>
+                            I do not "coach." I engineer high-fidelity systems for elite operators who have outgrown standard effort models.
+                        </p>
+                        <p>
+                            With a background advising 9-figure founders, Fortune 500 executives, and elite athletes, I saw a recurring critical failure: <strong class="text-white font-normal">they were trying to out-work biological math.</strong>
+                        </p>
+                        <p>
+                            The Performance Mastery OS is the culmination of reverse-engineering top 0.1% performers. It replaces motivational guesswork with hard, biometric-verified calibration. When you enter this ecosystem, we strip away the friction, optimize your physiological baseline, and install a strategic architecture that makes your ultimate output inevitable.
                         </p>
                     </div>
-                    <div class="mt-8 lg:mt-0 flex space-x-4 bg-carbon p-1 rounded-lg border border-white/5">
-                        <button onclick="setChartData('gap')" class="text-[10px] font-mono tracking-widest uppercase text-gray-400 px-6 py-3 rounded hover:bg-white/5 transition-all">Scan Frictions</button>
-                        <button onclick="setChartData('mastery')" class="text-[10px] font-mono tracking-widest uppercase bg-brand-500/20 text-brand-400 border border-brand-500/50 px-6 py-3 rounded hover:bg-brand-500 hover:text-obsidian transition-all shadow-glow">View Optimal</button>
-                    </div>
-                </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
-                    
-                    <!-- Radar Display -->
-                    <div class="lg:col-span-7 flex flex-col">
-                        <div class="glass-panel rounded-3xl p-8 flex-grow flex flex-col min-h-[500px] relative overflow-hidden group">
-                            <!-- HUD Targeting Corners -->
-                            <div class="absolute top-6 left-6 w-8 h-8 border-t border-l border-white/20 rounded-tl-lg"></div>
-                            <div class="absolute top-6 right-6 w-8 h-8 border-t border-r border-white/20 rounded-tr-lg"></div>
-                            <div class="absolute bottom-6 left-6 w-8 h-8 border-b border-l border-white/20 rounded-bl-lg"></div>
-                            <div class="absolute bottom-6 right-6 w-8 h-8 border-b border-r border-white/20 rounded-br-lg"></div>
-                            
-                            <div class="scanner-line hidden group-hover:block"></div>
-                            
-                            <!-- Responsive Canvas -->
-                            <div class="w-full flex-grow relative z-10 flex items-center justify-center">
-                                <div class="w-full max-w-[500px] aspect-square relative">
-                                    <canvas id="masteryRadar"></canvas>
-                                </div>
-                            </div>
+                    <div class="mt-10 flex items-center space-x-6 border-t border-white/10 pt-8">
+                        <div class="flex flex-col">
+                            <span class="text-2xl font-serif text-white">15,000+</span>
+                            <span class="text-[9px] font-mono text-brand-500 uppercase tracking-widest">Diagnostic Hours Logged</span>
                         </div>
-                    </div>
-
-                    <!-- Interactive Modules -->
-                    <div class="lg:col-span-5 flex flex-col space-y-4">
-                        <div class="flex items-center justify-between px-2 mb-2">
-                            <span class="text-[9px] font-mono text-gray-500 uppercase tracking-widest">Select Sub-System</span>
-                            <span class="text-[9px] font-mono text-brand-500 uppercase border border-brand-500/30 px-2 py-0.5 rounded bg-brand-500/10">6 Systems Active</span>
-                        </div>
-                        
-                        <!-- Mini Module Grid -->
-                        <div id="pillar-list" class="grid grid-cols-2 gap-3 mb-4">
-                            <!-- Populated by JS -->
-                        </div>
-                        
-                        <!-- Detail Readout (Tilt Card) -->
-                        <div id="pillar-detail" class="glass-panel p-8 rounded-2xl transform transition-all duration-500 flex-grow flex flex-col justify-center tilt-card border-brand-500/30 illuminate-box">
-                            <div class="tilt-content">
-                                <div class="flex items-center justify-between mb-8 border-b border-white/10 pb-4">
-                                    <div class="flex items-center space-x-4">
-                                        <span class="text-3xl opacity-80" id="detail-icon">🧠</span>
-                                        <div>
-                                            <span class="text-[8px] font-mono tracking-[0.2em] uppercase text-brand-400 block mb-1">Target Locked</span>
-                                            <span class="text-[10px] font-mono tracking-widest uppercase border border-brand-500/30 bg-brand-500/10 text-brand-400 px-2 py-1 rounded" id="detail-category">SYS_01</span>
-                                        </div>
-                                    </div>
-                                    <div class="w-2 h-2 rounded-full bg-brand-400 animate-pulse shadow-[0_0_8px_#C2A366]"></div>
-                                </div>
-                                <h3 class="font-serif text-3xl mb-4 text-white italic" id="detail-title">Cognitive Performance</h3>
-                                <p class="text-gray-400 text-sm leading-relaxed mb-8 font-light" id="detail-desc">
-                                    High-output thinking and mental acuity. Engineering a brain that processes faster and deeper than the competition.
-                                </p>
-                                <div class="mt-auto">
-                                    <div class="flex justify-between text-[9px] font-mono uppercase tracking-widest text-gray-400 mb-2">
-                                        <span id="label-left">Current Output</span>
-                                        <span id="label-right" class="text-brand-500">Mastery Standard</span>
-                                    </div>
-                                    <div class="w-full bg-black h-1.5 rounded-full overflow-hidden border border-white/10">
-                                        <div id="detail-bar" class="bg-brand-500 h-full w-full transition-all duration-1000 shadow-[0_0_10px_rgba(166,138,87,0.8)] relative">
-                                            <div class="absolute inset-0 bg-white/20 w-full h-full animate-pulse"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="w-[1px] h-10 bg-white/10"></div>
+                        <div class="flex flex-col">
+                            <span class="text-2xl font-serif text-white">100%</span>
+                            <span class="text-[9px] font-mono text-brand-500 uppercase tracking-widest">Biometric Verification</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- The Process (Installation) -->
-        <section id="process" class="py-32 bg-carbon border-y border-white/5 reveal relative">
-            <!-- Background accent -->
-            <div class="absolute top-0 right-1/4 w-[500px] h-[500px] bg-brand-500/5 rounded-full blur-[120px] pointer-events-none"></div>
-
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
-                <div class="text-center mb-20">
-                    <span class="text-[10px] font-mono tracking-[0.3em] uppercase text-brand-500 mb-4 block">Deployment Sequence</span>
-                    <h2 class="font-serif text-4xl md:text-6xl text-white mb-6 font-bold">The Clinical Protocol</h2>
-                    <p class="text-gray-400 text-lg opacity-80 max-w-2xl mx-auto font-light">We don't "coach." We implement technical systems that automate high performance across all biological and strategic layers.</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-                    <!-- Steps with 3D Tilt and Illumination -->
-                    <div class="glass-panel p-10 rounded-2xl group tilt-card illuminate-box" onclick="showStep(1)">
-                        <div class="tilt-content">
-                            <div class="text-5xl font-serif text-white/10 group-hover:text-brand-500/30 transition-colors mb-6 absolute top-6 right-6">01</div>
-                            <h3 class="text-xl font-bold mb-4 tracking-wide text-white font-serif italic">Friction Audit</h3>
-                            <p class="text-gray-400 text-sm leading-relaxed font-light">A deep-dive biometric and strategic audit to locate the precise bucket leaking your potential.</p>
-                            <div class="mt-8 w-8 h-[1px] bg-brand-500/50 group-hover:w-full transition-all duration-500"></div>
-                        </div>
-                    </div>
-
-                    <div class="glass-panel p-10 rounded-2xl group tilt-card illuminate-box" onclick="showStep(2)">
-                        <div class="tilt-content">
-                            <div class="text-5xl font-serif text-white/10 group-hover:text-brand-500/30 transition-colors mb-6 absolute top-6 right-6">02</div>
-                            <h3 class="text-xl font-bold mb-4 tracking-wide text-white font-serif italic">Hardware Calibration</h3>
-                            <p class="text-gray-400 text-sm leading-relaxed font-light">Updating your biology (Sleep, CO2, Recovery) and strategy to handle 10x the current cognitive load.</p>
-                            <div class="mt-8 w-8 h-[1px] bg-brand-500/50 group-hover:w-full transition-all duration-500"></div>
-                        </div>
-                    </div>
-
-                    <div class="glass-panel p-10 rounded-2xl group tilt-card illuminate-box" onclick="showStep(3)">
-                        <div class="tilt-content">
-                            <div class="text-5xl font-serif text-white/10 group-hover:text-brand-500/30 transition-colors mb-6 absolute top-6 right-6">03</div>
-                            <h3 class="text-xl font-bold mb-4 tracking-wide text-white font-serif italic">Identity Installation</h3>
-                            <p class="text-gray-400 text-sm leading-relaxed font-light">Embedding new systems as defaults so Mastery is maintained without active willpower.</p>
-                            <div class="mt-8 w-8 h-[1px] bg-brand-500/50 group-hover:w-full transition-all duration-500"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="step-display" class="mt-16 bg-brand-500/10 border border-brand-500/30 p-10 rounded-2xl text-center max-w-3xl mx-auto shadow-glow transition-all duration-500 illuminate-box">
-                    <p class="font-serif text-2xl italic text-white mb-4" id="step-quote">"If you aren't measuring the 6 buckets with biometrics, you're guessing."</p>
-                    <p class="text-[10px] font-mono tracking-[0.3em] uppercase text-brand-400" id="step-sub">> Phase 01: Friction Audit</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Data Impact (The Matrix) -->
-        <section id="impact" class="py-32 reveal relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-                <div class="text-center mb-20">
-                    <span class="text-[10px] font-mono tracking-[0.3em] uppercase text-brand-500 mb-4 block">Telemetry Output</span>
-                    <h2 class="font-serif text-4xl md:text-6xl text-white mb-6 font-bold">Biometric Evidence.<br><span class="italic text-brand-500">Hard ROI.</span></h2>
-                    <p class="text-gray-400 text-lg opacity-80 max-w-2xl mx-auto font-light">
-                        Performance Mastery isn't a theory; it's a data-backed installation. These metrics represent the average transformation across our Category of One clients.
-                    </p>
-                </div>
-
-                <!-- 9-Tile Tilt Grid -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
-                    
-                    <!-- Cognitive -->
-                    <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box">
-                        <div class="tilt-content">
-                            <span class="text-[10px] font-mono tracking-[0.2em] text-gray-500 uppercase block mb-4 border-b border-white/10 pb-2">Cognitive Load</span>
-                            <div class="text-4xl font-serif text-white my-4"><span class="stat-value text-brand-400" data-target="-37">0</span>%</div>
-                            <p class="text-xs text-white font-semibold mb-2">Reduction in Total Load</p>
-                            <p class="text-[10px] text-gray-400 font-mono">Reclaiming bandwidth for leverage.</p>
-                        </div>
-                    </div>
-                    <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box">
-                        <div class="tilt-content">
-                            <span class="text-[10px] font-mono tracking-[0.2em] text-gray-500 uppercase block mb-4 border-b border-white/10 pb-2">Decision Speed</span>
-                            <div class="text-4xl font-serif text-white my-4"><span class="stat-value text-brand-400" data-target="130">0</span>%</div>
-                            <p class="text-xs text-white font-semibold mb-2">Increase in Execution Speed</p>
-                            <p class="text-[10px] text-gray-400 font-mono">From hesitation to conviction.</p>
-                        </div>
-                    </div>
-                    <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box">
-                        <div class="tilt-content">
-                            <span class="text-[10px] font-mono tracking-[0.2em] text-gray-500 uppercase block mb-4 border-b border-white/10 pb-2">Mental Drag</span>
-                            <div class="text-4xl font-serif text-white my-4"><span class="stat-value text-brand-400" data-target="-50">0</span>%</div>
-                            <p class="text-xs text-white font-semibold mb-2">Reduction in Open-Loops</p>
-                            <p class="text-[10px] text-gray-400 font-mono">Closing cycles that bleed energy.</p>
-                        </div>
-                    </div>
-
-                    <!-- Biological -->
-                    <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box">
-                        <div class="tilt-content">
-                            <span class="text-[10px] font-mono tracking-[0.2em] text-brand-500 uppercase block mb-4 border-b border-brand-500/20 pb-2">CO2 Tolerance</span>
-                            <div class="text-4xl font-serif text-white my-4"><span class="stat-value text-brand-400" data-target="150">0</span>%</div>
-                            <p class="text-xs text-white font-semibold mb-2">Threshold Increase</p>
-                            <p class="text-[10px] text-gray-400 font-mono opacity-80">Hard biological indicator of resilience.</p>
-                        </div>
-                    </div>
-                    <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box">
-                        <div class="tilt-content">
-                            <span class="text-[10px] font-mono tracking-[0.2em] text-gray-500 uppercase block mb-4 border-b border-white/10 pb-2">Sleep Efficiency</span>
-                            <div class="text-4xl font-serif text-white my-4"><span class="stat-value text-brand-400" data-target="18">0</span>%</div>
-                            <p class="text-xs text-white font-semibold mb-2">Avg. Quality Improvement</p>
-                            <p class="text-[10px] text-gray-400 font-mono">Deep recovery cycles maximized.</p>
-                        </div>
-                    </div>
-                    <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box">
-                        <div class="tilt-content">
-                            <span class="text-[10px] font-mono tracking-[0.2em] text-gray-500 uppercase block mb-4 border-b border-white/10 pb-2">Stress Recovery</span>
-                            <div class="text-4xl font-serif text-white my-4"><span class="stat-value text-brand-400" data-target="200">0</span>%</div>
-                            <p class="text-xs text-white font-semibold mb-2">Faster Baseline Return</p>
-                            <p class="text-[10px] text-gray-400 font-mono">Biological return to calm post-peak.</p>
-                        </div>
-                    </div>
-
-                    <!-- Systemic -->
-                    <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box">
-                        <div class="tilt-content">
-                            <span class="text-[10px] font-mono tracking-[0.2em] text-gray-500 uppercase block mb-4 border-b border-white/10 pb-2">Deep Work</span>
-                            <div class="text-4xl font-serif text-white my-4"><span class="stat-value text-brand-400" data-target="41">0</span>%</div>
-                            <p class="text-xs text-white font-semibold mb-2">Increase in Volume</p>
-                            <p class="text-[10px] text-gray-400 font-mono">Hours reclaimed for creation.</p>
-                        </div>
-                    </div>
-                    <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box">
-                        <div class="tilt-content">
-                            <span class="text-[10px] font-mono tracking-[0.2em] text-gray-500 uppercase block mb-4 border-b border-white/10 pb-2">Flow Time</span>
-                            <div class="text-4xl font-serif text-white my-4"><span class="stat-value text-brand-400" data-target="103">0</span>%</div>
-                            <p class="text-xs text-white font-semibold mb-2">Weekly Accumulation</p>
-                            <p class="text-[10px] text-gray-400 font-mono">Accessing maximum output state.</p>
-                        </div>
-                    </div>
-                    <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box">
-                        <div class="tilt-content">
-                            <span class="text-[10px] font-mono tracking-[0.2em] text-gray-500 uppercase block mb-4 border-b border-white/10 pb-2">Adaptation</span>
-                            <div class="text-4xl font-serif text-white my-4"><span class="stat-value text-brand-400" data-target="62">0</span>%</div>
-                            <p class="text-xs text-white font-semibold mb-2">System Integration Speed</p>
-                            <p class="text-[10px] text-gray-400 font-mono">Rate of new default establishment.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Compound Visualization -->
-                <div class="glass-panel rounded-[2rem] p-10 md:p-14 relative overflow-hidden border-brand-500/30 illuminate-box">
-                    <div class="absolute inset-0 bg-gradient-to-br from-brand-500/5 to-transparent pointer-events-none"></div>
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
-                        <div>
-                            <div class="inline-flex items-center space-x-2 border border-brand-500/30 px-3 py-1 rounded text-[9px] font-mono uppercase tracking-widest text-brand-400 mb-6 bg-brand-500/10">
-                                <span class="w-1 h-1 rounded-full bg-brand-500 animate-ping"></span>
-                                <span>Mastery vs. Effort Matrix</span>
-                            </div>
-                            <h3 class="font-serif text-3xl md:text-5xl mb-6 text-white italic">The Compounding Calibration</h3>
-                            <p class="text-gray-400 text-sm leading-relaxed mb-8 font-light">
-                                Standard effort models assume linear growth that inevitably plateaus. Mastery Calibration prevents the decay curve by reclaiming <span class="text-white font-bold border-b border-brand-500">12.5+ hours of wasted energy</span> per week.
-                            </p>
-                            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8">
-                                <div class="flex items-center space-x-3">
-                                    <div class="w-3 h-3 rounded bg-brand-500 shadow-glow"></div>
-                                    <span class="text-[10px] font-mono uppercase tracking-widest text-white">Mastery System</span>
-                                </div>
-                                <div class="flex items-center space-x-3">
-                                    <div class="w-3 h-3 rounded border border-gray-600 bg-transparent"></div>
-                                    <span class="text-[10px] font-mono uppercase tracking-widest text-gray-400">Linear Effort</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="chart-container h-80 bg-black/50 rounded-xl p-4 border border-white/5">
-                            <canvas id="impactGaugeChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- System Architect Profile -->
-        <section id="architect" class="py-32 relative border-t border-white/5 reveal overflow-hidden">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-                    
-                    <!-- Architect Image / HUD Frame -->
-                    <div class="lg:col-span-5 relative group illuminate-box p-2 rounded-2xl transition-all duration-500">
-                        <div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-brand-500/50 rounded-tl-lg transition-all duration-300 group-hover:w-12 group-hover:h-12"></div>
-                        <div class="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-brand-500/50 rounded-tr-lg transition-all duration-300 group-hover:w-12 group-hover:h-12"></div>
-                        <div class="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-brand-500/50 rounded-bl-lg transition-all duration-300 group-hover:w-12 group-hover:h-12"></div>
-                        <div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-brand-500/50 rounded-br-lg transition-all duration-300 group-hover:w-12 group-hover:h-12"></div>
-                        
-                        <div class="relative rounded-xl overflow-hidden bg-black/50 aspect-[4/5] border border-white/5">
-                            <!-- Added width/height hints for Lighthouse CLS and layout reflow -->
-                            <img src="https://i.imgur.com/SJLnvwa.png" alt="Lead Systems Architect - Performance Mastery" loading="lazy" decoding="async" width="400" height="500" class="w-full h-full object-cover object-top opacity-80 mix-blend-luminosity grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700">
-                            <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent"></div>
-                            
-                            <!-- Telemetry Overlay -->
-                            <div class="absolute bottom-6 left-6 z-20">
-                                <div class="flex items-center space-x-2 mb-1">
-                                    <div class="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse shadow-glow"></div>
-                                    <span class="text-[8px] font-mono tracking-widest text-brand-400 uppercase">Status: Online</span>
-                                </div>
-                                <span class="text-[10px] font-mono tracking-[0.2em] text-white uppercase bg-black/60 px-2 py-1 rounded backdrop-blur-md border border-white/10">ID: Lead_Engineer</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Architect Copy -->
-                    <div class="lg:col-span-7">
-                        <span class="text-[10px] font-mono tracking-[0.3em] uppercase text-brand-500 block mb-4">> System Architect Profile</span>
-                        <h2 class="font-serif text-3xl md:text-5xl text-white mb-6 italic">The Engineer Behind the Protocol.</h2>
-                        
-                        <div class="space-y-6 text-gray-400 text-sm md:text-base leading-relaxed font-light">
-                            <p>
-                                I do not "coach." I engineer high-fidelity systems for elite operators who have outgrown standard effort models. 
-                            </p>
-                            <p>
-                                With a background advising 9-figure founders, Fortune 500 executives, and elite athletes, I saw a recurring critical failure: <strong class="text-white font-normal">they were trying to out-work biological math.</strong>
-                            </p>
-                            <p>
-                                The Performance Mastery OS is the culmination of reverse-engineering top 0.1% performers. It replaces motivational guesswork with hard, biometric-verified calibration. When you enter this ecosystem, we strip away the friction, optimize your physiological baseline, and install a strategic architecture that makes your ultimate output inevitable.
-                            </p>
-                        </div>
-
-                        <div class="mt-10 flex items-center space-x-6 border-t border-white/10 pt-8">
-                            <div class="flex flex-col">
-                                <span class="text-2xl font-serif text-white">15,000+</span>
-                                <span class="text-[9px] font-mono text-brand-500 uppercase tracking-widest">Diagnostic Hours Logged</span>
-                            </div>
-                            <div class="w-[1px] h-10 bg-white/10"></div>
-                            <div class="flex flex-col">
-                                <span class="text-2xl font-serif text-white">100%</span>
-                                <span class="text-[9px] font-mono text-brand-500 uppercase tracking-widest">Biometric Verification</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Investment & Offer (Grand Slam) -->
-        <section id="offer" class="py-32 bg-carbon border-t border-white/10 reveal relative overflow-hidden">
-            <!-- Hexagon BG Pattern -->
-            <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(#A68A57 1px, transparent 1px); background-size: 30px 30px;"></div>
-            
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
-                <div class="text-center mb-20">
-                    <span class="text-[10px] font-mono tracking-[0.3em] uppercase text-brand-500 block mb-4">Secure Installation</span>
-                    <h2 class="font-serif text-5xl md:text-7xl mb-6 italic leading-tight text-white">The Ecosystem</h2>
-                    <p class="text-gray-400 text-lg opacity-80 font-light max-w-2xl mx-auto">
-                        Eliminate the guesswork. When accepted into the reserve, you receive a complete, integrated architecture designed to make elite performance your biological default.
-                    </p>
-                </div>
-
-                <!-- Asset Stack Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left mb-20">
-                    
-                    <!-- Core Engine -->
-                    <div class="glass-panel p-10 rounded-2xl tilt-card illuminate-box">
-                        <div class="tilt-content">
-                            <h4 class="text-brand-400 text-[10px] font-mono uppercase tracking-[0.2em] mb-4 flex items-center"><span class="w-2 h-2 bg-brand-500 mr-2 rounded-sm"></span>The Core Engine</h4>
-                            <p class="text-2xl font-serif text-white mb-3">12-Week Calibration Protocol</p>
-                            <p class="text-sm text-gray-400 font-light leading-relaxed">A total overhaul of your cognitive and biological operating system. We map your biometrics and install the exact protocols to reclaim capacity.</p>
-                        </div>
-                    </div>
-
-                    <!-- Asset 1 -->
-                    <div class="glass-panel p-10 rounded-2xl tilt-card illuminate-box">
-                        <div class="tilt-content">
-                            <h4 class="text-gray-400 text-[10px] font-mono uppercase tracking-[0.2em] mb-4">Asset 01: Diagnostics</h4>
-                            <p class="text-xl font-serif text-white mb-3">24/7 Telemetry AI Portal</p>
-                            <p class="text-sm text-gray-400 font-light leading-relaxed">Zero guesswork. Your biometrics (HRV, Sleep) integrate into our private dashboard, allowing us to monitor adaptation in real-time.</p>
-                        </div>
-                    </div>
-
-                    <!-- Asset 2 -->
-                    <div class="glass-panel p-10 rounded-2xl tilt-card illuminate-box">
-                        <div class="tilt-content">
-                            <h4 class="text-gray-400 text-[10px] font-mono uppercase tracking-[0.2em] mb-4">Asset 02: Environment</h4>
-                            <p class="text-xl font-serif text-white mb-3">Category of One Boardroom</p>
-                            <p class="text-sm text-gray-400 font-light leading-relaxed">Isolation kills performance. Gain exclusive access to closed-door roundtables with 7- and 8-figure founders calibrating at the same level.</p>
-                        </div>
-                    </div>
-
-                    <!-- Asset 3 -->
-                    <div class="glass-panel p-10 rounded-2xl tilt-card illuminate-box">
-                        <div class="tilt-content">
-                            <h4 class="text-gray-400 text-[10px] font-mono uppercase tracking-[0.2em] mb-4">Asset 03: Hardware</h4>
-                            <p class="text-xl font-serif text-white mb-3">Signature Biometric Kit</p>
-                            <p class="text-sm text-gray-400 font-light leading-relaxed">We ship you the exact biometric wearables and physiological tools necessary to execute the protocol. We provide the elite standard.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Terminal CTA -->
-                <div class="bg-black border border-brand-500/30 p-10 md:p-14 rounded-3xl shadow-glow-intense transform transition-all relative text-center max-w-3xl mx-auto illuminate-box">
-                    <!-- Scanner effect on CTA -->
-                    <div class="absolute top-0 left-0 w-full h-[1px] bg-brand-500 opacity-50 shadow-[0_0_10px_#A68A57] animate-[scan_3s_infinite]"></div>
-                    
-                    <span class="text-brand-500 text-[10px] font-mono tracking-[0.3em] uppercase block mb-6">> Secure Entry Point</span>
-                    <h3 class="text-white font-serif text-3xl md:text-5xl mb-6 italic">The Friction Audit Guarantee</h3>
-                    <p class="text-gray-400 mb-10 font-light text-sm md:text-base leading-relaxed">
-                        Before we invite you to install the ecosystem, we must prove the ROI. Apply for a clinical diagnostic. <strong class="text-white font-normal">If we cannot map out exactly how to reclaim 10+ hours of high-leverage capacity per week, we will not offer you a spot.</strong> 
-                    </p>
-                    <button onclick="openBookingModal()" class="group relative inline-flex items-center justify-center px-12 py-5 font-mono text-xs tracking-[0.3em] text-obsidian bg-brand-500 uppercase rounded-full overflow-hidden transition-all hover:bg-white w-full sm:w-auto">
-                        <div class="absolute inset-0 w-full h-full bg-white/20 transform -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
-                        <span class="relative font-bold">Submit Audit Application</span>
-                    </button>
-                    <div class="mt-6 flex items-center justify-center space-x-3 text-[9px] text-gray-400 uppercase font-mono tracking-widest">
-                        <div class="w-1.5 h-1.5 rounded-full bg-data-red animate-pulse shadow-[0_0_8px_#FF3366]"></div>
-                        <span>Strictly Limited to 5 New Audits / Month</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-obsidian py-12 border-t border-white/5 text-center relative z-10">
-        <div class="max-w-6xl mx-auto px-4">
-            <span class="font-serif text-2xl font-bold tracking-[0.3em] uppercase text-white opacity-10">Mastery</span>
-            <div class="mt-6 flex justify-center space-x-6 text-[9px] font-mono tracking-widest uppercase text-gray-400">
-                <a href="#" class="hover:text-brand-500 transition-colors">Protocol</a>
-                <a href="#" class="hover:text-brand-500 transition-colors">Privacy</a>
-                <a href="#" class="hover:text-brand-500 transition-colors">Telemetry Auth</a>
-            </div>
-            <p class="mt-6 text-[9px] font-mono tracking-widest opacity-30 text-white uppercase">&copy; 2026 Performance Mastery Systems</p>
         </div>
-    </footer>
+    </section>
 
-    <!-- High-Tech Booking Modal -->
-    <div id="booking-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center">
-        <div class="absolute inset-0 bg-obsidian/90 backdrop-blur-md transition-opacity" onclick="closeBookingModal()"></div>
-        <div class="relative bg-carbon w-full max-w-lg p-10 rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-brand-500/30 tilt-card">
-            <!-- Terminal Header -->
-            <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
-                <div class="flex items-center space-x-2">
-                    <div class="w-2 h-2 rounded-full bg-brand-400 animate-pulse shadow-glow"></div>
-                    <span class="text-[10px] font-mono tracking-[0.2em] uppercase text-brand-400">Secure Terminal</span>
-                </div>
-                <button onclick="closeBookingModal()" class="text-gray-500 hover:text-white transition-colors font-mono text-sm">[ ESC ]</button>
-            </div>
-            
-            <div class="text-left mb-8">
-                <h3 class="font-serif text-3xl text-white italic mb-2">Initialize Audit</h3>
-                <p class="text-xs text-gray-400 font-mono leading-relaxed">> Provide credentials to request a 15-minute diagnostic. Availability restricted.</p>
-            </div>
-            
-            <!-- Accessible Application Form -->
-            <form id="audit-form" class="space-y-5" onsubmit="handleFormSubmit(event)">
-                <div>
-                    <label for="legal_name" class="block text-[9px] font-mono tracking-widest uppercase text-brand-500 mb-2">> Legal Name_</label>
-                    <input id="legal_name" type="text" class="w-full bg-black border border-white/10 p-4 rounded text-sm text-white focus:border-brand-500 focus:outline-none transition-colors font-mono" placeholder="Input string..." required>
-                </div>
-                <div>
-                    <label for="secure_email" class="block text-[9px] font-mono tracking-widest uppercase text-brand-500 mb-2">> Secure Email_</label>
-                    <input id="secure_email" type="email" class="w-full bg-black border border-white/10 p-4 rounded text-sm text-white focus:border-brand-500 focus:outline-none transition-colors font-mono" placeholder="user@domain.com" required>
-                </div>
-                <div>
-                    <label for="friction_point" class="block text-[9px] font-mono tracking-widest uppercase text-brand-500 mb-2">> Primary Friction Point_</label>
-                    <select id="friction_point" class="w-full bg-black border border-white/10 p-4 rounded text-sm text-gray-400 focus:text-white focus:border-brand-500 focus:outline-none transition-colors font-mono appearance-none" required>
-                        <option value="" disabled selected>Select system error...</option>
-                        <option value="cognitive">ERR 01: Cognitive Load / Fog</option>
-                        <option value="biological">ERR 02: Biological Debt</option>
-                        <option value="leverage">ERR 03: Systemic Friction</option>
-                        <option value="state">ERR 04: Nervous System Volatility</option>
-                        <option value="time">ERR 05: Time Starvation</option>
-                    </select>
-                </div>
-                <button type="submit" class="w-full bg-brand-500/20 border border-brand-500 text-brand-400 font-bold py-4 mt-6 rounded hover:bg-brand-500 hover:text-obsidian transition-all uppercase tracking-[0.3em] text-[10px] font-mono shadow-glow">Execute Application</button>
-            </form>
+    <!-- Investment & Offer (Grand Slam) -->
+    <section id="offer" class="py-32 bg-carbon border-t border-white/10 reveal relative overflow-hidden">
+        <!-- Hexagon BG Pattern -->
+        <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(#A68A57 1px, transparent 1px); background-size: 30px 30px;"></div>
 
-            <!-- Custom Success UI State -->
-            <div id="success-state" class="hidden flex-col items-center justify-center py-10 animate-[fade-in_0.5s_ease-out]">
-                <div class="w-16 h-16 rounded-full border-2 border-brand-500 flex items-center justify-center mb-6 shadow-glow">
-                    <div class="w-8 h-8 bg-brand-500 rounded-full animate-pulse"></div>
-                </div>
-                <h4 class="font-serif text-2xl text-white italic mb-2">Transmission Secure</h4>
-                <p class="text-xs text-gray-400 font-mono leading-relaxed text-center">> Credentials verified.<br>> Telemetry team will contact you.</p>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+            <div class="text-center mb-20">
+                <span class="text-[10px] font-mono tracking-[0.3em] uppercase text-brand-500 block mb-4">Secure Installation</span>
+                <h2 class="font-serif text-5xl md:text-7xl mb-6 italic leading-tight text-white">The Ecosystem</h2>
+                <p class="text-gray-400 text-lg opacity-80 font-light max-w-2xl mx-auto">
+                    Eliminate the guesswork. When accepted into the reserve, you receive a complete, integrated architecture designed to make elite performance your biological default.
+                </p>
             </div>
+
+            <!-- Asset Stack Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left mb-20">
+
+                <!-- Core Engine -->
+                <div class="glass-panel p-10 rounded-2xl tilt-card illuminate-box">
+                    <div class="tilt-content">
+                        <h4 class="text-brand-400 text-[10px] font-mono uppercase tracking-[0.2em] mb-4 flex items-center"><span class="w-2 h-2 bg-brand-500 mr-2 rounded-sm"></span>The Core Engine</h4>
+                        <p class="text-2xl font-serif text-white mb-3">12-Week Calibration Protocol</p>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed">A total overhaul of your cognitive and biological operating system. We map your biometrics and install the exact protocols to reclaim capacity.</p>
+                    </div>
+                </div>
+
+                <!-- Asset 1 -->
+                <div class="glass-panel p-10 rounded-2xl tilt-card illuminate-box">
+                    <div class="tilt-content">
+                        <h4 class="text-gray-400 text-[10px] font-mono uppercase tracking-[0.2em] mb-4">Asset 01: Diagnostics</h4>
+                        <p class="text-xl font-serif text-white mb-3">24/7 Telemetry AI Portal</p>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed">Zero guesswork. Your biometrics (HRV, Sleep) integrate into our private dashboard, allowing us to monitor adaptation in real-time.</p>
+                    </div>
+                </div>
+
+                <!-- Asset 2 -->
+                <div class="glass-panel p-10 rounded-2xl tilt-card illuminate-box">
+                    <div class="tilt-content">
+                        <h4 class="text-gray-400 text-[10px] font-mono uppercase tracking-[0.2em] mb-4">Asset 02: Environment</h4>
+                        <p class="text-xl font-serif text-white mb-3">Category of One Boardroom</p>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed">Isolation kills performance. Gain exclusive access to closed-door roundtables with 7- and 8-figure founders calibrating at the same level.</p>
+                    </div>
+                </div>
+
+                <!-- Asset 3 -->
+                <div class="glass-panel p-10 rounded-2xl tilt-card illuminate-box">
+                    <div class="tilt-content">
+                        <h4 class="text-gray-400 text-[10px] font-mono uppercase tracking-[0.2em] mb-4">Asset 03: Hardware</h4>
+                        <p class="text-xl font-serif text-white mb-3">Signature Biometric Kit</p>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed">We ship you the exact biometric wearables and physiological tools necessary to execute the protocol. We provide the elite standard.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal CTA -->
+            <div class="bg-black border border-brand-500/30 p-10 md:p-14 rounded-3xl shadow-glow-intense transform transition-all relative text-center max-w-3xl mx-auto illuminate-box">
+                <!-- Scanner effect on CTA -->
+                <div class="absolute top-0 left-0 w-full h-[1px] bg-brand-500 opacity-50 shadow-[0_0_10px_#A68A57] animate-[scan_3s_infinite]"></div>
+
+                <span class="text-brand-500 text-[10px] font-mono tracking-[0.3em] uppercase block mb-6">> Secure Entry Point</span>
+                <h3 class="text-white font-serif text-3xl md:text-5xl mb-6 italic">The Friction Audit Guarantee</h3>
+                <p class="text-gray-400 mb-10 font-light text-sm md:text-base leading-relaxed">
+                    Before we invite you to install the ecosystem, we must prove the ROI. Apply for a clinical diagnostic. <strong class="text-white font-normal">If we cannot map out exactly how to reclaim 10+ hours of high-leverage capacity per week, we will not offer you a spot.</strong>
+                </p>
+                <button onclick="openBookingModal()" class="group relative inline-flex items-center justify-center px-12 py-5 font-mono text-xs tracking-[0.3em] text-obsidian bg-brand-500 uppercase rounded-full overflow-hidden transition-all hover:bg-white w-full sm:w-auto">
+                    <div class="absolute inset-0 w-full h-full bg-white/20 transform -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+                    <span class="relative font-bold">Submit Audit Application</span>
+                </button>
+                <div class="mt-6 flex items-center justify-center space-x-3 text-[9px] text-gray-400 uppercase font-mono tracking-widest">
+                    <div class="w-1.5 h-1.5 rounded-full bg-data-red animate-pulse shadow-[0_0_8px_#FF3366]"></div>
+                    <span>Strictly Limited to 5 New Audits / Month</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-obsidian py-12 border-t border-white/5 text-center relative z-10">
+    <div class="max-w-6xl mx-auto px-4">
+        <span class="font-serif text-2xl font-bold tracking-[0.3em] uppercase text-white opacity-10">Mastery</span>
+        <div class="mt-6 flex justify-center space-x-6 text-[9px] font-mono tracking-widest uppercase text-gray-400">
+            <a href="#" class="hover:text-brand-500 transition-colors">Protocol</a>
+            <a href="#" class="hover:text-brand-500 transition-colors">Privacy</a>
+            <a href="#" class="hover:text-brand-500 transition-colors">Telemetry Auth</a>
+        </div>
+        <p class="mt-6 text-[9px] font-mono tracking-widest opacity-30 text-white uppercase">&copy; 2026 Performance Mastery Systems</p>
+    </div>
+</footer>
+
+<!-- High-Tech Booking Modal -->
+<div id="booking-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center">
+    <div class="absolute inset-0 bg-obsidian/90 backdrop-blur-md transition-opacity" onclick="closeBookingModal()"></div>
+    <div class="relative bg-carbon w-full max-w-lg p-10 rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-brand-500/30 tilt-card">
+        <!-- Terminal Header -->
+        <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+            <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 rounded-full bg-brand-400 animate-pulse shadow-glow"></div>
+                <span class="text-[10px] font-mono tracking-[0.2em] uppercase text-brand-400">Secure Terminal</span>
+            </div>
+            <button onclick="closeBookingModal()" class="text-gray-500 hover:text-white transition-colors font-mono text-sm">[ ESC ]</button>
+        </div>
+
+        <div class="text-left mb-8">
+            <h3 class="font-serif text-3xl text-white italic mb-2">Initialize Audit</h3>
+            <p class="text-xs text-gray-400 font-mono leading-relaxed">> Provide credentials to request a 15-minute diagnostic. Availability restricted.</p>
+        </div>
+
+        <!-- Accessible Application Form -->
+        <form id="audit-form" class="space-y-5" onsubmit="handleFormSubmit(event)">
+            <div>
+                <label for="legal_name" class="block text-[9px] font-mono tracking-widest uppercase text-brand-500 mb-2">> Legal Name_</label>
+                <input id="legal_name" type="text" class="w-full bg-black border border-white/10 p-4 rounded text-sm text-white focus:border-brand-500 focus:outline-none transition-colors font-mono" placeholder="Input string..." required>
+            </div>
+            <div>
+                <label for="secure_email" class="block text-[9px] font-mono tracking-widest uppercase text-brand-500 mb-2">> Secure Email_</label>
+                <input id="secure_email" type="email" class="w-full bg-black border border-white/10 p-4 rounded text-sm text-white focus:border-brand-500 focus:outline-none transition-colors font-mono" placeholder="user@domain.com" required>
+            </div>
+            <div>
+                <label for="friction_point" class="block text-[9px] font-mono tracking-widest uppercase text-brand-500 mb-2">> Primary Friction Point_</label>
+                <select id="friction_point" class="w-full bg-black border border-white/10 p-4 rounded text-sm text-gray-400 focus:text-white focus:border-brand-500 focus:outline-none transition-colors font-mono appearance-none" required>
+                    <option value="" disabled selected>Select system error...</option>
+                    <option value="cognitive">ERR 01: Cognitive Load / Fog</option>
+                    <option value="biological">ERR 02: Biological Debt</option>
+                    <option value="leverage">ERR 03: Systemic Friction</option>
+                    <option value="state">ERR 04: Nervous System Volatility</option>
+                    <option value="time">ERR 05: Time Starvation</option>
+                </select>
+            </div>
+            <button type="submit" class="w-full bg-brand-500/20 border border-brand-500 text-brand-400 font-bold py-4 mt-6 rounded hover:bg-brand-500 hover:text-obsidian transition-all uppercase tracking-[0.3em] text-[10px] font-mono shadow-glow">Execute Application</button>
+        </form>
+
+        <!-- Custom Success UI State -->
+        <div id="success-state" class="hidden flex-col items-center justify-center py-10 animate-[fade-in_0.5s_ease-out]">
+            <div class="w-16 h-16 rounded-full border-2 border-brand-500 flex items-center justify-center mb-6 shadow-glow">
+                <div class="w-8 h-8 bg-brand-500 rounded-full animate-pulse"></div>
+            </div>
+            <h4 class="font-serif text-2xl text-white italic mb-2">Transmission Secure</h4>
+            <p class="text-xs text-gray-400 font-mono leading-relaxed text-center">> Credentials verified.<br>> Telemetry team will contact you.</p>
         </div>
     </div>
+</div>
 
-    <!-- Application Logic -->
-    <script>
-        // Data Structure
-        const pillars = [
-            { title: 'Cognitive Performance', desc: 'Mental acuity and high-fidelity output. Engineering focus states that process faster.', icon: '🧠', masteryScore: 10, gapScore: 6, label: 'Cognitive Friction' },
-            { title: 'Biological Vitality', desc: 'Physiological performance and aesthetics. Optimizing the hardware for resilience.', icon: '🔋', masteryScore: 10, gapScore: 5, label: 'Bio-Debt' },
-            { title: 'Systemic Leverage', desc: 'Strategy that feeds execution. Designing protocols that create effortless momentum.', icon: '⚙️', masteryScore: 10, gapScore: 4, label: 'Inefficient' },
-            { title: 'State Management', desc: 'Nervous system command. Biometric-verified arousal rituals for optimal focus baselines.', icon: '⚖️', masteryScore: 10, gapScore: 7, label: 'Reactive' },
-            { title: 'Identity Mastery', desc: 'Operating system installation. Shifting who you are to make elite performance a default state.', icon: '👑', masteryScore: 10, gapScore: 5, label: 'Inconsistent' },
-            { title: 'Temporal Mastery', desc: 'Time scaling and reclaimation. Engineering your calendar to ensure only leverage actions.', icon: '⏳', masteryScore: 10, gapScore: 3, label: 'Chasing' }
-        ];
+<!-- Application Logic -->
+<script>
+    // Data Structure
+    const pillars = [
+        { title: 'Cognitive Performance', desc: 'Mental acuity and high-fidelity output. Engineering focus states that process faster.', icon: '🧠', masteryScore: 10, gapScore: 6, label: 'Cognitive Friction' },
+        { title: 'Biological Vitality', desc: 'Physiological performance and aesthetics. Optimizing the hardware for resilience.', icon: '🔋', masteryScore: 10, gapScore: 5, label: 'Bio-Debt' },
+        { title: 'Systemic Leverage', desc: 'Strategy that feeds execution. Designing protocols that create effortless momentum.', icon: '⚙️', masteryScore: 10, gapScore: 4, label: 'Inefficient' },
+        { title: 'State Management', desc: 'Nervous system command. Biometric-verified arousal rituals for optimal focus baselines.', icon: '⚖️', masteryScore: 10, gapScore: 7, label: 'Reactive' },
+        { title: 'Identity Mastery', desc: 'Operating system installation. Shifting who you are to make elite performance a default state.', icon: '👑', masteryScore: 10, gapScore: 5, label: 'Inconsistent' },
+        { title: 'Temporal Mastery', desc: 'Time scaling and reclaimation. Engineering your calendar to ensure only leverage actions.', icon: '⏳', masteryScore: 10, gapScore: 3, label: 'Chasing' }
+    ];
 
-        let radarChart, impactChart, autoplayInterval, resumeTimeout;
-        let isUserInteracting = false; 
-        let currentPillarIndex = 0;
+    let radarChart, impactChart, autoplayInterval, resumeTimeout;
+    let isUserInteracting = false;
+    let currentPillarIndex = 0;
 
-        // --------------------------------------------------------
-        // Neural Network Canvas Background (Mobile Optimized)
-        // --------------------------------------------------------
-        function initNeuralNetwork() {
-            const canvas = document.getElementById('neural-canvas');
-            if (!canvas) return;
-            const ctx = canvas.getContext('2d');
-            if (!ctx) return;
-            let width, height, particles = [];
-            const mouse = { x: null, y: null, radius: 150 };
+    // --------------------------------------------------------
+    // Neural Network Canvas Background (Mobile Optimized)
+    // --------------------------------------------------------
+    function initNeuralNetwork() {
+        const canvas = document.getElementById('neural-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+        let width, height, particles = [];
+        const mouse = { x: null, y: null, radius: 150 };
 
-            function resize() {
-                width = canvas.width = window.innerWidth;
-                height = canvas.height = window.innerHeight;
-                initParticles();
-            }
-
-            // Mobile-Optimized Resize: Only recalculate if screen width changes significantly
-            let currentWidth = window.innerWidth;
-            window.addEventListener('resize', () => {
-                if (window.innerWidth !== currentWidth) {
-                    currentWidth = window.innerWidth;
-                    resize();
-                }
-            });
-
-            window.addEventListener('mousemove', (e) => {
-                mouse.x = e.x;
-                mouse.y = e.y;
-            });
-
-            class Particle {
-                constructor() {
-                    this.x = Math.random() * width;
-                    this.y = Math.random() * height;
-                    this.vx = (Math.random() - 0.5) * 0.5;
-                    this.vy = (Math.random() - 0.5) * 0.5;
-                    this.size = Math.random() * 1.5 + 0.5;
-                }
-                update() {
-                    this.x += this.vx;
-                    this.y += this.vy;
-                    if (this.x < 0 || this.x > width) this.vx = -this.vx;
-                    if (this.y < 0 || this.y > height) this.vy = -this.vy;
-
-                    if(mouse.x != null) {
-                        let dx = mouse.x - this.x;
-                        let dy = mouse.y - this.y;
-                        let distance = Math.sqrt(dx * dx + dy * dy);
-                        if (distance < mouse.radius) {
-                            const force = (mouse.radius - distance) / mouse.radius;
-                            this.x -= dx * force * 0.02;
-                            this.y -= dy * force * 0.02;
-                        }
-                    }
-                }
-                draw() {
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fillStyle = 'rgba(166, 138, 87, 0.3)';
-                    ctx.fill();
-                }
-            }
-
-            function initParticles() {
-                particles = [];
-                let numParticles = (width * height) / 15000;
-                for (let i = 0; i < numParticles; i++) particles.push(new Particle());
-            }
-
-            function animate() {
-                requestAnimationFrame(animate);
-                
-                // Battery Saver: Don't calculate or draw if tab is not visible
-                if (document.hidden) return; 
-                
-                ctx.clearRect(0, 0, width, height);
-                
-                for (let i = 0; i < particles.length; i++) {
-                    particles[i].update();
-                    particles[i].draw();
-                    
-                    for (let j = i; j < particles.length; j++) {
-                        let dx = particles[i].x - particles[j].x;
-                        let dy = particles[i].y - particles[j].y;
-                        let distance = Math.sqrt(dx * dx + dy * dy);
-                        
-                        if (distance < 100) {
-                            ctx.beginPath();
-                            ctx.strokeStyle = `rgba(166, 138, 87, ${0.15 * (1 - distance/100)})`;
-                            ctx.lineWidth = 0.5;
-                            ctx.moveTo(particles[i].x, particles[i].y);
-                            ctx.lineTo(particles[j].x, particles[j].y);
-                            ctx.stroke();
-                        }
-                    }
-                }
-            }
-
-            resize();
-            animate();
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            initParticles();
         }
 
-        // --------------------------------------------------------
-        // Form Submission Logic (Enterprise UI Fix)
-        // --------------------------------------------------------
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            const form = document.getElementById('audit-form');
-            const success = document.getElementById('success-state');
-            
-            form.classList.add('hidden');
-            success.classList.remove('hidden');
-            success.classList.add('flex');
-            
-            setTimeout(() => {
-                closeBookingModal();
-            }, 4000);
-        }
-
-        // --------------------------------------------------------
-        // 3D Tilt Effect Setup (Touch Guard Enabled)
-        // --------------------------------------------------------
-        function initTiltCards() {
-            // Guard clause: Ensure this complex hover math ONLY runs on devices with a mouse
-            if (!window.matchMedia("(pointer: fine)").matches) return; 
-
-            const cards = document.querySelectorAll('.tilt-card');
-            cards.forEach(card => {
-                card.addEventListener('mousemove', e => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    const multiplier = 10;
-                    const xRotate = multiplier * ((y - rect.height / 2) / rect.height);
-                    const yRotate = -multiplier * ((x - rect.width / 2) / rect.width);
-                    
-                    card.style.transform = `perspective(1000px) rotateX(${xRotate}deg) rotateY(${yRotate}deg) scale3d(1.02, 1.02, 1.02)`;
-                });
-                
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-                });
-            });
-        }
-
-        // --------------------------------------------------------
-        // Text Scramble Effect (Terminal Boot)
-        // --------------------------------------------------------
-        class TextScramble {
-            constructor(el) {
-                this.el = el;
-                this.chars = '!<>-_\\/[]{}—=+*^?#________';
-                this.update = this.update.bind(this);
+        // Mobile-Optimized Resize: Only recalculate if screen width changes significantly
+        // Prevents massive CPU spikes when mobile address bar hides/shows on scroll
+        let currentWidth = window.innerWidth;
+        window.addEventListener('resize', () => {
+            if (window.innerWidth !== currentWidth) {
+                currentWidth = window.innerWidth;
+                resize();
             }
-            setText(newText) {
-                const oldText = this.el.innerText;
-                const length = Math.max(oldText.length, newText.length);
-                const promise = new Promise((resolve) => this.resolve = resolve);
-                this.queue = [];
-                for (let i = 0; i < length; i++) {
-                    const from = oldText[i] || '';
-                    const to = newText[i] || '';
-                    const start = Math.floor(Math.random() * 40);
-                    const end = start + Math.floor(Math.random() * 40);
-                    this.queue.push({ from, to, start, end });
-                }
-                cancelAnimationFrame(this.frameRequest);
-                this.frame = 0;
-                this.update();
-                return promise;
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+        });
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 1.5 + 0.5;
             }
             update() {
-                let output = '';
-                let complete = 0;
-                for (let i = 0, n = this.queue.length; i < n; i++) {
-                    let { from, to, start, end, char } = this.queue[i];
-                    if (this.frame >= end) {
-                        complete++;
-                        output += to;
-                    } else if (this.frame >= start) {
-                        if (!char || Math.random() < 0.28) {
-                            char = this.randomChar();
-                            this.queue[i].char = char;
-                        }
-                        output += `<span class="text-brand-500 opacity-50">${char}</span>`;
-                    } else {
-                        output += from;
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0 || this.x > width) this.vx = -this.vx;
+                if (this.y < 0 || this.y > height) this.vy = -this.vy;
+
+                if(mouse.x != null) {
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < mouse.radius) {
+                        const force = (mouse.radius - distance) / mouse.radius;
+                        this.x -= dx * force * 0.02;
+                        this.y -= dy * force * 0.02;
                     }
                 }
-                this.el.innerHTML = output;
-                if (complete === this.queue.length) {
-                    this.resolve();
-                } else {
-                    this.frameRequest = requestAnimationFrame(this.update);
-                    this.frame++;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(166, 138, 87, 0.3)';
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            let numParticles = (width * height) / 15000;
+            for (let i = 0; i < numParticles; i++) particles.push(new Particle());
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Battery Saver: Don't calculate or draw if tab is not visible
+            if (document.hidden) return;
+
+            ctx.clearRect(0, 0, width, height);
+
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+
+                for (let j = i; j < particles.length; j++) {
+                    let dx = particles[i].x - particles[j].x;
+                    let dy = particles[i].y - particles[j].y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 100) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(166, 138, 87, ${0.15 * (1 - distance/100)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
                 }
             }
-            randomChar() {
-                return this.chars[Math.floor(Math.random() * this.chars.length)];
+        }
+
+        resize();
+        animate();
+    }
+
+    // --------------------------------------------------------
+    // Form Submission Logic (Enterprise UI Fix)
+    // --------------------------------------------------------
+    function handleFormSubmit(e) {
+        e.preventDefault();
+        const form = document.getElementById('audit-form');
+        const success = document.getElementById('success-state');
+
+        form.classList.add('hidden');
+        success.classList.remove('hidden');
+        success.classList.add('flex');
+
+        // Auto close modal after successful transmission read
+        setTimeout(() => {
+            closeBookingModal();
+        }, 4000);
+    }
+
+    // --------------------------------------------------------
+    // 3D Tilt Effect Setup (Touch Guard Enabled)
+    // --------------------------------------------------------
+    function initTiltCards() {
+        // Guard clause: Ensure this complex hover math ONLY runs on devices with a mouse
+        if (!window.matchMedia("(pointer: fine)").matches) return;
+
+        const cards = document.querySelectorAll('.tilt-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const multiplier = 10;
+                const xRotate = multiplier * ((y - rect.height / 2) / rect.height);
+                const yRotate = -multiplier * ((x - rect.width / 2) / rect.width);
+
+                card.style.transform = `perspective(1000px) rotateX(${xRotate}deg) rotateY(${yRotate}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+            });
+        });
+    }
+
+    // --------------------------------------------------------
+    // Text Scramble Effect (Terminal Boot)
+    // --------------------------------------------------------
+    class TextScramble {
+        constructor(el) {
+            this.el = el;
+            this.chars = '!<>-_\\\\/[]{}—=+*^?#________';
+            this.update = this.update.bind(this);
+        }
+        setText(newText) {
+            const oldText = this.el.innerText;
+            const length = Math.max(oldText.length, newText.length);
+            const promise = new Promise((resolve) => this.resolve = resolve);
+            this.queue = [];
+            for (let i = 0; i < length; i++) {
+                const from = oldText[i] || '';
+                const to = newText[i] || '';
+                const start = Math.floor(Math.random() * 40);
+                const end = start + Math.floor(Math.random() * 40);
+                this.queue.push({ from, to, start, end });
+            }
+            cancelAnimationFrame(this.frameRequest);
+            this.frame = 0;
+            this.update();
+            return promise;
+        }
+        update() {
+            let output = '';
+            let complete = 0;
+            for (let i = 0, n = this.queue.length; i < n; i++) {
+                let { from, to, start, end, char } = this.queue[i];
+                if (this.frame >= end) {
+                    complete++;
+                    output += to;
+                } else if (this.frame >= start) {
+                    if (!char || Math.random() < 0.28) {
+                        char = this.randomChar();
+                        this.queue[i].char = char;
+                    }
+                    output += `<span class="text-brand-500 opacity-50">${char}</span>`;
+                } else {
+                    output += from;
+                }
+            }
+            this.el.innerHTML = output;
+            if (complete === this.queue.length) {
+                this.resolve();
+            } else {
+                this.frameRequest = requestAnimationFrame(this.update);
+                this.frame++;
             }
         }
-
-        function initScramble() {
-            const phrases = document.querySelectorAll('.scramble-text');
-            phrases.forEach(el => {
-                const text = el.getAttribute('data-text') || el.innerText;
-                el.classList.add('decoded');
-                const fx = new TextScramble(el);
-                
-                setTimeout(() => {
-                    fx.setText(text.replace('Eliminate Friction.', '')).then(() => {
-                        el.innerHTML = `Calibrate Your Output.<br><span class="italic text-brand-500" style="color: #A68A57;">Eliminate Friction.</span>`;
-                    });
-                }, 100);
-            });
+        randomChar() {
+            return this.chars[Math.floor(Math.random() * this.chars.length)];
         }
+    }
 
+    function initScramble() {
+        const phrases = document.querySelectorAll('.scramble-text');
+        phrases.forEach(el => {
+            const text = el.getAttribute('data-text') || el.innerText;
+            // Removed el.innerText = '' to prevent LCP blanking
+            el.classList.add('decoded');
+            const fx = new TextScramble(el);
 
-        // --------------------------------------------------------
-        // Core Logic (Deferred for Lighthouse FCP Optimization)
-        // --------------------------------------------------------
-        document.addEventListener('DOMContentLoaded', () => {
-            // 1. Instant UI Setup (No heavy math blocking the paint)
-            initScramble();
-            renderPillarList();
-            updatePillarDetail(0);
-            
-            // 2. Defer heavy thread-blocking tasks until AFTER first paint
-            requestAnimationFrame(() => {
-                setTimeout(() => {
-                    initNeuralNetwork();
-                    setupIntersectionObserver();
-                    initTiltCards();
-                    setupScrollSpy();
-                }, 100); // Yield to main thread for paint
+            setTimeout(() => {
+                fx.setText(text.replace('Eliminate Friction.', '')).then(() => {
+                    el.innerHTML = `Calibrate Your Output.<br><span class="italic text-brand-500">Eliminate Friction.</span>`;
+                });
+            }, 100);
+        });
+    }
+
+    // --------------------------------------------------------
+    // Core Logic (Charts & Interactivity)
+    // --------------------------------------------------------
+    document.addEventListener('DOMContentLoaded', () => {
+        initNeuralNetwork();
+        initRadarChart();
+        initImpactChart();
+        renderPillarList();
+        setupIntersectionObserver();
+        setupScrollSpy();
+        initTiltCards();
+        initScramble();
+        updatePillarDetail(0);
+
+        // Nav background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav-container').firstElementChild;
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-carbon/90', 'shadow-lg');
+            } else {
+                nav.classList.remove('bg-carbon/90', 'shadow-lg');
+            }
+        });
+    });
+
+    // Toggle Logic UI Update
+    function toggleLogic(mode) {
+        const title = document.getElementById('logic-title');
+        const text = document.getElementById('logic-text');
+        const content = document.getElementById('logic-content');
+        const btnBetter = document.getElementById('btn-better');
+        const btnDifferent = document.getElementById('btn-different');
+        const tags = document.getElementById('logic-tags');
+        const bg = document.getElementById('toggle-bg');
+        const dot = document.getElementById('logic-dot');
+        const status = document.getElementById('logic-status');
+
+        content.classList.add('fade-out');
+
+        setTimeout(() => {
+            if (mode === 'better') {
+                bg.style.transform = 'translateX(0)';
+                btnBetter.className = "relative z-10 px-8 py-3 rounded-full text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-white w-48";
+                btnDifferent.className = "relative z-10 px-8 py-3 rounded-full text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-gray-500 hover:text-white w-48";
+
+                title.innerText = 'The Intensity Trap';
+                text.innerText = 'Skeptics are right: Intensity alone is a path to burnout. Most high-performers are over-leveraged and under-calibrated. We don\\'t focus on pushing harder; we focus on the efficiency of your biological engine.';
+                dot.className = "w-1 h-1 bg-data-red rounded-full";
+                status.innerText = "Warning: Systemic Drag Detected";
+                status.className = "text-[8px] font-mono tracking-widest text-data-red uppercase";
+                tags.innerHTML = `<span class="text-[9px] tracking-[0.2em] uppercase border-b border-gray-700 pb-1">Systemic Friction</span><span class="text-[9px] tracking-[0.2em] uppercase border-b border-gray-700 pb-1">Cognitive Decay</span><span class="text-[9px] tracking-[0.2em] uppercase border-b border-gray-700 pb-1">Biological Debt</span>`;
+            } else {
+                bg.style.transform = 'translateX(100%)';
+                btnDifferent.className = "relative z-10 px-8 py-3 rounded-full text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-white w-48";
+                btnBetter.className = "relative z-10 px-8 py-3 rounded-full text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-gray-500 hover:text-white w-48";
+
+                title.innerText = 'Mastery Calibration';
+                text.innerText = 'True "Category of One" status comes from biometric-verified calibration. Instead of pushing the engine to redline, we re-engineer the engine itself. This makes your results inevitable and sustainable.';
+                dot.className = "w-1 h-1 bg-brand-400 rounded-full animate-pulse shadow-[0_0_8px_#C2A366]";
+                status.innerText = "Optimal Protocol Verified";
+                status.className = "text-[8px] font-mono tracking-widest text-brand-400 uppercase";
+                tags.innerHTML = `<span class="text-[9px] tracking-[0.2em] uppercase border-b border-brand-500/50 text-brand-400 pb-1">Systemic Leverage</span><span class="text-[9px] tracking-[0.2em] uppercase border-b border-brand-500/50 text-brand-400 pb-1">Cognitive Acuity</span><span class="text-[9px] tracking-[0.2em] uppercase border-b border-brand-500/50 text-brand-400 pb-1">Biological Surplus</span>`;
+            }
+            content.classList.remove('fade-out');
+        }, 300);
+    }
+
+    // HUD List Generation
+    function renderPillarList() {
+        const container = document.getElementById('pillar-list');
+        container.innerHTML = '';
+        pillars.forEach((p, i) => {
+            const card = document.createElement('div');
+            card.className = `p-3 sm:p-4 rounded-lg border flex flex-col justify-center transition-all cursor-pointer tilt-card illuminate-box border-white/5 bg-white/5 text-gray-400`;
+            card.id = `pillar-card-${i}`;
+            card.onclick = () => {
+                isUserInteracting = true;
+                clearInterval(autoplayInterval);
+                clearTimeout(resumeTimeout);
+
+                updatePillarDetail(i);
+
+                // Autoplay Resumption Logic: Restart scanning after 10s of inactivity
+                resumeTimeout = setTimeout(() => {
+                    isUserInteracting = false;
+                    startHudAutoplay();
+                }, 10000);
+            };
+            card.innerHTML = `
+                <div class="tilt-content">
+                    <div class="flex justify-between items-center w-full mb-2">
+                        <span class="text-[8px] font-mono uppercase tracking-widest">Sys_0${i+1}</span>
+                        <span class="text-sm opacity-90">${p.icon}</span>
+                    </div>
+                    <span class="text-[9px] sm:text-[10px] font-mono tracking-widest uppercase truncate w-full text-left block">${p.title}</span>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+        initTiltCards();
+    }
+
+    // HUD Detail Update
+    function updatePillarDetail(index) {
+        currentPillarIndex = index;
+
+        const p = pillars[index];
+        const detail = document.getElementById('pillar-detail');
+
+        detail.style.opacity = '0.3';
+        setTimeout(() => {
+            document.getElementById('detail-title').innerText = p.title;
+            document.getElementById('detail-desc').innerText = p.desc;
+            document.getElementById('detail-icon').innerText = p.icon;
+            document.getElementById('detail-category').innerText = `SYS_0${index + 1}`;
+            document.getElementById('label-left').innerText = p.label;
+
+            const bar = document.getElementById('detail-bar');
+            bar.style.width = '0%';
+
+            if (radarChart && radarChart.data.datasets.length > 1) {
+                bar.className = 'bg-data-red h-full w-full transition-all duration-1000 shadow-[0_0_15px_#FF3366] relative';
+                bar.style.width = `${(p.gapScore/10)*100}%`;
+            } else {
+                bar.className = 'bg-brand-500 h-full w-full transition-all duration-1000 shadow-[0_0_15px_rgba(166,138,87,0.8)] relative';
+                bar.style.width = '100%';
+            }
+
+            detail.style.opacity = '1';
+        }, 200);
+    }
+
+    // HUD Auto-Cycle
+    function startHudAutoplay() {
+        if (isUserInteracting) return;
+        clearInterval(autoplayInterval);
+        autoplayInterval = setInterval(() => {
+            currentPillarIndex = (currentPillarIndex + 1) % pillars.length;
+            updatePillarDetail(currentPillarIndex);
+        }, 3500);
+    }
+
+    // Chart.js (Dark Mode Optimized)
+    function initRadarChart() {
+        if(typeof Chart === 'undefined') return;
+        Chart.defaults.color = '#666';
+        Chart.defaults.font.family = '"JetBrains Mono", monospace';
+
+        const ctx = document.getElementById('masteryRadar').getContext('2d');
+        radarChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: pillars.map(p => p.title.split(' ')[0]),
+                datasets: [{
+                    label: 'Mastery',
+                    data: pillars.map(p => p.masteryScore),
+                    backgroundColor: 'rgba(166, 138, 87, 0.1)',
+                    borderColor: '#A68A57',
+                    borderWidth: 1.5,
+                    pointBackgroundColor: '#C2A366',
+                    pointBorderColor: '#1A1A1A',
+                    pointRadius: 4,
+                    pointHoverRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(255, 255, 255, 0.05)' },
+                        grid: { color: 'rgba(255, 255, 255, 0.05)', circular: true },
+                        pointLabels: {
+                            font: { size: window.innerWidth < 768 ? 9 : 11, weight: '400' },
+                            color: '#A68A57'
+                        },
+                        ticks: { display: false },
+                        suggestedMin: 0, suggestedMax: 10
+                    }
+                },
+                plugins: { legend: { display: false }, tooltip: { enabled: false } }
+            }
+        });
+    }
+
+    function initImpactChart() {
+        if(typeof Chart === 'undefined') return;
+        const ctx = document.getElementById('impactGaugeChart').getContext('2d');
+
+        let gradient = ctx.createLinearGradient(0, 0, 0, 400);
+        gradient.addColorStop(0, 'rgba(166, 138, 87, 0.4)');
+        gradient.addColorStop(1, 'rgba(166, 138, 87, 0.0)');
+
+        impactChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Start', 'Month 3', 'Month 6', 'Month 9', 'Month 12'],
+                datasets: [
+                    {
+                        label: 'Mastery Installation',
+                        data: [65, 82, 92, 95, 99],
+                        borderColor: '#A68A57',
+                        borderWidth: 3,
+                        tension: 0.4,
+                        fill: true,
+                        backgroundColor: gradient,
+                        pointRadius: 4,
+                        pointBackgroundColor: '#C2A366',
+                        pointBorderColor: '#050505',
+                        pointBorderWidth: 2
+                    },
+                    {
+                        label: 'Linear Effort',
+                        data: [60, 72, 58, 45, 30],
+                        borderColor: '#333',
+                        borderWidth: 2,
+                        borderDash: [5, 5],
+                        tension: 0.3,
+                        fill: false,
+                        pointRadius: 0
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                scales: {
+                    x: { display: true, grid: { display: false }, border: {display: false}, ticks: { font: { size: 10 }, color: '#666' } },
+                    y: { display: false, suggestedMin: 0, suggestedMax: 110 }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: 'rgba(18, 18, 18, 0.9)',
+                        titleFont: { size: 11, family: '"JetBrains Mono", monospace' },
+                        bodyFont: { size: 13, family: '"Inter", sans-serif' },
+                        padding: 12,
+                        borderColor: 'rgba(166, 138, 87, 0.5)',
+                        borderWidth: 1,
+                        displayColors: false,
+                        callbacks: {
+                            label: function(context) { return `${context.dataset.label}: ${context.parsed.y} Output`; }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    function setChartData(mode) {
+        if (mode === 'gap') {
+            radarChart.data.datasets = [
+                { label: 'Mastery', data: pillars.map(p => 10), borderColor: 'rgba(166, 138, 87, 0.3)', borderWidth: 1, borderDash: [4, 4], pointRadius: 0, backgroundColor: 'transparent' },
+                { label: 'Diagnostic Leak', data: pillars.map(p => p.gapScore), borderColor: '#FF3366', backgroundColor: 'rgba(255, 51, 102, 0.1)', borderWidth: 2, pointBackgroundColor: '#FF3366', pointBorderColor: '#050505' }
+            ];
+        } else {
+            radarChart.data.datasets = [{ label: 'Mastery', data: pillars.map(p => 10), backgroundColor: 'rgba(166, 138, 87, 0.1)', borderColor: '#A68A57', borderWidth: 1.5, pointBackgroundColor: '#C2A366', pointBorderColor: '#1A1A1A' }];
+        }
+        radarChart.update();
+        updatePillarDetail(currentPillarIndex);
+    }
+
+    // Stats Counter
+    function animateStats() {
+        const stats = document.querySelectorAll('.stat-value');
+        stats.forEach(stat => {
+            if(stat.classList.contains('animated')) return;
+            stat.classList.add('animated');
+
+            const target = parseInt(stat.getAttribute('data-target'));
+            const duration = 2500;
+            let startTime = null;
+
+            const animate = (timestamp) => {
+                if (!startTime) startTime = timestamp;
+                const progress = Math.min((timestamp - startTime) / duration, 1);
+                const ease = 1 - Math.pow(1 - progress, 4);
+                const current = Math.floor(ease * target);
+                stat.innerText = (target > 0 ? '+' : '') + current;
+                if (progress < 1) requestAnimationFrame(animate);
+                else stat.innerText = (target > 0 ? '+' : '') + target;
+            };
+            requestAnimationFrame(animate);
+        });
+    }
+
+    // Display Step
+    function showStep(id) {
+        const quotes = [
+            { quote: "If you aren't measuring the 6 buckets with biometrics, you're guessing.", sub: "> Phase 01: Friction Audit" },
+            { quote: "Calibration is the cure for linear, exhausting effort.", sub: "> Phase 02: Hardware Calibration" },
+            { quote: "Identity is the final operating system. Integration makes Mastery a biological default.", sub: "> Phase 03: Identity Installation" }
+        ];
+        const display = document.getElementById('step-display');
+        display.style.opacity = '0.3';
+        display.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+            document.getElementById('step-quote').innerText = `"${quotes[id-1].quote}"`;
+            document.getElementById('step-sub').innerText = quotes[id-1].sub;
+            display.style.opacity = '1';
+            display.style.transform = 'scale(1)';
+        }, 300);
+    }
+
+    // Scroll Observers
+    function setupIntersectionObserver() {
+        let chartsInitialized = false;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    if (entry.target.id === 'impact') animateStats();
+                    if (entry.target.id === 'model') {
+                        if (!chartsInitialized) {
+                            // Fallback init if deferred chart.js loaded after observer
+                            initRadarChart();
+                            initImpactChart();
+                            chartsInitialized = true;
+                        }
+                        startHudAutoplay();
+                    }
+                    else { clearInterval(autoplayInterval); autoplayInterval = null; }
+                }
             });
+        }, { threshold: 0.15 });
 
-            // Nav background on scroll
-            window.addEventListener('scroll', () => {
-                const nav = document.getElementById('main-nav-container');
-                if(!nav) return;
-                const navChild = nav.firstElementChild;
-                if (window.scrollY > 50) {
-                    navChild.classList.add('bg-carbon/90', 'shadow-lg');
-                } else {
-                    navChild.classList.remove('bg-carbon/90', 'shadow-lg');
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    }
+
+    function setupScrollSpy() {
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('.nav-item');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                if (pageYOffset >= (section.offsetTop - 200)) current = section.getAttribute('id');
+            });
+            navItems.forEach(item => {
+                item.classList.remove('text-brand-500');
+                item.classList.add('text-gray-400');
+                if (item.getAttribute('href').includes(current)) {
+                    item.classList.remove('text-gray-400');
+                    item.classList.add('text-brand-500');
                 }
             });
         });
+    }
 
-        // Toggle Logic UI Update
-        function toggleLogic(mode) {
-            const title = document.getElementById('logic-title');
-            const text = document.getElementById('logic-text');
-            const content = document.getElementById('logic-content');
-            const btnBetter = document.getElementById('btn-better');
-            const btnDifferent = document.getElementById('btn-different');
-            const tags = document.getElementById('logic-tags');
-            const bg = document.getElementById('toggle-bg');
-            const dot = document.getElementById('logic-dot');
-            const status = document.getElementById('logic-status');
+    // Modal
+    function openBookingModal() {
+        document.getElementById('booking-modal').classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeBookingModal() {
+        document.getElementById('booking-modal').classList.add('hidden');
+        document.body.style.overflow = '';
 
-            content.classList.add('fade-out');
-            
-            setTimeout(() => {
-                if (mode === 'better') {
-                    bg.style.transform = 'translateX(0)';
-                    btnBetter.className = "relative z-10 px-8 py-3 rounded-full text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-white w-48";
-                    btnDifferent.className = "relative z-10 px-8 py-3 rounded-full text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-gray-500 hover:text-white w-48";
-                    
-                    title.innerText = 'The Intensity Trap';
-                    text.innerText = 'Skeptics are right: Intensity alone is a path to burnout. Most high-performers are over-leveraged and under-calibrated. We don\'t focus on pushing harder; we focus on the efficiency of your biological engine.';
-                    dot.className = "w-1 h-1 bg-data-red rounded-full";
-                    status.innerText = "Warning: Systemic Drag Detected";
-                    status.className = "text-[8px] font-mono tracking-widest text-data-red uppercase";
-                    tags.innerHTML = `<span class="text-[9px] tracking-[0.2em] uppercase border-b border-gray-700 pb-1">Systemic Friction</span><span class="text-[9px] tracking-[0.2em] uppercase border-b border-gray-700 pb-1">Cognitive Decay</span><span class="text-[9px] tracking-[0.2em] uppercase border-b border-gray-700 pb-1">Biological Debt</span>`;
-                } else {
-                    bg.style.transform = 'translateX(100%)';
-                    btnDifferent.className = "relative z-10 px-8 py-3 rounded-full text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-white w-48";
-                    btnBetter.className = "relative z-10 px-8 py-3 rounded-full text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-gray-500 hover:text-white w-48";
-                    
-                    title.innerText = 'Mastery Calibration';
-                    text.innerText = 'True "Category of One" status comes from biometric-verified calibration. Instead of pushing the engine to redline, we re-engineer the engine itself. This makes your results inevitable and sustainable.';
-                    dot.className = "w-1 h-1 bg-brand-400 rounded-full animate-pulse shadow-[0_0_8px_#C2A366]";
-                    status.innerText = "Optimal Protocol Verified";
-                    status.className = "text-[8px] font-mono tracking-widest text-brand-400 uppercase";
-                    tags.innerHTML = `<span class="text-[9px] tracking-[0.2em] uppercase border-b border-brand-500/50 text-brand-400 pb-1">Systemic Leverage</span><span class="text-[9px] tracking-[0.2em] uppercase border-b border-brand-500/50 text-brand-400 pb-1">Cognitive Acuity</span><span class="text-[9px] tracking-[0.2em] uppercase border-b border-brand-500/50 text-brand-400 pb-1">Biological Surplus</span>`;
-                }
-                content.classList.remove('fade-out');
-            }, 300);
-        }
+        setTimeout(() => {
+            document.getElementById('audit-form').reset();
+            document.getElementById('audit-form').classList.remove('hidden');
+            document.getElementById('success-state').classList.add('hidden');
+            document.getElementById('success-state').classList.remove('flex');
+        }, 500);
+    }
+</script>
+```
 
-        // HUD List Generation
-        function renderPillarList() {
-            const container = document.getElementById('pillar-list');
-            container.innerHTML = '';
-            pillars.forEach((p, i) => {
-                const card = document.createElement('div');
-                card.className = `p-3 sm:p-4 rounded-lg border flex flex-col justify-center transition-all cursor-pointer tilt-card illuminate-box border-white/5 bg-white/5 text-gray-400`;
-                card.id = `pillar-card-${i}`;
-                card.onclick = () => {
-                    isUserInteracting = true;
-                    clearInterval(autoplayInterval);
-                    clearTimeout(resumeTimeout); 
-                    
-                    updatePillarDetail(i);
-
-                    resumeTimeout = setTimeout(() => {
-                        isUserInteracting = false;
-                        startHudAutoplay();
-                    }, 10000);
-                };
-                card.innerHTML = `
-                    <div class="tilt-content">
-                        <div class="flex justify-between items-center w-full mb-2">
-                            <span class="text-[8px] font-mono uppercase tracking-widest">Sys_0${i+1}</span>
-                            <span class="text-sm opacity-90">${p.icon}</span>
-                        </div>
-                        <span class="text-[9px] sm:text-[10px] font-mono tracking-widest uppercase truncate w-full text-left block">${p.title}</span>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        // HUD Detail Update
-        function updatePillarDetail(index) {
-            currentPillarIndex = index;
-
-            const p = pillars[index];
-            const detail = document.getElementById('pillar-detail');
-            
-            detail.style.opacity = '0.3';
-            setTimeout(() => {
-                document.getElementById('detail-title').innerText = p.title;
-                document.getElementById('detail-desc').innerText = p.desc;
-                document.getElementById('detail-icon').innerText = p.icon;
-                document.getElementById('detail-category').innerText = `SYS_0${index + 1}`;
-                document.getElementById('label-left').innerText = p.label;
-                
-                const bar = document.getElementById('detail-bar');
-                bar.style.width = '0%';
-                
-                if (radarChart && radarChart.data && radarChart.data.datasets.length > 1) { 
-                    bar.className = 'bg-data-red h-full w-full transition-all duration-1000 shadow-[0_0_15px_#FF3366] relative';
-                    bar.style.width = `${(p.gapScore/10)*100}%`;
-                } else {
-                    bar.className = 'bg-brand-500 h-full w-full transition-all duration-1000 shadow-[0_0_15px_rgba(166,138,87,0.8)] relative';
-                    bar.style.width = '100%';
-                }
-                
-                detail.style.opacity = '1';
-            }, 200);
-        }
-
-        // HUD Auto-Cycle
-        function startHudAutoplay() {
-            if (isUserInteracting) return;
-            clearInterval(autoplayInterval); 
-            autoplayInterval = setInterval(() => {
-                currentPillarIndex = (currentPillarIndex + 1) % pillars.length;
-                updatePillarDetail(currentPillarIndex);
-            }, 3500);
-        }
-
-        // Chart.js (Dark Mode Optimized)
-        function initRadarChart() {
-            if(typeof Chart === 'undefined') return;
-            Chart.defaults.color = '#666';
-            Chart.defaults.font.family = '"JetBrains Mono", monospace';
-
-            const ctx = document.getElementById('masteryRadar').getContext('2d');
-            radarChart = new Chart(ctx, {
-                type: 'radar',
-                data: {
-                    labels: pillars.map(p => p.title.split(' ')[0]),
-                    datasets: [{
-                        label: 'Mastery',
-                        data: pillars.map(p => p.masteryScore),
-                        backgroundColor: 'rgba(166, 138, 87, 0.1)',
-                        borderColor: '#A68A57',
-                        borderWidth: 1.5,
-                        pointBackgroundColor: '#C2A366',
-                        pointBorderColor: '#1A1A1A',
-                        pointRadius: 4,
-                        pointHoverRadius: 6
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        r: {
-                            angleLines: { color: 'rgba(255, 255, 255, 0.05)' },
-                            grid: { color: 'rgba(255, 255, 255, 0.05)', circular: true },
-                            pointLabels: {
-                                font: { size: window.innerWidth < 768 ? 9 : 11, weight: '400' },
-                                color: '#A68A57'
-                            },
-                            ticks: { display: false },
-                            suggestedMin: 0, suggestedMax: 10
-                        }
-                    },
-                    plugins: { legend: { display: false }, tooltip: { enabled: false } }
-                }
-            });
-        }
-
-        function initImpactChart() {
-            if(typeof Chart === 'undefined') return;
-            const ctx = document.getElementById('impactGaugeChart').getContext('2d');
-            
-            let gradient = ctx.createLinearGradient(0, 0, 0, 400);
-            gradient.addColorStop(0, 'rgba(166, 138, 87, 0.4)');
-            gradient.addColorStop(1, 'rgba(166, 138, 87, 0.0)');
-
-            impactChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: ['Start', 'Month 3', 'Month 6', 'Month 9', 'Month 12'],
-                    datasets: [
-                        {
-                            label: 'Mastery Installation',
-                            data: [65, 82, 92, 95, 99],
-                            borderColor: '#A68A57',
-                            borderWidth: 3,
-                            tension: 0.4,
-                            fill: true,
-                            backgroundColor: gradient,
-                            pointRadius: 4,
-                            pointBackgroundColor: '#C2A366',
-                            pointBorderColor: '#050505',
-                            pointBorderWidth: 2
-                        },
-                        {
-                            label: 'Linear Effort',
-                            data: [60, 72, 58, 45, 30],
-                            borderColor: '#333',
-                            borderWidth: 2,
-                            borderDash: [5, 5],
-                            tension: 0.3,
-                            fill: false,
-                            pointRadius: 0
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    interaction: { mode: 'index', intersect: false },
-                    scales: {
-                        x: { display: true, grid: { display: false }, border: {display: false}, ticks: { font: { size: 10 }, color: '#666' } },
-                        y: { display: false, suggestedMin: 0, suggestedMax: 110 }
-                    },
-                    plugins: { 
-                        legend: { display: false },
-                        tooltip: {
-                            backgroundColor: 'rgba(18, 18, 18, 0.9)',
-                            titleFont: { size: 11, family: '"JetBrains Mono", monospace' },
-                            bodyFont: { size: 13, family: '"Inter", sans-serif' },
-                            padding: 12,
-                            borderColor: 'rgba(166, 138, 87, 0.5)',
-                            borderWidth: 1,
-                            displayColors: false,
-                            callbacks: {
-                                label: function(context) { return `${context.dataset.label}: ${context.parsed.y} Output`; }
-                            }
-                        }
-                    }
-                }
-            });
-        }
-
-        function setChartData(mode) {
-            if (mode === 'gap') {
-                radarChart.data.datasets = [
-                    { label: 'Mastery', data: pillars.map(p => 10), borderColor: 'rgba(166, 138, 87, 0.3)', borderWidth: 1, borderDash: [4, 4], pointRadius: 0, backgroundColor: 'transparent' },
-                    { label: 'Diagnostic Leak', data: pillars.map(p => p.gapScore), borderColor: '#FF3366', backgroundColor: 'rgba(255, 51, 102, 0.1)', borderWidth: 2, pointBackgroundColor: '#FF3366', pointBorderColor: '#050505' }
-                ];
-            } else {
-                radarChart.data.datasets = [{ label: 'Mastery', data: pillars.map(p => 10), backgroundColor: 'rgba(166, 138, 87, 0.1)', borderColor: '#A68A57', borderWidth: 1.5, pointBackgroundColor: '#C2A366', pointBorderColor: '#1A1A1A' }];
-            }
-            radarChart.update();
-            updatePillarDetail(currentPillarIndex);
-        }
-
-        // Stats Counter
-        function animateStats() {
-            const stats = document.querySelectorAll('.stat-value');
-            stats.forEach(stat => {
-                if(stat.classList.contains('animated')) return; 
-                stat.classList.add('animated');
-                
-                const target = parseInt(stat.getAttribute('data-target'));
-                const duration = 2500;
-                let startTime = null;
-
-                const animate = (timestamp) => {
-                    if (!startTime) startTime = timestamp;
-                    const progress = Math.min((timestamp - startTime) / duration, 1);
-                    const ease = 1 - Math.pow(1 - progress, 4);
-                    const current = Math.floor(ease * target);
-                    stat.innerText = (target > 0 ? '+' : '') + current;
-                    if (progress < 1) requestAnimationFrame(animate);
-                    else stat.innerText = (target > 0 ? '+' : '') + target; 
-                };
-                requestAnimationFrame(animate);
-            });
-        }
-
-        // Display Step
-        function showStep(id) {
-            const quotes = [
-                { quote: "If you aren't measuring the 6 buckets with biometrics, you're guessing.", sub: "> Phase 01: Friction Audit" },
-                { quote: "Calibration is the cure for linear, exhausting effort.", sub: "> Phase 02: Hardware Calibration" },
-                { quote: "Identity is the final operating system. Integration makes Mastery a biological default.", sub: "> Phase 03: Identity Installation" }
-            ];
-            const display = document.getElementById('step-display');
-            display.style.opacity = '0.3';
-            display.style.transform = 'scale(0.98)';
-            setTimeout(() => {
-                document.getElementById('step-quote').innerText = `"${quotes[id-1].quote}"`;
-                document.getElementById('step-sub').innerText = quotes[id-1].sub;
-                display.style.opacity = '1';
-                display.style.transform = 'scale(1)';
-            }, 300);
-        }
-
-        // Scroll Observers
-        function setupIntersectionObserver() {
-            let chartsInitialized = false;
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        if (entry.target.id === 'impact') animateStats();
-                        if (entry.target.id === 'model') {
-                            if (!chartsInitialized) {
-                                initRadarChart();
-                                initImpactChart();
-                                chartsInitialized = true;
-                            }
-                            startHudAutoplay();
-                        }
-                        else { clearInterval(autoplayInterval); autoplayInterval = null; }
-                    }
-                });
-            }, { threshold: 0.15 });
-
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-        }
-
-        function setupScrollSpy() {
-            const sections = document.querySelectorAll('section');
-            const navItems = document.querySelectorAll('.nav-item');
-            const mobileHud = document.getElementById('mobile-bottom-hud');
-            const mobileActiveText = document.getElementById('mobile-active-text');
-
-            window.addEventListener('scroll', () => {
-                let current = 'hero';
-                sections.forEach(section => {
-                    if (pageYOffset >= (section.offsetTop - 200)) current = section.getAttribute('id');
-                });
-
-                // Desktop Nav Spy
-                navItems.forEach(item => {
-                    item.classList.remove('text-brand-500');
-                    item.classList.add('text-gray-400');
-                    if (item.getAttribute('href').includes(current)) {
-                        item.classList.remove('text-gray-400');
-                        item.classList.add('text-brand-500');
-                    }
-                });
-
-                // Mobile Bottom HUD Logic
-                if (window.innerWidth < 768) {
-                    if (current !== 'hero' && pageYOffset > 100) {
-                        mobileHud.classList.remove('translate-y-20', 'opacity-0');
-                        
-                        // Map section IDs to clean text for the mobile HUD
-                        const map = {
-                            'model': 'Telemetry',
-                            'process': 'Protocol',
-                            'impact': 'Data',
-                            'architect': 'Architect',
-                            'offer': 'Installation'
-                        };
-                        if(map[current]) mobileActiveText.innerText = map[current];
-                    } else {
-                        mobileHud.classList.add('translate-y-20', 'opacity-0');
-                    }
-                }
-            });
-        }
-
-        // Modal
-        function openBookingModal() { 
-            document.getElementById('booking-modal').classList.remove('hidden'); 
-            document.body.style.overflow = 'hidden';
-        }
-        function closeBookingModal() { 
-            document.getElementById('booking-modal').classList.add('hidden'); 
-            document.body.style.overflow = '';
-            
-            setTimeout(() => {
-                document.getElementById('audit-form').reset();
-                document.getElementById('audit-form').classList.remove('hidden');
-                document.getElementById('success-state').classList.add('hidden');
-                document.getElementById('success-state').classList.remove('flex');
-            }, 500);
-        }
-    </script>
 </body>
 </html>
