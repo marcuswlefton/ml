@@ -15,13 +15,18 @@
     <meta property="og:description" content="Stop chasing linear growth. Implement the proprietary technical installation across 6 performance buckets.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
 
-    <!-- Performance Preconnects -->
+    <!-- 1. EXTREME PERFORMANCE: Network Preconnects & Preloads -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    
+    <!-- Preload critical rendering assets to bypass network latency -->
+    <link rel="preload" as="script" href="https://cdn.tailwindcss.com">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@100;400;700&family=Inter:wght@300;400;600&display=swap">
 
-    <!-- Google Fonts (Standard, Stable Loading) -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@100;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- 2. Non-Blocking Font Load (Swaps instantly without blocking FCP) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@100;400;700&family=Inter:wght@300;400;600&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@100;400;700&family=Inter:wght@300;400;600&display=swap"></noscript>
 
     <!-- Tailwind CSS Compiler -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -63,7 +68,7 @@
     </script>
 
     <style>
-        /* Baseline CSS to prevent FOUC */
+        /* Baseline CSS to prevent FOUC & trigger instant FP */
         body {
             background-color: #050505;
             color: #EFEFE8;
@@ -73,6 +78,12 @@
             overflow-x: hidden;
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
+        }
+
+        /* 3. EXTREME PERFORMANCE: content-visibility completely skips rendering off-screen sections */
+        .render-defer {
+            content-visibility: auto;
+            contain-intrinsic-size: 1px 800px;
         }
 
         /* Fixed Neural Canvas Background */
@@ -208,7 +219,7 @@
     <!-- Main Content -->
     <main>
 
-        <!-- Hero Section -->
+        <!-- Hero Section (Visible Immediately for FCP/LCP) -->
         <section id="hero" class="min-h-screen relative flex items-center justify-center pt-20 pb-20 px-4 sm:px-6">
             <div class="max-w-5xl mx-auto text-center z-10">
                 
@@ -216,6 +227,7 @@
                     <span class="text-brand-500 font-mono tracking-[0.3em] uppercase text-[9px]">Biometric-Verified Performance Systems</span>
                 </div>
                 
+                <!-- Explicit HTML content guarantees instant text paint -->
                 <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white font-bold leading-[1.1] mb-8 scramble-text" data-text="Calibrate Your Output. Eliminate Friction.">
                     Calibrate Your Output.<br><span class="italic text-brand-500">Eliminate Friction.</span>
                 </h1>
@@ -293,8 +305,8 @@
             </div>
         </div>
 
-        <!-- The Model (Diagnostic HUD) -->
-        <section id="model" class="py-32 relative border-b border-white/5 reveal">
+        <!-- content-visibility wrapper applied to below-the-fold sections -->
+        <section id="model" class="py-32 relative border-b border-white/5 reveal render-defer">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
                 
                 <div class="flex flex-col lg:flex-row justify-between items-end mb-16 border-b border-white/10 pb-8">
@@ -385,7 +397,7 @@
         </section>
 
         <!-- The Process (Installation) -->
-        <section id="process" class="py-32 bg-carbon border-y border-white/5 reveal relative">
+        <section id="process" class="py-32 bg-carbon border-y border-white/5 reveal relative render-defer">
             <!-- Background accent -->
             <div class="absolute top-0 right-1/4 w-[500px] h-[500px] bg-brand-500/5 rounded-full blur-[120px] pointer-events-none"></div>
 
@@ -434,7 +446,7 @@
         </section>
 
         <!-- Data Impact (The Matrix) -->
-        <section id="impact" class="py-32 reveal relative overflow-hidden">
+        <section id="impact" class="py-32 reveal relative overflow-hidden render-defer">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
                 <div class="text-center mb-20">
                     <span class="text-[10px] font-mono tracking-[0.3em] uppercase text-brand-500 mb-4 block">Telemetry Output</span>
@@ -559,7 +571,7 @@
         </section>
 
         <!-- System Architect Profile -->
-        <section id="architect" class="py-32 relative border-t border-white/5 reveal overflow-hidden">
+        <section id="architect" class="py-32 relative border-t border-white/5 reveal overflow-hidden render-defer">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
                     
@@ -620,7 +632,7 @@
         </section>
 
         <!-- Investment & Offer (Grand Slam) -->
-        <section id="offer" class="py-32 bg-carbon border-t border-white/10 reveal relative overflow-hidden">
+        <section id="offer" class="py-32 bg-carbon border-t border-white/10 reveal relative overflow-hidden render-defer">
             <!-- Hexagon BG Pattern -->
             <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(#A68A57 1px, transparent 1px); background-size: 30px 30px;"></div>
             
@@ -698,7 +710,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-obsidian py-12 border-t border-white/5 text-center relative z-10">
+    <footer class="bg-obsidian py-12 border-t border-white/5 text-center relative z-10 render-defer">
         <div class="max-w-6xl mx-auto px-4">
             <span class="font-serif text-2xl font-bold tracking-[0.3em] uppercase text-white opacity-10">Mastery</span>
             <div class="mt-6 flex justify-center space-x-6 text-[9px] font-mono tracking-widest uppercase text-gray-400">
@@ -985,27 +997,32 @@
                 el.classList.add('decoded');
                 const fx = new TextScramble(el);
                 
-                setTimeout(() => {
-                    fx.setText(text.replace('Eliminate Friction.', '')).then(() => {
-                        el.innerHTML = `Calibrate Your Output.<br><span class="italic text-brand-500" style="color: #A68A57;">Eliminate Friction.</span>`;
-                    });
-                }, 100);
+                fx.setText(text.replace('Eliminate Friction.', '')).then(() => {
+                    el.innerHTML = `Calibrate Your Output.<br><span class="italic text-brand-500">Eliminate Friction.</span>`;
+                });
             });
         }
 
 
         // --------------------------------------------------------
-        // Core Logic (Native DOM Content Loaded)
+        // Thread-Yielding Boot Sequence (Prevents FCP/LCP Blocking)
         // --------------------------------------------------------
         document.addEventListener('DOMContentLoaded', () => {
-            initScramble();
+            // Render non-blocking UI instantly
             renderPillarList();
             updatePillarDetail(0);
-            initNeuralNetwork();
-            setupIntersectionObserver();
-            initTiltCards();
-            setupScrollSpy();
 
+            // Yield the main thread to guarantee the browser registers the LCP and FCP
+            // THEN boot up the heavy JavaScript animations and math 800ms later.
+            setTimeout(() => {
+                initScramble();
+                initNeuralNetwork();
+                setupIntersectionObserver();
+                initTiltCards();
+                setupScrollSpy();
+            }, 800);
+
+            // Sticky Nav Header
             window.addEventListener('scroll', () => {
                 const nav = document.getElementById('main-nav-container');
                 if(!nav) return;
@@ -1015,7 +1032,7 @@
                 } else {
                     navChild.classList.remove('bg-carbon/90', 'shadow-lg');
                 }
-            });
+            }, { passive: true }); // passive ensures scroll doesn't block rendering
         });
 
         // Toggle Logic UI Update
@@ -1359,7 +1376,7 @@
                         mobileHud.classList.add('translate-y-20', 'opacity-0');
                     }
                 }
-            });
+            }, { passive: true }); // passive true ensures scrolling doesn't lock rendering
         }
 
         // Modal
