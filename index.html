@@ -15,19 +15,21 @@
     <meta property="og:description" content="Stop chasing linear growth. Implement the proprietary technical installation across 6 performance buckets.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
 
-    <!-- Performance Preconnects -->
+    <!-- Performance Preconnects (Accelerates DNS resolution) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
 
-    <!-- Tailwind CSS (Prioritized) -->
+    <!-- Tailwind CSS Compiler -->
     <script src="https://cdn.tailwindcss.com" fetchpriority="high"></script>
     
-    <!-- Chart.js (Deferred to speed up initial load) -->
+    <!-- Chart.js (Deferred) -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@100;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Google Fonts (Asynchronous Load for instant FCP) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@100;400;700&family=Inter:wght@300;400;600&display=swap" media="print" onload="this.media='all'">
+    <!-- Fallback for users with JavaScript disabled -->
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@100;400;700&family=Inter:wght@300;400;600&display=swap"></noscript>
 
     <!-- Tailwind Configuration -->
     <script>
@@ -48,8 +50,8 @@
                         }
                     },
                     fontFamily: {
-                        serif: ['"Playfair Display"', 'serif'],
-                        sans: ['"Inter"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+                        sans: ['"Inter"', 'system-ui', 'sans-serif'],
                         mono: ['"JetBrains Mono"', 'monospace'],
                     },
                     boxShadow: {
@@ -63,9 +65,14 @@
     </script>
 
     <style>
-        body {
-            background-color: #050505;
+        /* Critical Baseline CSS to force instant paint before Tailwind loads */
+        html, body {
+            background-color: #050505 !important;
             color: #EFEFE8;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
             scroll-behavior: smooth;
             overflow-x: hidden;
             text-rendering: optimizeLegibility;
@@ -160,8 +167,7 @@
         }
     </style>
 </head>
-<!-- Inline background-color added to body so FCP registers instantly before scripts load -->
-<body class="font-sans antialiased selection:bg-brand-500 selection:text-white" style="background-color: #050505;">
+<body class="font-sans antialiased selection:bg-brand-500 selection:text-white" style="background-color: #050505; color: #ffffff;">
 
     <!-- Interactive Background -->
     <canvas id="neural-canvas"></canvas>
@@ -191,6 +197,17 @@
         </div>
     </nav>
 
+    <!-- Mobile Bottom HUD (Scroll Spy & CTA) -->
+    <div class="md:hidden fixed bottom-6 left-1/2 transform -translate-x-1/2 w-[90%] max-w-sm z-50 glass-panel rounded-full px-4 py-2.5 flex justify-between items-center border border-brand-500/30 transition-all duration-500 translate-y-20 opacity-0" id="mobile-bottom-hud">
+        <div class="flex items-center space-x-2">
+            <div class="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse shadow-glow"></div>
+            <span class="font-mono text-[9px] tracking-[0.2em] uppercase text-gray-500">Loc: <span id="mobile-active-text" class="text-brand-500 font-bold">Initialize</span></span>
+        </div>
+        <button onclick="openBookingModal()" class="bg-brand-500/20 border border-brand-500 text-brand-400 px-4 py-1.5 rounded-full text-[9px] font-mono tracking-[0.2em] uppercase hover:bg-brand-500 hover:text-obsidian transition-all shadow-glow">
+            Apply
+        </button>
+    </div>
+
     <!-- Main Content -->
     <main>
 
@@ -198,15 +215,16 @@
         <section id="hero" class="min-h-screen relative flex items-center justify-center pt-20 pb-20 px-4 sm:px-6">
             <div class="max-w-5xl mx-auto text-center z-10">
                 
-                <div class="inline-flex items-center space-x-2 border border-brand-500/30 bg-brand-500/5 px-4 py-1.5 rounded-full mb-8 backdrop-blur-sm reveal">
-                    <span class="text-brand-500 font-mono tracking-[0.3em] uppercase text-[9px]">Biometric-Verified Performance Systems</span>
+                <div class="inline-flex items-center space-x-2 border border-brand-500/30 bg-brand-500/5 px-4 py-1.5 rounded-full mb-8 backdrop-blur-sm reveal" style="border: 1px solid rgba(166, 138, 87, 0.3); padding: 6px 16px; border-radius: 9999px;">
+                    <span class="text-brand-500 font-mono tracking-[0.3em] uppercase text-[9px]" style="color: #A68A57; letter-spacing: 0.3em;">Biometric-Verified Performance Systems</span>
                 </div>
                 
-                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white font-bold leading-[1.1] mb-8 scramble-text" data-text="Calibrate Your Output. Eliminate Friction.">
-                    Calibrate Your Output.<br><span class="italic text-brand-500">Eliminate Friction.</span>
+                <!-- Explicitly removed visibility:hidden so LCP triggers instantly -->
+                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white font-bold leading-[1.1] mb-8 scramble-text" data-text="Calibrate Your Output. Eliminate Friction." style="margin-bottom: 2rem;">
+                    Calibrate Your Output.<br><span class="italic text-brand-500" style="color: #A68A57;">Eliminate Friction.</span>
                 </h1>
                 
-                <p class="text-lg md:text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed font-light reveal delay-200">
+                <p class="text-lg md:text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed font-light reveal delay-200" style="color: #9ca3af;">
                     The difference between "hard work" and "mastery" is calibration. We replace generic productivity hacks with a proprietary technical installation across 6 performance buckets.
                 </p>
                 
@@ -977,7 +995,7 @@
                 
                 setTimeout(() => {
                     fx.setText(text.replace('Eliminate Friction.', '')).then(() => {
-                        el.innerHTML = `Calibrate Your Output.<br><span class="italic text-brand-500">Eliminate Friction.</span>`;
+                        el.innerHTML = `Calibrate Your Output.<br><span class="italic text-brand-500" style="color: #A68A57;">Eliminate Friction.</span>`;
                     });
                 }, 100);
             });
@@ -1321,11 +1339,16 @@
         function setupScrollSpy() {
             const sections = document.querySelectorAll('section');
             const navItems = document.querySelectorAll('.nav-item');
+            const mobileHud = document.getElementById('mobile-bottom-hud');
+            const mobileActiveText = document.getElementById('mobile-active-text');
+
             window.addEventListener('scroll', () => {
-                let current = '';
+                let current = 'hero';
                 sections.forEach(section => {
                     if (pageYOffset >= (section.offsetTop - 200)) current = section.getAttribute('id');
                 });
+
+                // Desktop Nav Spy
                 navItems.forEach(item => {
                     item.classList.remove('text-brand-500');
                     item.classList.add('text-gray-400');
@@ -1334,6 +1357,25 @@
                         item.classList.add('text-brand-500');
                     }
                 });
+
+                // Mobile Bottom HUD Logic
+                if (window.innerWidth < 768) {
+                    if (current !== 'hero' && pageYOffset > 100) {
+                        mobileHud.classList.remove('translate-y-20', 'opacity-0');
+                        
+                        // Map section IDs to clean text for the mobile HUD
+                        const map = {
+                            'model': 'Telemetry',
+                            'process': 'Protocol',
+                            'impact': 'Data',
+                            'architect': 'Architect',
+                            'offer': 'Installation'
+                        };
+                        if(map[current]) mobileActiveText.innerText = map[current];
+                    } else {
+                        mobileHud.classList.add('translate-y-20', 'opacity-0');
+                    }
+                }
             });
         }
 
