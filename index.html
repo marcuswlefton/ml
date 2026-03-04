@@ -122,11 +122,13 @@
         .illuminate-box {
             cursor: pointer;
             transition: all 0.4s ease;
+            -webkit-tap-highlight-color: transparent; /* Fixes ugly gray tap flash on mobile */
         }
         .illuminate-box:hover, .illuminate-box:active, .illuminate-box:focus {
             border-color: rgba(194, 163, 102, 0.8) !important;
             background-color: rgba(166, 138, 87, 0.15) !important;
             box-shadow: 0 0 30px rgba(166, 138, 87, 0.4), inset 0 0 20px rgba(166, 138, 87, 0.15) !important;
+            outline: none; /* Removes default browser focus outline */
         }
 
         /* UI Scanner Lines & Animations */
@@ -243,7 +245,7 @@
                     <button onclick="toggleLogic('different')" id="btn-different" class="relative z-10 px-8 py-3 rounded-full text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-gray-500 hover:text-white w-48">Calibration</button>
                 </div>
 
-                <div id="logic-content" class="max-w-3xl mx-auto glass-panel p-10 md:p-14 rounded-3xl transition-all duration-500 reveal delay-400 tilt-card illuminate-box">
+                <div id="logic-content" class="max-w-3xl mx-auto glass-panel p-10 md:p-14 rounded-3xl transition-all duration-500 reveal delay-400 tilt-card illuminate-box" tabindex="0">
                     <div class="tilt-content">
                         <div class="flex items-center justify-center space-x-2 mb-4 opacity-50">
                             <span class="w-1 h-1 bg-data-red rounded-full" id="logic-dot"></span>
@@ -362,7 +364,7 @@
                         </div>
                         
                         <!-- Detail Readout (Tilt Card) -->
-                        <div id="pillar-detail" class="glass-panel p-8 rounded-2xl transform transition-all duration-500 flex-grow flex flex-col justify-center tilt-card border-brand-500/30 illuminate-box">
+                        <div id="pillar-detail" class="glass-panel p-8 rounded-2xl transform transition-all duration-500 flex-grow flex flex-col justify-center tilt-card border-brand-500/30 illuminate-box" tabindex="0">
                             <div class="tilt-content">
                                 <div class="flex items-center justify-between mb-8 border-b border-white/10 pb-4">
                                     <div class="flex items-center space-x-4">
@@ -438,7 +440,7 @@
                     </div>
                 </div>
 
-                <div id="step-display" class="mt-16 bg-brand-500/10 border border-brand-500/30 p-10 rounded-2xl text-center max-w-3xl mx-auto shadow-glow transition-all duration-500 illuminate-box">
+                <div id="step-display" class="mt-16 bg-brand-500/10 border border-brand-500/30 p-10 rounded-2xl text-center max-w-3xl mx-auto shadow-glow transition-all duration-500 illuminate-box" tabindex="0">
                     <p class="font-serif text-2xl italic text-white mb-4" id="step-quote">"If you aren't measuring the 6 buckets with biometrics, you're guessing."</p>
                     <p class="text-[10px] font-mono tracking-[0.3em] uppercase text-brand-400" id="step-sub">> Phase 01: Friction Audit</p>
                 </div>
@@ -460,7 +462,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
                     
                     <!-- Cognitive -->
-                    <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box">
+                    <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box" tabindex="0">
                         <div class="tilt-content">
                             <span class="text-[10px] font-mono tracking-[0.2em] text-gray-500 uppercase block mb-4 border-b border-white/10 pb-2">Cognitive Load</span>
                             <div class="text-4xl font-serif text-white my-4"><span class="stat-value text-brand-400" data-target="-37">0</span>%</div>
@@ -468,7 +470,7 @@
                             <p class="text-[10px] text-gray-400 font-mono">Reclaiming bandwidth for leverage.</p>
                         </div>
                     </div>
-                    <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box">
+                    <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box" tabindex="0">
                         <div class="tilt-content">
                             <span class="text-[10px] font-mono tracking-[0.2em] text-gray-500 uppercase block mb-4 border-b border-white/10 pb-2">Decision Speed</span>
                             <div class="text-4xl font-serif text-white my-4"><span class="stat-value text-brand-400" data-target="130">0</span>%</div>
@@ -476,7 +478,7 @@
                             <p class="text-[10px] text-gray-400 font-mono">From hesitation to conviction.</p>
                         </div>
                     </div>
-                    <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box">
+                    <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box" tabindex="0">
                         <div class="tilt-content">
                             <span class="text-[10px] font-mono tracking-[0.2em] text-gray-500 uppercase block mb-4 border-b border-white/10 pb-2">Mental Drag</span>
                             <div class="text-4xl font-serif text-white my-4"><span class="stat-value text-brand-400" data-target="-50">0</span>%</div>
@@ -486,7 +488,7 @@
                     </div>
 
                     <!-- Biological -->
-                    <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box">
+                    <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box" tabindex="0">
                         <div class="tilt-content">
                             <span class="text-[10px] font-mono tracking-[0.2em] text-brand-500 uppercase block mb-4 border-b border-brand-500/20 pb-2">CO2 Tolerance</span>
                             <div class="text-4xl font-serif text-white my-4"><span class="stat-value text-brand-400" data-target="150">0</span>%</div>
@@ -494,7 +496,7 @@
                             <p class="text-[10px] text-gray-400 font-mono opacity-80">Hard biological indicator of resilience.</p>
                         </div>
                     </div>
-                    <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box">
+                    <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box" tabindex="0">
                         <div class="tilt-content">
                             <span class="text-[10px] font-mono tracking-[0.2em] text-gray-500 uppercase block mb-4 border-b border-white/10 pb-2">Sleep Efficiency</span>
                             <div class="text-4xl font-serif text-white my-4"><span class="stat-value text-brand-400" data-target="18">0</span>%</div>
@@ -502,7 +504,7 @@
                             <p class="text-[10px] text-gray-400 font-mono">Deep recovery cycles maximized.</p>
                         </div>
                     </div>
-                    <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box">
+                    <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box" tabindex="0">
                         <div class="tilt-content">
                             <span class="text-[10px] font-mono tracking-[0.2em] text-gray-500 uppercase block mb-4 border-b border-white/10 pb-2">Stress Recovery</span>
                             <div class="text-4xl font-serif text-white my-4"><span class="stat-value text-brand-400" data-target="200">0</span>%</div>
@@ -512,7 +514,7 @@
                     </div>
 
                     <!-- Systemic -->
-                    <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box">
+                    <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box" tabindex="0">
                         <div class="tilt-content">
                             <span class="text-[10px] font-mono tracking-[0.2em] text-gray-500 uppercase block mb-4 border-b border-white/10 pb-2">Deep Work</span>
                             <div class="text-4xl font-serif text-white my-4"><span class="stat-value text-brand-400" data-target="41">0</span>%</div>
@@ -520,7 +522,7 @@
                             <p class="text-[10px] text-gray-400 font-mono">Hours reclaimed for creation.</p>
                         </div>
                     </div>
-                    <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box">
+                    <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box" tabindex="0">
                         <div class="tilt-content">
                             <span class="text-[10px] font-mono tracking-[0.2em] text-gray-500 uppercase block mb-4 border-b border-white/10 pb-2">Flow Time</span>
                             <div class="text-4xl font-serif text-white my-4"><span class="stat-value text-brand-400" data-target="103">0</span>%</div>
@@ -528,7 +530,7 @@
                             <p class="text-[10px] text-gray-400 font-mono">Accessing maximum output state.</p>
                         </div>
                     </div>
-                    <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box">
+                    <div class="glass-panel p-8 rounded-2xl tilt-card group illuminate-box" tabindex="0">
                         <div class="tilt-content">
                             <span class="text-[10px] font-mono tracking-[0.2em] text-gray-500 uppercase block mb-4 border-b border-white/10 pb-2">Adaptation</span>
                             <div class="text-4xl font-serif text-white my-4"><span class="stat-value text-brand-400" data-target="62">0</span>%</div>
@@ -539,7 +541,7 @@
                 </div>
 
                 <!-- Compound Visualization -->
-                <div class="glass-panel rounded-[2rem] p-10 md:p-14 relative overflow-hidden border-brand-500/30 illuminate-box">
+                <div class="glass-panel rounded-[2rem] p-10 md:p-14 relative overflow-hidden border-brand-500/30 illuminate-box" tabindex="0">
                     <div class="absolute inset-0 bg-gradient-to-br from-brand-500/5 to-transparent pointer-events-none"></div>
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
                         <div>
@@ -576,14 +578,13 @@
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
                     
                     <!-- Architect Image / HUD Frame -->
-                    <div class="lg:col-span-5 relative group illuminate-box p-2 rounded-2xl transition-all duration-500">
+                    <div class="lg:col-span-5 relative group illuminate-box p-2 rounded-2xl transition-all duration-500" tabindex="0">
                         <div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-brand-500/50 rounded-tl-lg transition-all duration-300 group-hover:w-12 group-hover:h-12"></div>
                         <div class="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-brand-500/50 rounded-tr-lg transition-all duration-300 group-hover:w-12 group-hover:h-12"></div>
                         <div class="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-brand-500/50 rounded-bl-lg transition-all duration-300 group-hover:w-12 group-hover:h-12"></div>
                         <div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-brand-500/50 rounded-br-lg transition-all duration-300 group-hover:w-12 group-hover:h-12"></div>
                         
                         <div class="relative rounded-xl overflow-hidden bg-black/50 aspect-[4/5] border border-white/5">
-                            <!-- Added width/height hints for Lighthouse CLS and layout reflow -->
                             <img src="https://i.imgur.com/SJLnvwa.png" alt="Lead Systems Architect - Performance Mastery" loading="lazy" decoding="async" width="400" height="500" class="w-full h-full object-cover object-top opacity-80 mix-blend-luminosity grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700">
                             <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent"></div>
                             
@@ -649,7 +650,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left mb-20">
                     
                     <!-- Core Engine -->
-                    <div class="glass-panel p-10 rounded-2xl tilt-card illuminate-box">
+                    <div class="glass-panel p-10 rounded-2xl tilt-card illuminate-box" tabindex="0">
                         <div class="tilt-content">
                             <h4 class="text-brand-400 text-[10px] font-mono uppercase tracking-[0.2em] mb-4 flex items-center"><span class="w-2 h-2 bg-brand-500 mr-2 rounded-sm"></span>The Core Engine</h4>
                             <p class="text-2xl font-serif text-white mb-3">12-Week Calibration Protocol</p>
@@ -658,7 +659,7 @@
                     </div>
 
                     <!-- Asset 1 -->
-                    <div class="glass-panel p-10 rounded-2xl tilt-card illuminate-box">
+                    <div class="glass-panel p-10 rounded-2xl tilt-card illuminate-box" tabindex="0">
                         <div class="tilt-content">
                             <h4 class="text-gray-400 text-[10px] font-mono uppercase tracking-[0.2em] mb-4">Asset 01: Diagnostics</h4>
                             <p class="text-xl font-serif text-white mb-3">24/7 Telemetry AI Portal</p>
@@ -667,7 +668,7 @@
                     </div>
 
                     <!-- Asset 2 -->
-                    <div class="glass-panel p-10 rounded-2xl tilt-card illuminate-box">
+                    <div class="glass-panel p-10 rounded-2xl tilt-card illuminate-box" tabindex="0">
                         <div class="tilt-content">
                             <h4 class="text-gray-400 text-[10px] font-mono uppercase tracking-[0.2em] mb-4">Asset 02: Environment</h4>
                             <p class="text-xl font-serif text-white mb-3">Category of One Boardroom</p>
@@ -676,7 +677,7 @@
                     </div>
 
                     <!-- Asset 3 -->
-                    <div class="glass-panel p-10 rounded-2xl tilt-card illuminate-box">
+                    <div class="glass-panel p-10 rounded-2xl tilt-card illuminate-box" tabindex="0">
                         <div class="tilt-content">
                             <h4 class="text-gray-400 text-[10px] font-mono uppercase tracking-[0.2em] mb-4">Asset 03: Hardware</h4>
                             <p class="text-xl font-serif text-white mb-3">Signature Biometric Kit</p>
@@ -686,7 +687,7 @@
                 </div>
 
                 <!-- Terminal CTA -->
-                <div class="bg-black border border-brand-500/30 p-10 md:p-14 rounded-3xl shadow-glow-intense transform transition-all relative text-center max-w-3xl mx-auto illuminate-box">
+                <div class="bg-black border border-brand-500/30 p-10 md:p-14 rounded-3xl shadow-glow-intense transform transition-all relative text-center max-w-3xl mx-auto illuminate-box" tabindex="0">
                     <!-- Scanner effect on CTA -->
                     <div class="absolute top-0 left-0 w-full h-[1px] bg-brand-500 opacity-50 shadow-[0_0_10px_#A68A57] animate-[scan_3s_infinite]"></div>
                     
