@@ -742,7 +742,8 @@
             </div>
             
             <!-- Accessible Application Form -->
-            <form id="audit-form" class="space-y-5" onsubmit="handleFormSubmit(event)">
+            <form id="audit-form" name="audit" method="POST" data-netlify="true" class="space-y-5" onsubmit="handleFormSubmit(event)">
+  <input type="hidden" name="form-name" value="audit">
                 <div>
                     <label for="legal_name" class="block text-[9px] font-mono tracking-widest uppercase text-brand-500 mb-2">> Legal Name_</label>
                     <input id="legal_name" type="text" class="w-full bg-black border border-white/10 p-4 rounded text-sm text-white focus:border-brand-500 focus:outline-none transition-colors font-mono" placeholder="Input string..." required>
