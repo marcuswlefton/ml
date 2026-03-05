@@ -897,7 +897,7 @@
         }
 
         // --------------------------------------------------------
-        // Form Submission Logic (Netlify Integrated)
+        // Form Submission Logic (Netlify URL-Encoded Fix)
         // --------------------------------------------------------
         async function handleFormSubmit(e) {
             e.preventDefault();
@@ -914,10 +914,14 @@
 
             try {
                 const formData = new FormData(form);
+                
+                // CRITICAL FIX: Convert FormData to URL-encoded string for Netlify AJAX
+                const urlEncodedData = new URLSearchParams(formData).toString();
 
                 const res = await fetch("/", {
                     method: "POST",
-                    body: formData
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: urlEncodedData
                 });
 
                 if (!res.ok) throw new Error("Form submission failed");
