@@ -226,7 +226,7 @@
             <div class="max-w-5xl mx-auto text-center z-10">
                 
                 <div class="inline-flex items-center space-x-2 border border-brand-500/30 bg-brand-500/5 px-4 py-1.5 rounded-full mb-8 backdrop-blur-sm reveal">
-                    <span class="text-brand-500 font-mono tracking-[0.3em] uppercase text-[9px]">Multidisciplinary Performance Systems</span>
+                    <span class="text-brand-500 font-mono tracking-[0.3em] uppercase text-[9px]">Biometric-Verified Performance Systems</span>
                 </div>
                 
                 <!-- Explicit HTML content guarantees instant text paint -->
@@ -743,18 +743,18 @@
             
             <!-- Accessible Application Form -->
             <form id="audit-form" name="audit" method="POST" data-netlify="true" class="space-y-5" onsubmit="handleFormSubmit(event)">
-  <input type="hidden" name="form-name" value="audit">
+                <input type="hidden" name="form-name" value="audit">
                 <div>
                     <label for="legal_name" class="block text-[9px] font-mono tracking-widest uppercase text-brand-500 mb-2">> Legal Name_</label>
-                    <input id="legal_name" type="text" class="w-full bg-black border border-white/10 p-4 rounded text-sm text-white focus:border-brand-500 focus:outline-none transition-colors font-mono" placeholder="Input string..." required>
+                    <input id="legal_name" name="legal_name" type="text" class="w-full bg-black border border-white/10 p-4 rounded text-sm text-white focus:border-brand-500 focus:outline-none transition-colors font-mono" placeholder="Input string..." required>
                 </div>
                 <div>
                     <label for="secure_email" class="block text-[9px] font-mono tracking-widest uppercase text-brand-500 mb-2">> Secure Email_</label>
-                    <input id="secure_email" type="email" class="w-full bg-black border border-white/10 p-4 rounded text-sm text-white focus:border-brand-500 focus:outline-none transition-colors font-mono" placeholder="user@domain.com" required>
+                    <input id="secure_email" name="secure_email" type="email" class="w-full bg-black border border-white/10 p-4 rounded text-sm text-white focus:border-brand-500 focus:outline-none transition-colors font-mono" placeholder="user@domain.com" required>
                 </div>
                 <div>
                     <label for="friction_point" class="block text-[9px] font-mono tracking-widest uppercase text-brand-500 mb-2">> Primary Friction Point_</label>
-                    <select id="friction_point" class="w-full bg-black border border-white/10 p-4 rounded text-sm text-gray-400 focus:text-white focus:border-brand-500 focus:outline-none transition-colors font-mono appearance-none" required>
+                    <select id="friction_point" name="friction_point" class="w-full bg-black border border-white/10 p-4 rounded text-sm text-gray-400 focus:text-white focus:border-brand-500 focus:outline-none transition-colors font-mono appearance-none" required>
                         <option value="" disabled selected>Select system error...</option>
                         <option value="cognitive">ERR 01: Cognitive Load / Fog</option>
                         <option value="biological">ERR 02: Biological Debt</option>
@@ -763,7 +763,7 @@
                         <option value="time">ERR 05: Time Starvation</option>
                     </select>
                 </div>
-                <button type="submit" class="w-full bg-brand-500/20 border border-brand-500 text-brand-400 font-bold py-4 mt-6 rounded hover:bg-brand-500 hover:text-obsidian transition-all uppercase tracking-[0.3em] text-[10px] font-mono shadow-glow">Execute Application</button>
+                <button type="submit" id="audit-submit-btn" class="w-full bg-brand-500/20 border border-brand-500 text-brand-400 font-bold py-4 mt-6 rounded hover:bg-brand-500 hover:text-obsidian transition-all uppercase tracking-[0.3em] text-[10px] font-mono shadow-glow">Execute Application</button>
             </form>
 
             <!-- Custom Success UI State -->
@@ -896,18 +896,45 @@
         // --------------------------------------------------------
         // Form Submission Logic
         // --------------------------------------------------------
-        function handleFormSubmit(e) {
+        async function handleFormSubmit(e) {
             e.preventDefault();
+
             const form = document.getElementById('audit-form');
             const success = document.getElementById('success-state');
-            
-            form.classList.add('hidden');
-            success.classList.remove('hidden');
-            success.classList.add('flex');
-            
-            setTimeout(() => {
-                closeBookingModal();
-            }, 4000);
+            const submitBtn = document.getElementById('audit-submit-btn');
+
+            // High-end UI feedback: Show transmitting state
+            const originalBtnText = submitBtn.innerText;
+            submitBtn.innerText = 'TRANSMITTING...';
+            submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            submitBtn.disabled = true;
+
+            try {
+                const formData = new FormData(form);
+
+                const res = await fetch("/", {
+                    method: "POST",
+                    body: formData
+                });
+
+                if (!res.ok) throw new Error("Form submission failed");
+
+                form.classList.add('hidden');
+                success.classList.remove('hidden');
+                success.classList.add('flex');
+
+                setTimeout(() => {
+                    closeBookingModal();
+                }, 4000);
+            } catch (err) {
+                console.error(err);
+                alert("Transmission failed. Please check your connection and try again.");
+            } finally {
+                // Reset button state incase of error or background form reset
+                submitBtn.innerText = originalBtnText;
+                submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                submitBtn.disabled = false;
+            }
         }
 
         // --------------------------------------------------------
