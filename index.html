@@ -747,17 +747,17 @@
                 <input type="hidden" id="lead_referrer" name="lead_referrer" value="">
                 <input type="hidden" id="lead_page_url" name="lead_page_url" value="">
 
-                <div>
-                    <label for="legal_name" class="block text-[9px] font-mono tracking-widest uppercase text-brand-500 mb-2">> Legal Name_</label>
-                    <input id="legal_name" name="legal_name" type="text" class="w-full bg-black border border-white/10 p-4 rounded text-sm text-white focus:border-brand-500 focus:outline-none transition-colors font-mono" placeholder="Input string..." required>
+                <div class="group relative">
+                    <label for="legal_name" class="block text-[9px] font-mono tracking-widest uppercase text-gray-500 group-focus-within:text-brand-400 transition-colors mb-2">> Legal Name_</label>
+                    <input id="legal_name" name="legal_name" type="text" class="w-full bg-black border border-white/10 p-4 rounded text-sm text-white focus:border-brand-500 focus:ring-1 focus:ring-brand-500/50 focus:outline-none transition-all font-mono shadow-inner" placeholder="Input string..." required>
                 </div>
-                <div>
-                    <label for="secure_email" class="block text-[9px] font-mono tracking-widest uppercase text-brand-500 mb-2">> Secure Email_</label>
-                    <input id="secure_email" name="secure_email" type="email" class="w-full bg-black border border-white/10 p-4 rounded text-sm text-white focus:border-brand-500 focus:outline-none transition-colors font-mono" placeholder="user@domain.com" required>
+                <div class="group relative">
+                    <label for="secure_email" class="block text-[9px] font-mono tracking-widest uppercase text-gray-500 group-focus-within:text-brand-400 transition-colors mb-2">> Secure Email_</label>
+                    <input id="secure_email" name="secure_email" type="email" class="w-full bg-black border border-white/10 p-4 rounded text-sm text-white focus:border-brand-500 focus:ring-1 focus:ring-brand-500/50 focus:outline-none transition-all font-mono shadow-inner" placeholder="user@domain.com" required>
                 </div>
-                <div>
-                    <label for="friction_point" class="block text-[9px] font-mono tracking-widest uppercase text-brand-500 mb-2">> Primary Friction Point_</label>
-                    <select id="friction_point" name="friction_point" class="w-full bg-black border border-white/10 p-4 rounded text-sm text-gray-400 focus:text-white focus:border-brand-500 focus:outline-none transition-colors font-mono appearance-none" required>
+                <div class="group relative">
+                    <label for="friction_point" class="block text-[9px] font-mono tracking-widest uppercase text-gray-500 group-focus-within:text-brand-400 transition-colors mb-2">> Primary Friction Point_</label>
+                    <select id="friction_point" name="friction_point" class="w-full bg-black border border-white/10 p-4 rounded text-sm text-gray-400 focus:text-white focus:border-brand-500 focus:ring-1 focus:ring-brand-500/50 focus:outline-none transition-all font-mono appearance-none shadow-inner" required>
                         <option value="" disabled selected>Select system error...</option>
                         <option value="cognitive">ERR 01: Cognitive Load / Fog</option>
                         <option value="biological">ERR 02: Biological Debt</option>
@@ -769,13 +769,19 @@
                 <button type="submit" id="audit-submit-btn" class="w-full bg-brand-500/20 border border-brand-500 text-brand-400 font-bold py-4 mt-6 rounded hover:bg-brand-500 hover:text-obsidian transition-all uppercase tracking-[0.3em] text-[10px] font-mono shadow-glow">Execute Application</button>
             </form>
 
-            <!-- Custom Success UI State -->
-            <div id="success-state" class="hidden flex-col items-center justify-center py-10 animate-[fade-in_0.5s_ease-out]">
-                <div class="w-16 h-16 rounded-full border-2 border-brand-500 flex items-center justify-center mb-6 shadow-glow">
-                    <div class="w-8 h-8 bg-brand-500 rounded-full animate-pulse"></div>
+            <!-- Custom Success UI State (Animated Terminal) -->
+            <div id="success-state" class="hidden flex-col items-center justify-center py-8 animate-[fade-in_0.5s_ease-out]">
+                <div class="relative w-20 h-20 mb-6 flex items-center justify-center">
+                    <div class="absolute inset-0 rounded-full border-t-2 border-brand-500 animate-spin" id="success-spinner"></div>
+                    <div class="w-12 h-12 bg-brand-500 rounded-full scale-0 transition-transform duration-500 flex items-center justify-center shadow-glow" id="success-check">
+                        <svg class="w-6 h-6 text-obsidian" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
                 </div>
-                <h4 class="font-serif text-2xl text-white italic mb-2">Transmission Secure</h4>
-                <p class="text-xs text-gray-400 font-mono leading-relaxed text-center">> Credentials verified.<br>> Telemetry team will contact you.</p>
+                <h4 class="font-serif text-2xl text-white italic mb-4" id="success-heading">Establishing Link...</h4>
+                <div class="text-xs text-gray-400 font-mono leading-relaxed text-center space-y-2 h-12">
+                    <p class="opacity-0 transition-opacity duration-300" id="term-1">> Encrypting payload...</p>
+                    <p class="opacity-0 transition-opacity duration-300 text-brand-400" id="term-2">> Verifying credentials...</p>
+                </div>
             </div>
         </div>
     </div>
@@ -897,7 +903,7 @@
         }
 
         // --------------------------------------------------------
-        // Form Submission Logic (Netlify URL-Encoded Fix)
+        // Form Submission Logic (Netlify URL-Encoded Fix + Terminal UX)
         // --------------------------------------------------------
         async function handleFormSubmit(e) {
             e.preventDefault();
@@ -926,13 +932,36 @@
 
                 if (!res.ok) throw new Error("Form submission failed");
 
+                // Transition to animated terminal success state
                 form.classList.add('hidden');
                 success.classList.remove('hidden');
                 success.classList.add('flex');
 
+                const spinner = document.getElementById('success-spinner');
+                const check = document.getElementById('success-check');
+                const heading = document.getElementById('success-heading');
+                const term1 = document.getElementById('term-1');
+                const term2 = document.getElementById('term-2');
+
+                // Sequence timing
+                setTimeout(() => term1.classList.add('opacity-100'), 400);
+                setTimeout(() => term2.classList.add('opacity-100'), 1200);
+                
+                setTimeout(() => {
+                    spinner.classList.add('opacity-0'); // hide spinner
+                    check.classList.remove('scale-0');
+                    check.classList.add('scale-100'); // pop checkmark
+                    heading.innerText = 'Transmission Secure';
+                    term1.innerText = '> Biometric signature logged.';
+                    term2.innerText = '> Telemetry team will contact you.';
+                    term2.classList.remove('text-brand-400');
+                    term2.classList.add('text-gray-400');
+                }, 2400);
+
                 setTimeout(() => {
                     closeBookingModal();
-                }, 4000);
+                }, 5500);
+
             } catch (err) {
                 console.error(err);
                 alert("Transmission failed. Please check your connection and try again.");
@@ -1072,6 +1101,13 @@
                     navChild.classList.remove('bg-carbon/90', 'shadow-lg');
                 }
             }, { passive: true });
+
+            // Global Escape Key Listener for Modal
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !document.getElementById('booking-modal').classList.contains('hidden')) {
+                    closeBookingModal();
+                }
+            });
         });
 
         // Toggle Logic UI Update
@@ -1422,16 +1458,39 @@
         function openBookingModal() { 
             document.getElementById('booking-modal').classList.remove('hidden'); 
             document.body.style.overflow = 'hidden';
+            
+            // Auto-focus first input for frictionless UX
+            setTimeout(() => {
+                const input = document.getElementById('legal_name');
+                if(input) input.focus();
+            }, 100);
         }
         function closeBookingModal() { 
             document.getElementById('booking-modal').classList.add('hidden'); 
             document.body.style.overflow = '';
             
             setTimeout(() => {
+                // Reset Form
                 document.getElementById('audit-form').reset();
                 document.getElementById('audit-form').classList.remove('hidden');
+                
+                // Reset Success UI Elements
                 document.getElementById('success-state').classList.add('hidden');
                 document.getElementById('success-state').classList.remove('flex');
+                
+                document.getElementById('success-spinner').classList.remove('opacity-0');
+                document.getElementById('success-check').classList.remove('scale-100');
+                document.getElementById('success-check').classList.add('scale-0');
+                document.getElementById('success-heading').innerText = 'Establishing Link...';
+                
+                const term1 = document.getElementById('term-1');
+                const term2 = document.getElementById('term-2');
+                term1.classList.remove('opacity-100');
+                term2.classList.remove('opacity-100');
+                term1.innerText = '> Encrypting payload...';
+                term2.innerText = '> Verifying credentials...';
+                term2.classList.remove('text-gray-400');
+                term2.classList.add('text-brand-400');
             }, 500);
         }
     </script>
