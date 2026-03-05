@@ -1,4 +1,3 @@
-2.2
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,23 +15,20 @@
     <meta property="og:description" content="Stop chasing linear growth. Implement the proprietary technical installation across 6 performance buckets.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
 
-    <!-- 1. EXTREME PERFORMANCE: Network Preconnects & Preloads -->
+    <!-- Network Preconnects & Preloads for Speed -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
     
-    <!-- Preload critical rendering assets to bypass network latency -->
     <link rel="preload" as="script" href="https://cdn.tailwindcss.com">
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@100;400;700&family=Inter:wght@300;400;600&display=swap">
-
-    <!-- 2. Non-Blocking Font Load (Swaps instantly without blocking FCP) -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@100;400;700&family=Inter:wght@300;400;600&display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@100;400;700&family=Inter:wght@300;400;600&display=swap"></noscript>
+    
+    <!-- Standard Google Fonts (Stable Load) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@100;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS Compiler -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Chart.js (Deferred) -->
+    <!-- Chart.js (Deferred to speed up initial load) -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
 
     <!-- Tailwind Configuration -->
@@ -70,7 +66,7 @@
 
     <style>
         /* Baseline CSS to prevent FOUC & trigger instant FP */
-        body {
+        html, body {
             background-color: #050505;
             color: #EFEFE8;
             margin: 0;
@@ -81,7 +77,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* 3. EXTREME PERFORMANCE: content-visibility completely skips rendering off-screen sections */
+        /* content-visibility skips rendering off-screen sections until scrolled to */
         .render-defer {
             content-visibility: auto;
             contain-intrinsic-size: 1px 800px;
@@ -129,7 +125,7 @@
             border-color: rgba(194, 163, 102, 0.8) !important;
             background-color: rgba(166, 138, 87, 0.15) !important;
             box-shadow: 0 0 30px rgba(166, 138, 87, 0.4), inset 0 0 20px rgba(166, 138, 87, 0.15) !important;
-            outline: none; /* Removes default browser focus outline */
+            outline: none;
         }
 
         /* UI Scanner Lines & Animations */
@@ -178,7 +174,7 @@
         }
     </style>
 </head>
-<body class="font-sans">
+<body class="font-sans" style="background-color: #050505; color: #ffffff;">
 
     <!-- Interactive Background -->
     <canvas id="neural-canvas"></canvas>
@@ -226,16 +222,16 @@
         <section id="hero" class="min-h-screen relative flex items-center justify-center pt-20 pb-20 px-4 sm:px-6">
             <div class="max-w-5xl mx-auto text-center z-10">
                 
-                <div class="inline-flex items-center space-x-2 border border-brand-500/30 bg-brand-500/5 px-4 py-1.5 rounded-full mb-8 backdrop-blur-sm reveal">
-                    <span class="text-brand-500 font-mono tracking-[0.3em] uppercase text-[9px]">Multidisciplinary Performance Systems</span>
+                <div class="inline-flex items-center space-x-2 border border-brand-500/30 bg-brand-500/5 px-4 py-1.5 rounded-full mb-8 backdrop-blur-sm reveal" style="border: 1px solid rgba(166, 138, 87, 0.3); padding: 6px 16px; border-radius: 9999px;">
+                    <span class="text-brand-500 font-mono tracking-[0.3em] uppercase text-[9px]" style="color: #A68A57; letter-spacing: 0.3em;">Biometric-Verified Performance Systems</span>
                 </div>
                 
                 <!-- Explicit HTML content guarantees instant text paint -->
-                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white font-bold leading-[1.1] mb-8 scramble-text" data-text="Calibrate Your Output. Eliminate Friction.">
-                    Calibrate Your Output.<br><span class="italic text-brand-500">Eliminate Friction.</span>
+                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white font-bold leading-[1.1] mb-8 scramble-text" data-text="Calibrate Your Output. Eliminate Friction." style="margin-bottom: 2rem;">
+                    Calibrate Your Output.<br><span class="italic text-brand-500" style="color: #A68A57;">Eliminate Friction.</span>
                 </h1>
                 
-                <p class="text-lg md:text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed font-light reveal delay-200">
+                <p class="text-lg md:text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed font-light reveal delay-200" style="color: #9ca3af;">
                     The difference between "hard work" and "mastery" is calibration. We replace generic productivity hacks with a proprietary technical installation across 6 performance buckets.
                 </p>
                 
@@ -413,7 +409,7 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
                     <!-- Steps with 3D Tilt and Illumination -->
-                    <div class="glass-panel p-10 rounded-2xl group tilt-card illuminate-box" onclick="showStep(1)">
+                    <div class="glass-panel p-10 rounded-2xl group tilt-card illuminate-box" tabindex="0" onclick="showStep(1)">
                         <div class="tilt-content">
                             <div class="text-5xl font-serif text-white/10 group-hover:text-brand-500/30 transition-colors mb-6 absolute top-6 right-6">01</div>
                             <h3 class="text-xl font-bold mb-4 tracking-wide text-white font-serif italic">Friction Audit</h3>
@@ -422,7 +418,7 @@
                         </div>
                     </div>
 
-                    <div class="glass-panel p-10 rounded-2xl group tilt-card illuminate-box" onclick="showStep(2)">
+                    <div class="glass-panel p-10 rounded-2xl group tilt-card illuminate-box" tabindex="0" onclick="showStep(2)">
                         <div class="tilt-content">
                             <div class="text-5xl font-serif text-white/10 group-hover:text-brand-500/30 transition-colors mb-6 absolute top-6 right-6">02</div>
                             <h3 class="text-xl font-bold mb-4 tracking-wide text-white font-serif italic">Hardware Calibration</h3>
@@ -431,7 +427,7 @@
                         </div>
                     </div>
 
-                    <div class="glass-panel p-10 rounded-2xl group tilt-card illuminate-box" onclick="showStep(3)">
+                    <div class="glass-panel p-10 rounded-2xl group tilt-card illuminate-box" tabindex="0" onclick="showStep(3)">
                         <div class="tilt-content">
                             <div class="text-5xl font-serif text-white/10 group-hover:text-brand-500/30 transition-colors mb-6 absolute top-6 right-6">03</div>
                             <h3 class="text-xl font-bold mb-4 tracking-wide text-white font-serif italic">Identity Installation</h3>
@@ -724,7 +720,7 @@
         </div>
     </footer>
 
-    <!-- High-Tech Booking Modal -->
+    <!-- High-Tech Booking Modal (Wired for Netlify Forms) -->
     <div id="booking-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center">
         <div class="absolute inset-0 bg-obsidian/90 backdrop-blur-md transition-opacity" onclick="closeBookingModal()"></div>
         <div class="relative bg-carbon w-full max-w-lg p-10 rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-brand-500/30 tilt-card">
@@ -742,20 +738,26 @@
                 <p class="text-xs text-gray-400 font-mono leading-relaxed">> Provide credentials to request a 15-minute diagnostic. Availability restricted.</p>
             </div>
             
-            <!-- Accessible Application Form -->
+            <!-- Accessible Application Form with Netlify Attributes -->
             <form id="audit-form" name="audit" method="POST" data-netlify="true" class="space-y-5" onsubmit="handleFormSubmit(event)">
-  <input type="hidden" name="form-name" value="audit">
+                <!-- Netlify Form Name Hidden Field -->
+                <input type="hidden" name="form-name" value="audit">
+                
+                <!-- Advanced Referrer/URL Tracking Fields -->
+                <input type="hidden" id="lead_referrer" name="lead_referrer" value="">
+                <input type="hidden" id="lead_page_url" name="lead_page_url" value="">
+
                 <div>
                     <label for="legal_name" class="block text-[9px] font-mono tracking-widest uppercase text-brand-500 mb-2">> Legal Name_</label>
-                    <input id="legal_name" type="text" class="w-full bg-black border border-white/10 p-4 rounded text-sm text-white focus:border-brand-500 focus:outline-none transition-colors font-mono" placeholder="Input string..." required>
+                    <input id="legal_name" name="legal_name" type="text" class="w-full bg-black border border-white/10 p-4 rounded text-sm text-white focus:border-brand-500 focus:outline-none transition-colors font-mono" placeholder="Input string..." required>
                 </div>
                 <div>
                     <label for="secure_email" class="block text-[9px] font-mono tracking-widest uppercase text-brand-500 mb-2">> Secure Email_</label>
-                    <input id="secure_email" type="email" class="w-full bg-black border border-white/10 p-4 rounded text-sm text-white focus:border-brand-500 focus:outline-none transition-colors font-mono" placeholder="user@domain.com" required>
+                    <input id="secure_email" name="secure_email" type="email" class="w-full bg-black border border-white/10 p-4 rounded text-sm text-white focus:border-brand-500 focus:outline-none transition-colors font-mono" placeholder="user@domain.com" required>
                 </div>
                 <div>
                     <label for="friction_point" class="block text-[9px] font-mono tracking-widest uppercase text-brand-500 mb-2">> Primary Friction Point_</label>
-                    <select id="friction_point" class="w-full bg-black border border-white/10 p-4 rounded text-sm text-gray-400 focus:text-white focus:border-brand-500 focus:outline-none transition-colors font-mono appearance-none" required>
+                    <select id="friction_point" name="friction_point" class="w-full bg-black border border-white/10 p-4 rounded text-sm text-gray-400 focus:text-white focus:border-brand-500 focus:outline-none transition-colors font-mono appearance-none" required>
                         <option value="" disabled selected>Select system error...</option>
                         <option value="cognitive">ERR 01: Cognitive Load / Fog</option>
                         <option value="biological">ERR 02: Biological Debt</option>
@@ -764,7 +766,7 @@
                         <option value="time">ERR 05: Time Starvation</option>
                     </select>
                 </div>
-                <button type="submit" class="w-full bg-brand-500/20 border border-brand-500 text-brand-400 font-bold py-4 mt-6 rounded hover:bg-brand-500 hover:text-obsidian transition-all uppercase tracking-[0.3em] text-[10px] font-mono shadow-glow">Execute Application</button>
+                <button type="submit" id="audit-submit-btn" class="w-full bg-brand-500/20 border border-brand-500 text-brand-400 font-bold py-4 mt-6 rounded hover:bg-brand-500 hover:text-obsidian transition-all uppercase tracking-[0.3em] text-[10px] font-mono shadow-glow">Execute Application</button>
             </form>
 
             <!-- Custom Success UI State -->
@@ -895,20 +897,51 @@
         }
 
         // --------------------------------------------------------
-        // Form Submission Logic
+        // Form Submission Logic (Netlify URL-Encoded Fix)
         // --------------------------------------------------------
-        function handleFormSubmit(e) {
+        async function handleFormSubmit(e) {
             e.preventDefault();
+
             const form = document.getElementById('audit-form');
             const success = document.getElementById('success-state');
-            
-            form.classList.add('hidden');
-            success.classList.remove('hidden');
-            success.classList.add('flex');
-            
-            setTimeout(() => {
-                closeBookingModal();
-            }, 4000);
+            const submitBtn = document.getElementById('audit-submit-btn');
+
+            // High-end UI feedback: Show transmitting state
+            const originalBtnText = submitBtn.innerText;
+            submitBtn.innerText = 'TRANSMITTING...';
+            submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            submitBtn.disabled = true;
+
+            try {
+                const formData = new FormData(form);
+                
+                // CRITICAL FIX: Convert FormData to URL-encoded string for Netlify AJAX
+                const urlEncodedData = new URLSearchParams(formData).toString();
+
+                const res = await fetch("/", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: urlEncodedData
+                });
+
+                if (!res.ok) throw new Error("Form submission failed");
+
+                form.classList.add('hidden');
+                success.classList.remove('hidden');
+                success.classList.add('flex');
+
+                setTimeout(() => {
+                    closeBookingModal();
+                }, 4000);
+            } catch (err) {
+                console.error(err);
+                alert("Transmission failed. Please check your connection and try again.");
+            } finally {
+                // Reset button state incase of error or background form reset
+                submitBtn.innerText = originalBtnText;
+                submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                submitBtn.disabled = false;
+            }
         }
 
         // --------------------------------------------------------
@@ -1001,31 +1034,34 @@
                 const fx = new TextScramble(el);
                 
                 fx.setText(text.replace('Eliminate Friction.', '')).then(() => {
-                    el.innerHTML = `Calibrate Your Output.<br><span class="italic text-brand-500">Eliminate Friction.</span>`;
+                    el.innerHTML = `Calibrate Your Output.<br><span class="italic text-brand-500" style="color: #A68A57;">Eliminate Friction.</span>`;
                 });
             });
         }
 
 
         // --------------------------------------------------------
-        // Thread-Yielding Boot Sequence (Prevents FCP/LCP Blocking)
+        // Main Boot Sequence
         // --------------------------------------------------------
         document.addEventListener('DOMContentLoaded', () => {
-            // Render non-blocking UI instantly
+            // Instantly render UI structure
             renderPillarList();
             updatePillarDetail(0);
 
-            // Yield the main thread to guarantee the browser registers the LCP and FCP
-            // THEN boot up the heavy JavaScript animations and math 800ms later.
-            setTimeout(() => {
-                initScramble();
-                initNeuralNetwork();
-                setupIntersectionObserver();
-                initTiltCards();
-                setupScrollSpy();
-            }, 800);
+            // Execute scripts
+            initScramble();
+            initNeuralNetwork();
+            setupIntersectionObserver();
+            initTiltCards();
+            setupScrollSpy();
 
-            // Sticky Nav Header
+            // Populate Hidden Tracking Fields for Netlify Forms
+            const referrerInput = document.getElementById('lead_referrer');
+            const urlInput = document.getElementById('lead_page_url');
+            if (referrerInput) referrerInput.value = document.referrer || 'Direct/Unknown';
+            if (urlInput) urlInput.value = window.location.href;
+
+            // Sticky Nav Logic
             window.addEventListener('scroll', () => {
                 const nav = document.getElementById('main-nav-container');
                 if(!nav) return;
@@ -1035,7 +1071,7 @@
                 } else {
                     navChild.classList.remove('bg-carbon/90', 'shadow-lg');
                 }
-            }, { passive: true }); // passive ensures scroll doesn't block rendering
+            }, { passive: true });
         });
 
         // Toggle Logic UI Update
@@ -1379,7 +1415,7 @@
                         mobileHud.classList.add('translate-y-20', 'opacity-0');
                     }
                 }
-            }, { passive: true }); // passive true ensures scrolling doesn't lock rendering
+            }, { passive: true });
         }
 
         // Modal
