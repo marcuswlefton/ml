@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Primary Meta Tags -->
-    <title>Performance Mastery | Telemetry Interface</title>
-    <meta name="title" content="Performance Mastery | Telemetry Interface">
+    <title>VYRTŪOSITI | Performance Architecture</title>
+    <meta name="title" content="VYRTŪOSITI | Performance Architecture">
     <meta name="description" content="From Peak Performance to Performance Mastery. The only biometric-verified framework designed to turn high-achievement into an unshakeable, sustainable identity.">
 
     <!-- Open Graph / Facebook / iMessage (Dark Social) -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Performance Mastery | Secure Telemetry">
-    <meta property="og:description" content="Stop chasing linear growth. Implement the proprietary technical installation across 6 performance buckets.">
+    <meta property="og:title" content="VYRTŪOSITI | Performance Architecture">
+    <meta property="og:description" content="Stop chasing linear growth. Implement the proprietary technical installation across 6 performance systems.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
 
     <!-- Network Preconnects & Preloads for Speed -->
@@ -232,7 +232,7 @@
                 </h1>
                 
                 <p class="text-lg md:text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed font-light reveal delay-200" style="color: #9ca3af;">
-                    Every MLB All-Star, Fortune 500 executive, and 8-figure founder I've worked with was already working harder than everyone around them. The ceiling they kept hitting wasn't effort. It was an uncalibrated system. VYRTŪOSITI is that system. Biometric-verified. Bespoke. Built for the operator who has already outgrown everything else.
+                    Every MLB All-Star, Fortune 500 executive, and 8-figure founder I've worked with was already working harder than everyone around them. The ceiling they kept hitting wasn't effort. It was an uncalibrated system. VYRTŪOSITI is the calibration. Biometric-verified. Bespoke. Built for the operator who has already outgrown everything else.
                 </p>
                 
                 <!-- High-Tech Logic Toggle -->
@@ -321,8 +321,8 @@
                         </p>
                     </div>
                     <div class="mt-8 lg:mt-0 flex space-x-4 bg-carbon p-1 rounded-lg border border-white/5">
-                        <button onclick="setChartData('gap')" class="text-[10px] font-mono tracking-widest uppercase text-gray-400 px-6 py-3 rounded hover:bg-white/5 transition-all">Scan Frictions</button>
-                        <button onclick="setChartData('mastery')" class="text-[10px] font-mono tracking-widest uppercase bg-brand-500/20 text-brand-400 border border-brand-500/50 px-6 py-3 rounded hover:bg-brand-500 hover:text-obsidian transition-all shadow-glow">View Optimal</button>
+                        <button id="btn-scan-gap" onclick="setChartData('gap')" class="text-[10px] font-mono tracking-widest uppercase text-gray-400 border border-transparent px-6 py-3 rounded hover:bg-white/5 transition-all">Scan Frictions</button>
+                        <button id="btn-scan-optimal" onclick="setChartData('mastery')" class="text-[10px] font-mono tracking-widest uppercase bg-brand-500/20 text-brand-400 border border-brand-500/50 px-6 py-3 rounded hover:bg-brand-500 hover:text-obsidian transition-all shadow-glow">View Optimal</button>
                     </div>
                 </div>
 
@@ -413,7 +413,7 @@
                         <div class="tilt-content">
                             <div class="text-5xl font-serif text-white/10 group-hover:text-brand-500/30 transition-colors mb-6 absolute top-6 right-6">01</div>
                             <h3 class="text-xl font-bold mb-4 tracking-wide text-white font-serif italic">Friction Audit</h3>
-                            <p class="text-gray-400 text-sm leading-relaxed font-light">A deep-dive biometric and strategic audit to locate the precise bucket leaking your potential.</p>
+                            <p class="text-gray-400 text-sm leading-relaxed font-light">A deep-dive biometric and strategic audit to locate the precise system leaking your potential.</p>
                             <div class="mt-8 w-8 h-[1px] bg-brand-500/50 group-hover:w-full transition-all duration-500"></div>
                         </div>
                     </div>
@@ -422,7 +422,7 @@
                         <div class="tilt-content">
                             <div class="text-5xl font-serif text-white/10 group-hover:text-brand-500/30 transition-colors mb-6 absolute top-6 right-6">02</div>
                             <h3 class="text-xl font-bold mb-4 tracking-wide text-white font-serif italic">Hardware Calibration</h3>
-                            <p class="text-gray-400 text-sm leading-relaxed font-light">Updating your biology (Sleep, CO2, Recovery) and strategy to handle 10x the current cognitive load.</p>
+                            <p class="text-gray-400 text-sm leading-relaxed font-light">Updating your biology (Sleep, CO2, Recovery) and strategy to handle a fundamentally different level of output that makes sense.</p>
                             <div class="mt-8 w-8 h-[1px] bg-brand-500/50 group-hover:w-full transition-all duration-500"></div>
                         </div>
                     </div>
@@ -438,7 +438,7 @@
                 </div>
 
                 <div id="step-display" class="mt-16 bg-brand-500/10 border border-brand-500/30 p-10 rounded-2xl text-center max-w-3xl mx-auto shadow-glow transition-all duration-500 illuminate-box" tabindex="0">
-                    <p class="font-serif text-2xl italic text-white mb-4" id="step-quote">"If you aren't measuring the 6 buckets with biometrics, you're guessing."</p>
+                    <p class="font-serif text-2xl italic text-white mb-4" id="step-quote">"If you aren't measuring the 6 systems with biometrics, you're guessing."</p>
                     <p class="text-[10px] font-mono tracking-[0.3em] uppercase text-brand-400" id="step-sub">> Phase 01: Friction Audit</p>
                 </div>
             </div>
@@ -451,7 +451,7 @@
                     <span class="text-[10px] font-mono tracking-[0.3em] uppercase text-brand-500 mb-4 block">Telemetry Output</span>
                     <h2 class="font-serif text-4xl md:text-6xl text-white mb-6 font-bold">Biometric Evidence.<br><span class="italic text-brand-500">Hard ROI.</span></h2>
                     <p class="text-gray-400 text-lg opacity-80 max-w-2xl mx-auto font-light">
-                        Performance Mastery isn't a theory; it's a data-backed installation. These metrics represent the average transformation across our Category of One clients.
+                        Performance Mastery isn't a theory; it's a data-backed installation. These metrics represent the average transformation across our VYRTŪOSITI clients.
                     </p>
                 </div>
 
@@ -553,11 +553,11 @@
                             <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8">
                                 <div class="flex items-center space-x-3">
                                     <div class="w-3 h-3 rounded bg-brand-500 shadow-glow"></div>
-                                    <span class="text-[10px] font-mono uppercase tracking-widest text-white">Mastery System</span>
+                                    <span class="text-[10px] font-mono uppercase tracking-widest text-white">VYRTŪOSITI</span>
                                 </div>
                                 <div class="flex items-center space-x-3">
                                     <div class="w-3 h-3 rounded border border-gray-600 bg-transparent"></div>
-                                    <span class="text-[10px] font-mono uppercase tracking-widest text-gray-400">Linear Effort</span>
+                                    <span class="text-[10px] font-mono uppercase tracking-widest text-gray-400">Standard Effort</span>
                                 </div>
                             </div>
                         </div>
@@ -591,7 +591,7 @@
                                     <div class="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse shadow-glow"></div>
                                     <span class="text-[8px] font-mono tracking-widest text-brand-400 uppercase">Status: Online</span>
                                 </div>
-                                <span class="text-[10px] font-mono tracking-[0.2em] text-white uppercase bg-black/60 px-2 py-1 rounded backdrop-blur-md border border-white/10">ID: Marcus Lefton</span>
+                                <span class="text-[10px] font-mono tracking-[0.2em] text-white uppercase bg-black/60 px-2 py-1 rounded backdrop-blur-md border border-white/10">ID: Marcus Wolffe Lefton</span>
                             </div>
                         </div>
                     </div>
@@ -646,7 +646,7 @@
                 <div class="text-center mb-20">
                     <span class="text-[10px] font-mono tracking-[0.3em] uppercase text-brand-500 mb-4 block">Verified Telemetry</span>
                     <h2 class="font-serif text-4xl md:text-6xl text-white mb-6 font-bold italic">Operator Field Reports.</h2>
-                    <p class="text-gray-400 text-lg opacity-80 max-w-2xl mx-auto font-light">Feedback from Category of One leaders operating inside the Mastery ecosystem.</p>
+                    <p class="text-gray-400 text-lg opacity-80 max-w-2xl mx-auto font-light">Feedback from VYRTŪOSITI leaders operating inside the Mastery ecosystem.</p>
                 </div>
 
                 <!-- Responsive Flex Grid for Testimonials -->
@@ -790,7 +790,7 @@
                     <div class="glass-panel p-10 rounded-2xl tilt-card illuminate-box" tabindex="0">
                         <div class="tilt-content">
                             <h4 class="text-gray-400 text-[10px] font-mono uppercase tracking-[0.2em] mb-4">Asset 02: Environment</h4>
-                            <p class="text-xl font-serif text-white mb-3">Category of One Boardroom</p>
+                            <p class="text-xl font-serif text-white mb-3">VYRTŪOSITI Boardroom</p>
                             <p class="text-sm text-gray-400 font-light leading-relaxed">Isolation kills performance. Gain exclusive access to closed-door roundtables with 7- and 8-figure founders calibrating at the same level.</p>
                         </div>
                     </div>
@@ -836,7 +836,6 @@
             <div class="mt-6 flex justify-center space-x-6 text-[9px] font-mono tracking-widest uppercase text-gray-400">
                 <a href="#" class="hover:text-brand-500 transition-colors">Protocol</a>
                 <a href="#" class="hover:text-brand-500 transition-colors">Privacy</a>
-                <a href="#" class="hover:text-brand-500 transition-colors">Telemetry Auth</a>
             </div>
             <p class="mt-6 text-[9px] font-mono tracking-widest opacity-30 text-white uppercase">&copy; 2026 VYRTŪOSITI</p>
         </div>
@@ -1408,7 +1407,7 @@
                     labels: ['Start', 'Month 3', 'Month 6', 'Month 9', 'Month 12'],
                     datasets: [
                         {
-                            label: 'Mastery Installation',
+                            label: 'VYRTŪOSITI',
                             data: [65, 82, 92, 95, 99],
                             borderColor: '#A68A57',
                             borderWidth: 3,
@@ -1421,7 +1420,7 @@
                             pointBorderWidth: 2
                         },
                         {
-                            label: 'Linear Effort',
+                            label: 'Standard Effort',
                             data: [60, 72, 58, 45, 30],
                             borderColor: '#333',
                             borderWidth: 2,
@@ -1460,12 +1459,24 @@
         }
 
         function setChartData(mode) {
+            const btnGap = document.getElementById('btn-scan-gap');
+            const btnOptimal = document.getElementById('btn-scan-optimal');
+            
+            const activeClass = "text-[10px] font-mono tracking-widest uppercase bg-brand-500/20 text-brand-400 border border-brand-500/50 px-6 py-3 rounded hover:bg-brand-500 hover:text-obsidian transition-all shadow-glow";
+            const inactiveClass = "text-[10px] font-mono tracking-widest uppercase text-gray-400 border border-transparent px-6 py-3 rounded hover:bg-white/5 transition-all";
+
             if (mode === 'gap') {
+                if (btnGap) btnGap.className = activeClass;
+                if (btnOptimal) btnOptimal.className = inactiveClass;
+
                 radarChart.data.datasets = [
                     { label: 'Mastery', data: pillars.map(p => 10), borderColor: 'rgba(166, 138, 87, 0.3)', borderWidth: 1, borderDash: [4, 4], pointRadius: 0, backgroundColor: 'transparent' },
                     { label: 'Diagnostic Leak', data: pillars.map(p => p.gapScore), borderColor: '#FF3366', backgroundColor: 'rgba(255, 51, 102, 0.1)', borderWidth: 2, pointBackgroundColor: '#FF3366', pointBorderColor: '#050505' }
                 ];
             } else {
+                if (btnGap) btnGap.className = inactiveClass;
+                if (btnOptimal) btnOptimal.className = activeClass;
+
                 radarChart.data.datasets = [{ label: 'Mastery', data: pillars.map(p => 10), backgroundColor: 'rgba(166, 138, 87, 0.1)', borderColor: '#A68A57', borderWidth: 1.5, pointBackgroundColor: '#C2A366', pointBorderColor: '#1A1A1A' }];
             }
             radarChart.update();
@@ -1499,7 +1510,7 @@
         // Display Step
         function showStep(id) {
             const quotes = [
-                { quote: "If you aren't measuring the 6 buckets with biometrics, you're guessing.", sub: "> Phase 01: Friction Audit" },
+                { quote: "If you aren't measuring the 6 systems with biometrics, you're guessing.", sub: "> Phase 01: Friction Audit" },
                 { quote: "Calibration is the cure for linear, exhausting effort.", sub: "> Phase 02: Hardware Calibration" },
                 { quote: "Identity is the final operating system. Integration makes Mastery a biological default.", sub: "> Phase 03: Identity Installation" }
             ];
