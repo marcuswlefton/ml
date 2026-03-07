@@ -191,7 +191,6 @@
             <div class="hidden md:flex space-x-8">
                 <a href="#hero" class="nav-item text-gray-400 hover:text-brand-500 text-[10px] font-mono tracking-[0.2em] uppercase transition-colors">Initialize</a>
                 <a href="#model" class="nav-item text-gray-400 hover:text-brand-500 text-[10px] font-mono tracking-[0.2em] uppercase transition-colors">Telemetry</a>
-                <a href="#process" class="nav-item text-gray-400 hover:text-brand-500 text-[10px] font-mono tracking-[0.2em] uppercase transition-colors">Protocol</a>
                 <a href="#architect" class="nav-item text-gray-400 hover:text-brand-500 text-[10px] font-mono tracking-[0.2em] uppercase transition-colors">Architect</a>
             </div>
 
@@ -388,55 +387,6 @@
                 <!-- Final Section Line -->
                 <div class="mt-20 text-center relative z-10 reveal">
                     <p class="text-xl md:text-2xl font-serif text-white italic">This is what the audit reveals. Your specific constraint. Your precise architecture.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- The Process (Installation) -->
-        <section id="process" class="py-32 bg-carbon border-y border-white/5 reveal relative render-defer">
-            <!-- Background accent -->
-            <div class="absolute top-0 right-1/4 w-[500px] h-[500px] bg-brand-500/5 rounded-full blur-[120px] pointer-events-none"></div>
-
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
-                <div class="text-center mb-20">
-                    <span class="text-[10px] font-mono tracking-[0.3em] uppercase text-brand-500 mb-4 block">Deployment Sequence</span>
-                    <h2 class="font-serif text-4xl md:text-6xl text-white mb-6 font-bold">The Clinical Protocol</h2>
-                    <p class="text-gray-400 text-lg opacity-80 max-w-2xl mx-auto font-light">We don't "coach." We implement technical systems that automate high performance across all biological and strategic layers.</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-                    <!-- Steps with 3D Tilt and Illumination -->
-                    <div class="glass-panel p-10 rounded-2xl group tilt-card illuminate-box" tabindex="0" onclick="showStep(1)">
-                        <div class="tilt-content">
-                            <div class="text-5xl font-serif text-white/10 group-hover:text-brand-500/30 transition-colors mb-6 absolute top-6 right-6">01</div>
-                            <h3 class="text-xl font-bold mb-4 tracking-wide text-white font-serif italic">Friction Audit</h3>
-                            <p class="text-gray-400 text-sm leading-relaxed font-light">A deep-dive biometric and strategic audit to locate the precise system leaking your potential.</p>
-                            <div class="mt-8 w-8 h-[1px] bg-brand-500/50 group-hover:w-full transition-all duration-500"></div>
-                        </div>
-                    </div>
-
-                    <div class="glass-panel p-10 rounded-2xl group tilt-card illuminate-box" tabindex="0" onclick="showStep(2)">
-                        <div class="tilt-content">
-                            <div class="text-5xl font-serif text-white/10 group-hover:text-brand-500/30 transition-colors mb-6 absolute top-6 right-6">02</div>
-                            <h3 class="text-xl font-bold mb-4 tracking-wide text-white font-serif italic">Hardware Calibration</h3>
-                            <p class="text-gray-400 text-sm leading-relaxed font-light">Updating your biology (Sleep, CO2, Recovery) and strategy to handle a fundamentally different level of output that makes sense.</p>
-                            <div class="mt-8 w-8 h-[1px] bg-brand-500/50 group-hover:w-full transition-all duration-500"></div>
-                        </div>
-                    </div>
-
-                    <div class="glass-panel p-10 rounded-2xl group tilt-card illuminate-box" tabindex="0" onclick="showStep(3)">
-                        <div class="tilt-content">
-                            <div class="text-5xl font-serif text-white/10 group-hover:text-brand-500/30 transition-colors mb-6 absolute top-6 right-6">03</div>
-                            <h3 class="text-xl font-bold mb-4 tracking-wide text-white font-serif italic">Identity Installation</h3>
-                            <p class="text-gray-400 text-sm leading-relaxed font-light">Embedding new systems as defaults so Mastery is maintained without active willpower.</p>
-                            <div class="mt-8 w-8 h-[1px] bg-brand-500/50 group-hover:w-full transition-all duration-500"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="step-display" class="mt-16 bg-brand-500/10 border border-brand-500/30 p-10 rounded-2xl text-center max-w-3xl mx-auto shadow-glow transition-all duration-500 illuminate-box" tabindex="0">
-                    <p class="font-serif text-2xl italic text-white mb-4" id="step-quote">"If you aren't measuring the 6 systems with biometrics, you're guessing."</p>
-                    <p class="text-[10px] font-mono tracking-[0.3em] uppercase text-brand-400" id="step-sub">> Stage 01: Friction Audit</p>
                 </div>
             </div>
         </section>
@@ -1610,24 +1560,6 @@
             });
         }
 
-        // Display Step
-        function showStep(id) {
-            const quotes = [
-                { quote: "If you aren't measuring the 6 systems with biometrics, you're guessing.", sub: "> Stage 01: Friction Audit" },
-                { quote: "Calibration is the cure for linear, exhausting effort.", sub: "> Stage 02: Hardware Calibration" },
-                { quote: "Identity is the final operating system. Integration makes Mastery a biological default.", sub: "> Stage 03: Identity Installation" }
-            ];
-            const display = document.getElementById('step-display');
-            display.style.opacity = '0.3';
-            display.style.transform = 'scale(0.98)';
-            setTimeout(() => {
-                document.getElementById('step-quote').innerText = `"${quotes[id-1].quote}"`;
-                document.getElementById('step-sub').innerText = quotes[id-1].sub;
-                display.style.opacity = '1';
-                display.style.transform = 'scale(1)';
-            }, 300);
-        }
-
         // Scroll Observers
         function setupIntersectionObserver() {
             let chartsInitialized = false;
@@ -1681,7 +1613,6 @@
                         
                         const map = {
                             'model': 'Telemetry',
-                            'process': 'Protocol',
                             'impact': 'Data',
                             'architect': 'Architect',
                             'reports': 'Field Reports',
