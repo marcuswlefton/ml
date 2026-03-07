@@ -238,19 +238,19 @@
                 <div class="flex flex-col items-center justify-center mb-10 reveal delay-300">
                     <p class="text-[9px] font-mono tracking-[0.3em] uppercase text-gray-500 mb-5">Trusted by operators inside</p>
                     <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-10 md:gap-14 opacity-80">
-                        <span class="font-sans font-black text-xl md:text-2xl tracking-tighter text-white opacity-40 hover:opacity-100 transition-opacity duration-500 cursor-pointer">MLB</span>
-                        <span class="font-sans font-bold text-xs md:text-sm tracking-[0.3em] text-white opacity-40 hover:opacity-100 transition-opacity duration-500 uppercase cursor-pointer">FORTUNE 500</span>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" loading="lazy" decoding="async" width="80" height="24" class="h-5 md:h-6 w-auto opacity-40 hover:opacity-100 transition-opacity duration-500 cursor-pointer translate-y-0.5" style="filter: brightness(0) invert(1);" />
-                        <span class="font-sans font-bold text-sm md:text-base tracking-[0.2em] text-white opacity-40 hover:opacity-100 transition-opacity duration-500 uppercase cursor-pointer">U.S. AIR FORCE</span>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Olympic_rings_without_rims.svg" alt="Olympics" loading="lazy" decoding="async" width="80" height="32" class="h-5 md:h-6 w-auto opacity-40 hover:opacity-100 transition-opacity duration-500 cursor-pointer" style="filter: brightness(0) invert(1);" />
+                        <span class="font-sans font-black text-xl md:text-2xl tracking-tighter text-white opacity-40 hover:opacity-100 active:opacity-100 transition-opacity duration-500 cursor-pointer">MLB</span>
+                        <span class="font-sans font-bold text-xs md:text-sm tracking-[0.3em] text-white opacity-40 hover:opacity-100 active:opacity-100 transition-opacity duration-500 uppercase cursor-pointer">FORTUNE 500</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" loading="lazy" decoding="async" width="80" height="24" class="h-5 md:h-6 w-auto opacity-40 hover:opacity-100 active:opacity-100 transition-opacity duration-500 cursor-pointer translate-y-0.5" style="filter: brightness(0) invert(1);" />
+                        <span class="font-sans font-bold text-sm md:text-base tracking-[0.2em] text-white opacity-40 hover:opacity-100 active:opacity-100 transition-opacity duration-500 uppercase cursor-pointer">U.S. AIR FORCE</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Olympic_rings_without_rims.svg" alt="Olympics" loading="lazy" decoding="async" width="80" height="32" class="h-5 md:h-6 w-auto opacity-40 hover:opacity-100 active:opacity-100 transition-opacity duration-500 cursor-pointer" style="filter: brightness(0) invert(1);" />
                     </div>
                 </div>
                 
                 <!-- High-Tech Logic Toggle -->
-                <div class="glass-panel p-1.5 rounded-full flex sm:inline-flex w-full max-w-[340px] sm:max-w-none mx-auto mb-10 relative overflow-hidden reveal delay-400">
+                <div class="glass-panel p-1.5 rounded-full inline-flex mb-10 relative overflow-hidden reveal delay-400 mx-auto max-w-full">
                     <div id="toggle-bg" class="absolute top-1.5 bottom-1.5 left-1.5 w-[calc(50%-6px)] bg-white/10 rounded-full transition-transform duration-500 ease-in-out border border-white/20"></div>
-                    <button onclick="toggleLogic('better')" id="btn-better" class="relative z-10 px-2 sm:px-8 py-3 rounded-full text-[9px] sm:text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-white flex-1 sm:flex-none sm:w-48">Intensity</button>
-                    <button onclick="toggleLogic('different')" id="btn-different" class="relative z-10 px-2 sm:px-8 py-3 rounded-full text-[9px] sm:text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-gray-500 hover:text-white flex-1 sm:flex-none sm:w-48">Calibration</button>
+                    <button onclick="toggleLogic('better')" id="btn-better" class="relative z-10 py-3 rounded-full text-[9px] sm:text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-white w-[140px] sm:w-48">Intensity</button>
+                    <button onclick="toggleLogic('different')" id="btn-different" class="relative z-10 py-3 rounded-full text-[9px] sm:text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-gray-500 hover:text-white w-[140px] sm:w-48">Calibration</button>
                 </div>
 
                 <div id="logic-content" class="max-w-3xl mx-auto glass-panel p-10 md:p-14 rounded-3xl transition-all duration-500 reveal delay-500 tilt-card illuminate-box" tabindex="0">
@@ -1305,8 +1305,8 @@
             setTimeout(() => {
                 if (mode === 'better') {
                     bg.style.transform = 'translateX(0)';
-                    btnBetter.className = "relative z-10 px-2 sm:px-8 py-3 rounded-full text-[9px] sm:text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-white flex-1 sm:flex-none sm:w-48";
-                    btnDifferent.className = "relative z-10 px-2 sm:px-8 py-3 rounded-full text-[9px] sm:text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-gray-500 hover:text-white flex-1 sm:flex-none sm:w-48";
+                    btnBetter.className = "relative z-10 py-3 rounded-full text-[9px] sm:text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-white w-[140px] sm:w-48";
+                    btnDifferent.className = "relative z-10 py-3 rounded-full text-[9px] sm:text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-gray-500 hover:text-white w-[140px] sm:w-48";
                     
                     title.innerText = 'The Intensity Trap';
                     text.innerText = 'Intensity alone is a path to burnout. Most high performers are over-leveraged and under-calibrated, working at maximum output on a system that was never precisely built for them. The harder they push, the wider the gap between effort and result.';
@@ -1316,8 +1316,8 @@
                     tags.innerHTML = `<span class="text-[9px] tracking-[0.2em] uppercase border-b border-gray-700 pb-1">SYSTEMIC FRICTION</span><span class="text-[9px] tracking-[0.2em] uppercase border-b border-gray-700 pb-1">COGNITIVE DECAY</span><span class="text-[9px] tracking-[0.2em] uppercase border-b border-gray-700 pb-1">BIOLOGICAL DEBT</span>`;
                 } else {
                     bg.style.transform = 'translateX(100%)';
-                    btnDifferent.className = "relative z-10 px-2 sm:px-8 py-3 rounded-full text-[9px] sm:text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-white flex-1 sm:flex-none sm:w-48";
-                    btnBetter.className = "relative z-10 px-2 sm:px-8 py-3 rounded-full text-[9px] sm:text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-gray-500 hover:text-white flex-1 sm:flex-none sm:w-48";
+                    btnDifferent.className = "relative z-10 py-3 rounded-full text-[9px] sm:text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-white w-[140px] sm:w-48";
+                    btnBetter.className = "relative z-10 py-3 rounded-full text-[9px] sm:text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-gray-500 hover:text-white w-[140px] sm:w-48";
                     
                     title.innerText = 'The Calibration Edge';
                     text.innerText = 'Instead of pushing the engine to redline, we re-engineer the engine itself. Every biological and strategic layer. Precisely mapped. Precisely built. When the system is calibrated to the operator, elite performance stops being something you summon. It becomes something you default to.';
