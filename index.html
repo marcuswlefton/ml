@@ -247,10 +247,10 @@
                 </div>
                 
                 <!-- High-Tech Logic Toggle -->
-                <div class="glass-panel p-1.5 rounded-full inline-flex mb-10 relative overflow-hidden reveal delay-400">
+                <div class="glass-panel p-1.5 rounded-full flex sm:inline-flex w-full max-w-[340px] sm:max-w-none mx-auto mb-10 relative overflow-hidden reveal delay-400">
                     <div id="toggle-bg" class="absolute top-1.5 bottom-1.5 left-1.5 w-[calc(50%-6px)] bg-white/10 rounded-full transition-transform duration-500 ease-in-out border border-white/20"></div>
-                    <button onclick="toggleLogic('better')" id="btn-better" class="relative z-10 px-8 py-3 rounded-full text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-white w-48">Intensity</button>
-                    <button onclick="toggleLogic('different')" id="btn-different" class="relative z-10 px-8 py-3 rounded-full text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-gray-500 hover:text-white w-48">Calibration</button>
+                    <button onclick="toggleLogic('better')" id="btn-better" class="relative z-10 px-2 sm:px-8 py-3 rounded-full text-[9px] sm:text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-white flex-1 sm:flex-none sm:w-48">Intensity</button>
+                    <button onclick="toggleLogic('different')" id="btn-different" class="relative z-10 px-2 sm:px-8 py-3 rounded-full text-[9px] sm:text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-gray-500 hover:text-white flex-1 sm:flex-none sm:w-48">Calibration</button>
                 </div>
 
                 <div id="logic-content" class="max-w-3xl mx-auto glass-panel p-10 md:p-14 rounded-3xl transition-all duration-500 reveal delay-500 tilt-card illuminate-box" tabindex="0">
@@ -272,13 +272,13 @@
                 </div>
 
                 <!-- Direct Action -->
-                <div class="mt-12 reveal delay-600 flex flex-col items-center">
-                    <button onclick="openBookingModal()" class="group relative inline-flex items-center justify-center px-10 py-5 font-mono text-xs tracking-[0.3em] text-obsidian bg-brand-500 uppercase rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-glow-intense">
+                <div class="mt-12 reveal delay-600 flex flex-col items-center px-4">
+                    <button onclick="openBookingModal()" class="group relative inline-flex items-center justify-center px-6 sm:px-10 py-5 font-mono text-[10px] sm:text-xs tracking-[0.3em] text-obsidian bg-brand-500 uppercase rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-glow-intense w-full sm:w-auto">
                         <div class="absolute inset-0 w-full h-full bg-white/20 transform -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
                         <span class="relative font-bold">Initiate Friction Audit</span>
                     </button>
                     
-                    <p class="mt-6 text-[9px] text-gray-500 uppercase tracking-[0.2em] font-mono text-center max-w-sm leading-relaxed opacity-80">
+                    <p class="mt-6 text-[8px] sm:text-[9px] text-gray-500 uppercase tracking-[0.1em] sm:tracking-[0.2em] font-mono text-center max-w-sm leading-relaxed opacity-80">
                         Each audit requires deep diagnostic work and biometric analysis. We limit this to five new operators per month.
                     </p>
                     
@@ -306,9 +306,9 @@
                             Performance is multidisciplinary and multidimensional. A single unmeasured constraint in your biology, your cognition, your strategy, your state collapses output across everything else. Most operators are guessing at the source. The Friction Audit doesn't guess. It maps every dimension with the biometric precision the top 0.1% demand and identifies exactly where your system is leaking.
                         </p>
                     </div>
-                    <div class="mt-8 lg:mt-0 flex space-x-4 bg-carbon p-1 rounded-lg border border-white/5 shrink-0">
-                        <button id="btn-scan-gap" onclick="setChartData('gap')" class="text-[10px] font-mono tracking-widest uppercase text-gray-400 border border-transparent px-6 py-3 rounded hover:bg-white/5 transition-all">Fragmented</button>
-                        <button id="btn-scan-optimal" onclick="setChartData('mastery')" class="text-[10px] font-mono tracking-widest uppercase bg-brand-500/20 text-brand-400 border border-brand-500/50 px-6 py-3 rounded hover:bg-brand-500 hover:text-obsidian transition-all shadow-glow">Calibrated</button>
+                    <div class="mt-8 lg:mt-0 flex w-full lg:w-auto bg-carbon p-1 rounded-lg border border-white/5 shrink-0">
+                        <button id="btn-scan-gap" onclick="setChartData('gap')" class="flex-1 lg:flex-none text-[9px] sm:text-[10px] font-mono tracking-widest uppercase text-gray-400 border border-transparent px-2 sm:px-6 py-3 rounded hover:bg-white/5 transition-all whitespace-nowrap">Fragmented</button>
+                        <button id="btn-scan-optimal" onclick="setChartData('mastery')" class="flex-1 lg:flex-none text-[9px] sm:text-[10px] font-mono tracking-widest uppercase bg-brand-500/20 text-brand-400 border border-brand-500/50 px-2 sm:px-6 py-3 rounded hover:bg-brand-500 hover:text-obsidian transition-all shadow-glow whitespace-nowrap">Calibrated</button>
                     </div>
                 </div>
 
@@ -572,20 +572,20 @@
                             </p>
                         </div>
 
-                        <div class="mt-10 flex flex-wrap items-center gap-6 sm:gap-8 border-t border-white/10 pt-8">
-                            <div class="flex flex-col">
-                                <span class="text-2xl font-serif text-white">10+</span>
-                                <span class="text-[9px] font-mono text-brand-500 uppercase tracking-widest max-w-[120px]">Years Inside Elite Performance Environments</span>
+                        <div class="mt-10 flex justify-between sm:justify-start items-start sm:items-center gap-2 sm:gap-8 border-t border-white/10 pt-8 w-full">
+                            <div class="flex flex-col flex-1 sm:flex-none">
+                                <span class="text-xl sm:text-2xl font-serif text-white">10+</span>
+                                <span class="text-[7px] sm:text-[9px] font-mono text-brand-500 uppercase tracking-widest sm:max-w-[120px] mt-1 leading-relaxed">Years Inside Elite Performance Environments</span>
                             </div>
                             <div class="hidden sm:block w-[1px] h-10 bg-white/10"></div>
-                            <div class="flex flex-col">
-                                <span class="text-2xl font-serif text-white">15,000+</span>
-                                <span class="text-[9px] font-mono text-brand-500 uppercase tracking-widest max-w-[120px]">Hours of Performance Diagnostics</span>
+                            <div class="flex flex-col flex-1 sm:flex-none">
+                                <span class="text-xl sm:text-2xl font-serif text-white">15,000+</span>
+                                <span class="text-[7px] sm:text-[9px] font-mono text-brand-500 uppercase tracking-widest sm:max-w-[120px] mt-1 leading-relaxed">Hours of Performance Diagnostics</span>
                             </div>
                             <div class="hidden sm:block w-[1px] h-10 bg-white/10"></div>
-                            <div class="flex flex-col">
-                                <span class="text-2xl font-serif text-white">500+</span>
-                                <span class="text-[9px] font-mono text-brand-500 uppercase tracking-widest max-w-[120px]">Operators Across Elite Domains</span>
+                            <div class="flex flex-col flex-1 sm:flex-none">
+                                <span class="text-xl sm:text-2xl font-serif text-white">500+</span>
+                                <span class="text-[7px] sm:text-[9px] font-mono text-brand-500 uppercase tracking-widest sm:max-w-[120px] mt-1 leading-relaxed">Operators Across Elite Domains</span>
                             </div>
                         </div>
                     </div>
@@ -867,12 +867,12 @@
                     <p class="text-gray-400 mb-10 font-light text-sm md:text-base leading-relaxed">
                         Before we invite you to install the ecosystem, we must prove the ROI. Apply for a clinical diagnostic. <strong class="text-white font-normal">If we cannot map out exactly how to reclaim 10+ hours of high-leverage capacity per week, we will not offer you a spot.</strong> 
                     </p>
-                    <button onclick="openBookingModal()" class="group relative inline-flex items-center justify-center px-12 py-5 font-mono text-xs tracking-[0.3em] text-obsidian bg-brand-500 uppercase rounded-full overflow-hidden transition-all hover:bg-white w-full sm:w-auto">
+                    <button onclick="openBookingModal()" class="group relative inline-flex items-center justify-center px-6 sm:px-12 py-5 font-mono text-[10px] sm:text-xs tracking-[0.3em] text-obsidian bg-brand-500 uppercase rounded-full overflow-hidden transition-all hover:bg-white w-full sm:w-auto">
                         <div class="absolute inset-0 w-full h-full bg-white/20 transform -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
                         <span class="relative font-bold">Submit Audit Application</span>
                     </button>
                     
-                    <div class="mt-8 flex items-start sm:items-center justify-center space-x-3 text-[9px] text-gray-400 uppercase font-mono tracking-[0.2em] text-left sm:text-center max-w-md mx-auto leading-relaxed border border-brand-500/20 bg-brand-500/5 px-4 py-3 rounded">
+                    <div class="mt-8 flex items-start sm:items-center justify-center space-x-3 text-[8px] sm:text-[9px] text-gray-400 uppercase font-mono tracking-[0.1em] sm:tracking-[0.2em] text-left sm:text-center max-w-md mx-auto leading-relaxed border border-brand-500/20 bg-brand-500/5 px-4 py-3 rounded">
                         <svg class="w-4 h-4 text-brand-500 shrink-0 drop-shadow-[0_0_8px_rgba(166,138,87,0.5)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
                         <span>Each audit requires deep diagnostic work and biometric analysis. We limit this to five new operators per month.</span>
                     </div>
@@ -1305,8 +1305,8 @@
             setTimeout(() => {
                 if (mode === 'better') {
                     bg.style.transform = 'translateX(0)';
-                    btnBetter.className = "relative z-10 px-8 py-3 rounded-full text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-white w-48";
-                    btnDifferent.className = "relative z-10 px-8 py-3 rounded-full text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-gray-500 hover:text-white w-48";
+                    btnBetter.className = "relative z-10 px-2 sm:px-8 py-3 rounded-full text-[9px] sm:text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-white flex-1 sm:flex-none sm:w-48";
+                    btnDifferent.className = "relative z-10 px-2 sm:px-8 py-3 rounded-full text-[9px] sm:text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-gray-500 hover:text-white flex-1 sm:flex-none sm:w-48";
                     
                     title.innerText = 'The Intensity Trap';
                     text.innerText = 'Intensity alone is a path to burnout. Most high performers are over-leveraged and under-calibrated, working at maximum output on a system that was never precisely built for them. The harder they push, the wider the gap between effort and result.';
@@ -1316,8 +1316,8 @@
                     tags.innerHTML = `<span class="text-[9px] tracking-[0.2em] uppercase border-b border-gray-700 pb-1">SYSTEMIC FRICTION</span><span class="text-[9px] tracking-[0.2em] uppercase border-b border-gray-700 pb-1">COGNITIVE DECAY</span><span class="text-[9px] tracking-[0.2em] uppercase border-b border-gray-700 pb-1">BIOLOGICAL DEBT</span>`;
                 } else {
                     bg.style.transform = 'translateX(100%)';
-                    btnDifferent.className = "relative z-10 px-8 py-3 rounded-full text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-white w-48";
-                    btnBetter.className = "relative z-10 px-8 py-3 rounded-full text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-gray-500 hover:text-white w-48";
+                    btnDifferent.className = "relative z-10 px-2 sm:px-8 py-3 rounded-full text-[9px] sm:text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-white flex-1 sm:flex-none sm:w-48";
+                    btnBetter.className = "relative z-10 px-2 sm:px-8 py-3 rounded-full text-[9px] sm:text-[10px] font-mono tracking-[0.2em] uppercase transition-all text-gray-500 hover:text-white flex-1 sm:flex-none sm:w-48";
                     
                     title.innerText = 'The Calibration Edge';
                     text.innerText = 'Instead of pushing the engine to redline, we re-engineer the engine itself. Every biological and strategic layer. Precisely mapped. Precisely built. When the system is calibrated to the operator, elite performance stops being something you summon. It becomes something you default to.';
@@ -1515,8 +1515,8 @@
             const btnGap = document.getElementById('btn-scan-gap');
             const btnOptimal = document.getElementById('btn-scan-optimal');
             
-            const activeClass = "text-[10px] font-mono tracking-widest uppercase bg-brand-500/20 text-brand-400 border border-brand-500/50 px-6 py-3 rounded hover:bg-brand-500 hover:text-obsidian transition-all shadow-glow";
-            const inactiveClass = "text-[10px] font-mono tracking-widest uppercase text-gray-400 border border-transparent px-6 py-3 rounded hover:bg-white/5 transition-all";
+            const activeClass = "flex-1 lg:flex-none text-[9px] sm:text-[10px] font-mono tracking-widest uppercase bg-brand-500/20 text-brand-400 border border-brand-500/50 px-2 sm:px-6 py-3 rounded hover:bg-brand-500 hover:text-obsidian transition-all shadow-glow whitespace-nowrap";
+            const inactiveClass = "flex-1 lg:flex-none text-[9px] sm:text-[10px] font-mono tracking-widest uppercase text-gray-400 border border-transparent px-2 sm:px-6 py-3 rounded hover:bg-white/5 transition-all whitespace-nowrap";
 
             if (mode === 'gap') {
                 if (btnGap) btnGap.className = activeClass;
