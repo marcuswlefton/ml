@@ -77,12 +77,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* content-visibility skips rendering off-screen sections until scrolled to */
-        .render-defer {
-            content-visibility: auto;
-            contain-intrinsic-size: 1px 800px;
-        }
-
         /* Fixed Neural Canvas Background */
         #neural-canvas {
             position: fixed;
@@ -291,8 +285,8 @@
             </div>
         </section>
 
-        <!-- content-visibility wrapper applied to below-the-fold sections -->
-        <section id="model" class="py-32 relative border-b border-white/5 reveal render-defer">
+        <!-- The Diagnostic Architecture -->
+        <section id="model" class="py-32 relative border-b border-white/5 reveal">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
                 
                 <div class="flex flex-col lg:flex-row justify-between items-end mb-16 border-b border-white/10 pb-8">
@@ -392,7 +386,7 @@
         </section>
 
         <!-- Data Impact (The Matrix) -->
-        <section id="impact" class="py-32 reveal relative overflow-hidden render-defer">
+        <section id="impact" class="py-32 reveal relative overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
                 <div class="text-center mb-20">
                     <span class="text-[10px] font-mono tracking-[0.3em] uppercase text-brand-500 mb-4 block">Telemetry Output</span>
@@ -517,12 +511,12 @@
         </section>
 
         <!-- System Architect Profile -->
-        <section id="architect" class="py-32 relative border-t border-white/5 reveal overflow-hidden render-defer">
+        <section id="architect" class="py-32 relative border-t border-white/5 reveal overflow-hidden">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
                     
                     <!-- Architect Image / HUD Frame -->
-                    <div class="lg:col-span-5 relative group illuminate-box p-2 rounded-2xl transition-all duration-500" tabindex="0">
+                    <div class="lg:col-span-5 relative group illuminate-box p-2 rounded-2xl transition-all duration-500 max-w-sm mx-auto lg:max-w-none" tabindex="0">
                         <div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-brand-500/50 rounded-tl-lg transition-all duration-300 group-hover:w-12 group-hover:h-12"></div>
                         <div class="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-brand-500/50 rounded-tr-lg transition-all duration-300 group-hover:w-12 group-hover:h-12"></div>
                         <div class="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-brand-500/50 rounded-bl-lg transition-all duration-300 group-hover:w-12 group-hover:h-12"></div>
@@ -572,20 +566,21 @@
                             </p>
                         </div>
 
-                        <div class="mt-10 flex justify-between sm:justify-start items-start sm:items-center gap-2 sm:gap-8 border-t border-white/10 pt-8 w-full">
-                            <div class="flex flex-col flex-1 sm:flex-none">
-                                <span class="text-xl sm:text-2xl font-serif text-white">10+</span>
-                                <span class="text-[7px] sm:text-[9px] font-mono text-brand-500 uppercase tracking-widest sm:max-w-[120px] mt-1 leading-relaxed">Years Inside Elite Performance Environments</span>
+                        <!-- Architect Metrics (Forced 1-line on Mobile) -->
+                        <div class="mt-10 grid grid-cols-3 gap-3 sm:flex sm:justify-start items-start sm:items-center sm:gap-8 border-t border-white/10 pt-8 w-full">
+                            <div class="flex flex-col pr-3 sm:pr-0 border-r border-white/10 sm:border-none h-full">
+                                <span class="text-lg sm:text-2xl font-serif text-white mb-1">10+</span>
+                                <span class="text-[6.5px] sm:text-[9px] font-mono text-brand-500 uppercase tracking-widest sm:max-w-[120px] leading-relaxed">Years Inside Elite Environments</span>
                             </div>
                             <div class="hidden sm:block w-[1px] h-10 bg-white/10"></div>
-                            <div class="flex flex-col flex-1 sm:flex-none">
-                                <span class="text-xl sm:text-2xl font-serif text-white">15,000+</span>
-                                <span class="text-[7px] sm:text-[9px] font-mono text-brand-500 uppercase tracking-widest sm:max-w-[120px] mt-1 leading-relaxed">Hours of Performance Diagnostics</span>
+                            <div class="flex flex-col px-1 sm:px-0 pr-3 border-r border-white/10 sm:border-none h-full">
+                                <span class="text-lg sm:text-2xl font-serif text-white mb-1">15k+</span>
+                                <span class="text-[6.5px] sm:text-[9px] font-mono text-brand-500 uppercase tracking-widest sm:max-w-[120px] leading-relaxed">Hours Of Performance Diagnostics</span>
                             </div>
                             <div class="hidden sm:block w-[1px] h-10 bg-white/10"></div>
-                            <div class="flex flex-col flex-1 sm:flex-none">
-                                <span class="text-xl sm:text-2xl font-serif text-white">500+</span>
-                                <span class="text-[7px] sm:text-[9px] font-mono text-brand-500 uppercase tracking-widest sm:max-w-[120px] mt-1 leading-relaxed">Operators Across Elite Domains</span>
+                            <div class="flex flex-col pl-1 sm:pl-0 h-full">
+                                <span class="text-lg sm:text-2xl font-serif text-white mb-1">500+</span>
+                                <span class="text-[6.5px] sm:text-[9px] font-mono text-brand-500 uppercase tracking-widest sm:max-w-[120px] leading-relaxed">Operators Across Elite Domains</span>
                             </div>
                         </div>
                     </div>
@@ -594,7 +589,7 @@
         </section>
 
         <!-- Operator Field Reports (Testimonials) -->
-        <section id="reports" class="py-32 bg-carbon border-t border-white/5 reveal relative overflow-hidden render-defer">
+        <section id="reports" class="py-32 bg-carbon border-t border-white/5 reveal relative overflow-hidden">
             <!-- Background accent -->
             <div class="absolute top-1/2 left-1/4 w-[600px] h-[600px] bg-brand-500/5 rounded-full blur-[150px] pointer-events-none transform -translate-y-1/2 -translate-x-1/2"></div>
             
@@ -708,7 +703,7 @@
         </section>
 
         <!-- Investment & Offer (Grand Slam) -->
-        <section id="offer" class="py-32 bg-carbon border-t border-white/10 reveal relative overflow-hidden render-defer">
+        <section id="offer" class="py-32 bg-carbon border-t border-white/10 reveal relative overflow-hidden">
             <!-- Hexagon BG Pattern -->
             <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(#A68A57 1px, transparent 1px); background-size: 30px 30px;"></div>
             
@@ -882,8 +877,8 @@
 
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-obsidian py-12 border-t border-white/5 text-center relative z-10 render-defer">
+    <!-- Footer (Added pb-24 on mobile to prevent HUD overlap) -->
+    <footer class="bg-obsidian pt-12 pb-24 md:pb-12 border-t border-white/5 text-center relative z-10">
         <div class="max-w-6xl mx-auto px-4">
             <span class="font-serif text-2xl font-bold tracking-[0.3em] uppercase text-white opacity-10">Mastery</span>
             <div class="mt-6 flex justify-center space-x-6 text-[9px] font-mono tracking-widest uppercase text-gray-400">
@@ -1576,10 +1571,17 @@
                             }
                             startHudAutoplay();
                         }
-                        else { clearInterval(autoplayInterval); autoplayInterval = null; }
+                    } else { 
+                        if (entry.target.id === 'model') {
+                            clearInterval(autoplayInterval); 
+                            autoplayInterval = null; 
+                        }
                     }
                 });
-            }, { threshold: 0.15 });
+            }, { 
+                threshold: 0.05, 
+                rootMargin: "0px 0px 100px 0px" // Triggers animation slightly before it enters the viewport
+            });
 
             document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
         }
@@ -1592,8 +1594,13 @@
 
             window.addEventListener('scroll', () => {
                 let current = 'hero';
+                const scrollPos = window.scrollY;
+                
                 sections.forEach(section => {
-                    if (pageYOffset >= (section.offsetTop - 200)) current = section.getAttribute('id');
+                    // Use a tighter offset ratio (1/3 of screen height) for more accurate tracking
+                    if (scrollPos >= (section.offsetTop - (window.innerHeight / 3))) {
+                        current = section.getAttribute('id');
+                    }
                 });
 
                 // Desktop Nav Spy
